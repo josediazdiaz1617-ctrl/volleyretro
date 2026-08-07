@@ -9,18 +9,32 @@
 ===================================================== */
 
 const tips = [
+
     "En recepción, llega primero con los pies y después ajusta la plataforma de brazos.",
+
     "Para mejorar el saque, trabaja primero la consistencia del lanzamiento antes de buscar más potencia.",
+
     "Antes de atacar, observa el bloqueo y busca los espacios libres.",
+
     "La comunicación es parte de la técnica: habla antes de que el balón llegue a tu zona.",
+
     "En defensa, intenta leer al atacante antes del contacto con el balón.",
+
     "Cuando estés bajo presión, concéntrate en la siguiente jugada y no en el marcador.",
+
     "Practica con objetivos concretos: por ejemplo, dirigir 10 recepciones hacia una zona específica.",
+
     "Un buen ataque no siempre necesita máxima potencia; la dirección también puede ganar puntos."
+
 ];
 
-const dailyTip = document.getElementById("dailyTip");
-const newTip = document.getElementById("newTip");
+
+const dailyTip =
+    document.getElementById("dailyTip");
+
+const newTip =
+    document.getElementById("newTip");
+
 
 if (newTip && dailyTip) {
 
@@ -29,11 +43,15 @@ if (newTip && dailyTip) {
         const random =
             Math.floor(Math.random() * tips.length);
 
+
         dailyTip.style.opacity = "0";
+
 
         setTimeout(() => {
 
-            dailyTip.textContent = tips[random];
+            dailyTip.textContent =
+                tips[random];
+
             dailyTip.style.opacity = "1";
 
         }, 180);
@@ -141,6 +159,7 @@ const volleyballData = {
 
         {
             short: "COLOCADOR",
+
             name: "Colocador",
 
             description:
@@ -153,6 +172,7 @@ const volleyballData = {
 
         {
             short: "CENTRAL",
+
             name: "Central",
 
             description:
@@ -165,6 +185,7 @@ const volleyballData = {
 
         {
             short: "OPUESTO",
+
             name: "Opuesto",
 
             description:
@@ -177,6 +198,7 @@ const volleyballData = {
 
         {
             short: "PUNTA",
+
             name: "Punta / Receptor",
 
             description:
@@ -189,6 +211,7 @@ const volleyballData = {
 
         {
             short: "LÍBERO",
+
             name: "Líbero",
 
             description:
@@ -380,14 +403,19 @@ function renderMatches() {
     const section =
         document.getElementById("partidos");
 
+
     if (!section) return;
+
 
     const container =
         section.querySelector(".cards");
 
+
     if (!container) return;
 
+
     container.innerHTML = "";
+
 
     volleyballData.matches.forEach(
         (match, index) => {
@@ -395,7 +423,10 @@ function renderMatches() {
             const card =
                 document.createElement("article");
 
-            card.className = "card reveal";
+
+            card.className =
+                "card reveal";
+
 
             card.innerHTML = `
 
@@ -404,7 +435,9 @@ function renderMatches() {
                 </strong>
 
                 <h3>
+
                     ${match.team1}
+
                     <br>
 
                     <span style="color:#e52b2b">
@@ -414,22 +447,33 @@ function renderMatches() {
                     <br>
 
                     ${match.team2}
+
                 </h3>
 
                 <p>
-                    <b>${match.competition}</b>
+
+                    <b>
+                        ${match.competition}
+                    </b>
+
                     <br>
+
                     ${match.status}
+
                     <br>
+
                     ${match.time}
+
                 </p>
 
             `;
+
 
             container.appendChild(card);
 
         }
     );
+
 
     observeAnimations();
 
@@ -445,14 +489,19 @@ function renderNews() {
     const section =
         document.getElementById("noticias");
 
+
     if (!section) return;
+
 
     const container =
         section.querySelector(".cards");
 
+
     if (!container) return;
 
+
     container.innerHTML = "";
+
 
     volleyballData.news.forEach(
         article => {
@@ -460,7 +509,10 @@ function renderNews() {
             const card =
                 document.createElement("article");
 
-            card.className = "card reveal";
+
+            card.className =
+                "card reveal";
+
 
             card.innerHTML = `
 
@@ -486,6 +538,7 @@ function renderNews() {
 
             `;
 
+
             container.appendChild(card);
 
         }
@@ -509,6 +562,7 @@ function renderNews() {
 
         });
 
+
     observeAnimations();
 
 }
@@ -525,7 +579,9 @@ function showNews(category) {
             item => item.category === category
         );
 
+
     if (!article) return;
+
 
     alert(
         `${article.title}\n\n` +
@@ -533,6 +589,37 @@ function showNews(category) {
     );
 
 }
+
+
+/* =====================================================
+   ENLACES DE LAS COMPETICIONES
+===================================================== */
+
+/*
+   Estas son las páginas oficiales.
+
+   VNL:
+   Volleyball World
+
+   Mundial:
+   Volleyball World
+
+   Olímpicos:
+   Olympics
+*/
+
+const competitionLinks = {
+
+    VNL:
+        "https://es.volleyballworld.com/volleyball/competitions/volleyball-nations-league",
+
+    MUNDIAL:
+        "https://en.volleyballworld.com/volleyball/competitions/men-world-championship",
+
+    "OLÍMPICOS":
+        "https://olympics.com/en/sports/volleyball/"
+
+};
 
 
 /* =====================================================
@@ -544,7 +631,9 @@ function renderCompetitions() {
     const sections =
         document.querySelectorAll("section");
 
+
     let target = null;
+
 
     sections.forEach(section => {
 
@@ -553,7 +642,9 @@ function renderCompetitions() {
                 ".section-title h2"
             );
 
+
         if (!title) return;
+
 
         if (
             title.textContent
@@ -568,18 +659,31 @@ function renderCompetitions() {
 
     });
 
+
     if (!target) return;
+
 
     target.innerHTML = "";
 
-    volleyballData.competitions
-        .forEach(item => {
+
+    /* ---------------------------------------------
+       CREAR TARJETAS
+    --------------------------------------------- */
+
+    volleyballData.competitions.forEach(
+        item => {
 
             const card =
                 document.createElement("article");
 
+
             card.className =
                 "card reveal";
+
+
+            const link =
+                competitionLinks[item.short];
+
 
             card.innerHTML = `
 
@@ -595,15 +699,61 @@ function renderCompetitions() {
                     ${item.description}
                 </p>
 
-                <button class="btn secondary">
+                <button
+                    class="btn secondary competition-link"
+                    data-link="${link || ""}">
+
                     VER COMPETICIÓN
+
                 </button>
 
             `;
 
+
             target.appendChild(card);
 
+        }
+    );
+
+
+    /* ---------------------------------------------
+       HACER FUNCIONAR LOS BOTONES
+    --------------------------------------------- */
+
+    target
+        .querySelectorAll(".competition-link")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    const link =
+                        button.dataset.link;
+
+
+                    if (!link) {
+
+                        alert(
+                            "Todavía no hay una página asignada para esta competición."
+                        );
+
+                        return;
+
+                    }
+
+
+                    window.open(
+                        link,
+                        "_blank",
+                        "noopener,noreferrer"
+                    );
+
+                }
+            );
+
         });
+
 
     observeAnimations();
 
@@ -619,7 +769,9 @@ function renderPositions() {
     const sections =
         document.querySelectorAll("section");
 
+
     let target = null;
+
 
     sections.forEach(section => {
 
@@ -628,7 +780,9 @@ function renderPositions() {
                 ".section-title h2"
             );
 
+
         if (!title) return;
+
 
         if (
             title.textContent
@@ -643,9 +797,12 @@ function renderPositions() {
 
     });
 
+
     if (!target) return;
 
+
     target.innerHTML = "";
+
 
     volleyballData.positions
         .forEach(position => {
@@ -653,8 +810,10 @@ function renderPositions() {
             const card =
                 document.createElement("article");
 
+
             card.className =
                 "card reveal";
+
 
             card.innerHTML = `
 
@@ -684,9 +843,11 @@ function renderPositions() {
 
             `;
 
+
             target.appendChild(card);
 
         });
+
 
     observeAnimations();
 
@@ -702,22 +863,29 @@ function renderVNLHistory(gender = "men") {
     const container =
         document.getElementById("vnlHistory");
 
+
     if (!container) return;
+
 
     const data =
         vnlHistory[gender];
 
+
     if (!data) return;
 
+
     container.innerHTML = "";
+
 
     data.forEach(item => {
 
         const card =
             document.createElement("article");
 
+
         card.className =
             "vnl-year reveal";
+
 
         card.innerHTML = `
 
@@ -767,9 +935,11 @@ function renderVNLHistory(gender = "men") {
 
         `;
 
+
         container.appendChild(card);
 
     });
+
 
     observeAnimations();
 
@@ -798,14 +968,21 @@ document
 
                     });
 
-                button.classList.add("active");
+
+                button.classList.add(
+                    "active"
+                );
+
 
                 const gender =
                     button.dataset.gender;
 
+
                 if (gender) {
 
-                    renderVNLHistory(gender);
+                    renderVNLHistory(
+                        gender
+                    );
 
                 }
 
@@ -828,22 +1005,29 @@ function renderOlympicHistory(
             "olympicHistory"
         );
 
+
     if (!container) return;
+
 
     const data =
         olympicHistory[gender];
 
+
     if (!data) return;
 
+
     container.innerHTML = "";
+
 
     data.forEach(item => {
 
         const card =
             document.createElement("article");
 
+
         card.className =
             "vnl-year reveal";
+
 
         card.innerHTML = `
 
@@ -869,9 +1053,11 @@ function renderOlympicHistory(
 
         `;
 
+
         container.appendChild(card);
 
     });
+
 
     observeAnimations();
 
@@ -902,10 +1088,15 @@ document
 
                     });
 
-                button.classList.add("active");
+
+                button.classList.add(
+                    "active"
+                );
+
 
                 const gender =
                     button.dataset.olympic;
+
 
                 if (gender) {
 
@@ -922,9 +1113,7 @@ document
 
 
 /* =====================================================
-   =====================================================
    ENTRENADOR IA
-   =====================================================
 ===================================================== */
 
 
@@ -933,13 +1122,21 @@ document
 ===================================================== */
 
 const messages =
-    document.getElementById("messages");
+    document.getElementById(
+        "messages"
+    );
+
 
 const questionInput =
-    document.getElementById("question");
+    document.getElementById(
+        "question"
+    );
+
 
 const sendQuestion =
-    document.getElementById("sendQuestion");
+    document.getElementById(
+        "sendQuestion"
+    );
 
 
 /* =====================================================
@@ -953,20 +1150,32 @@ let coachHistory = [];
    AGREGAR MENSAJE
 ===================================================== */
 
-function addMessage(text, type) {
+function addMessage(
+    text,
+    type
+) {
 
     if (!messages) return;
 
+
     const message =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
+
 
     message.className =
         `message ${type}`;
 
+
     message.innerHTML =
         text;
 
-    messages.appendChild(message);
+
+    messages.appendChild(
+        message
+    );
+
 
     messages.scrollTop =
         messages.scrollHeight;
@@ -980,18 +1189,33 @@ function addMessage(text, type) {
 
 function escapeHTML(text) {
 
-    return String(text)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+    return text
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
 
 /* =====================================================
-   FORMATEAR RESPUESTA
+   FORMATEAR RESPUESTA DE LA IA
 ===================================================== */
 
 function formatCoachResponse(text) {
@@ -999,10 +1223,6 @@ function formatCoachResponse(text) {
     let safe =
         escapeHTML(text);
 
-    /*
-       Negrita:
-       **texto**
-    */
 
     safe =
         safe.replace(
@@ -1010,25 +1230,13 @@ function formatCoachResponse(text) {
             "<strong>$1</strong>"
         );
 
-    /*
-       Listas sencillas
-    */
-
-    safe =
-        safe.replace(
-            /^[-•]\s(.+)$/gm,
-            "• $1"
-        );
-
-    /*
-       Saltos de línea
-    */
 
     safe =
         safe.replace(
             /\n/g,
             "<br>"
         );
+
 
     return safe;
 
@@ -1043,16 +1251,20 @@ function showTyping() {
 
     if (!messages) return;
 
-    removeTyping();
 
     const typing =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
+
 
     typing.id =
         "coachTyping";
 
+
     typing.className =
         "message bot";
+
 
     typing.innerHTML = `
 
@@ -1064,9 +1276,11 @@ function showTyping() {
 
     `;
 
+
     messages.appendChild(
         typing
     );
+
 
     messages.scrollTop =
         messages.scrollHeight;
@@ -1085,6 +1299,7 @@ function removeTyping() {
             "coachTyping"
         );
 
+
     if (typing) {
 
         typing.remove();
@@ -1098,26 +1313,14 @@ function removeTyping() {
    PREGUNTAR A LA IA
 ===================================================== */
 
-async function askCoach(question) {
-
-    showTyping();
+async function askCoach(
+    question
+) {
 
     try {
 
-        /*
-           IMPORTANTE:
+        showTyping();
 
-           Usamos una ruta relativa.
-
-           En local:
-           http://localhost:3000/api/coach
-
-           En Render:
-           https://tu-app.onrender.com/api/coach
-
-           Así no necesitamos cambiar
-           el código al publicar.
-        */
 
         const response =
             await fetch(
@@ -1127,15 +1330,16 @@ async function askCoach(question) {
                     method: "POST",
 
                     headers: {
+
                         "Content-Type":
                             "application/json"
+
                     },
 
                     body:
                         JSON.stringify({
 
-                            question:
-                                question,
+                            question,
 
                             history:
                                 coachHistory
@@ -1146,62 +1350,26 @@ async function askCoach(question) {
             );
 
 
-        /*
-           Intentamos leer JSON.
-        */
-
-        let data;
-
-        try {
-
-            data =
-                await response.json();
-
-        } catch (jsonError) {
-
-            throw new Error(
-                "El servidor no devolvió una respuesta válida."
-            );
-
-        }
+        const data =
+            await response.json();
 
 
         removeTyping();
 
 
-        /*
-           Si Express devuelve error.
-        */
-
         if (!response.ok) {
 
             throw new Error(
-                data?.error ||
-                `Error HTTP ${response.status}`
+                data.error ||
+                "Error del servidor."
             );
 
         }
 
 
         const answer =
-            data?.answer;
+            data.answer;
 
-
-        if (
-            !answer ||
-            typeof answer !== "string"
-        ) {
-
-            throw new Error(
-                "La IA no devolvió una respuesta."
-            );
-
-        }
-
-
-        /*
-           Guardar conversación.
-        */
 
         coachHistory.push({
 
@@ -1221,29 +1389,24 @@ async function askCoach(question) {
         });
 
 
-        /*
-           Mantener únicamente
-           las últimas 20 entradas.
-        */
-
         if (
             coachHistory.length > 20
         ) {
 
             coachHistory =
-                coachHistory.slice(-20);
+                coachHistory.slice(
+                    -20
+                );
 
         }
 
 
-        /*
-           Mostrar respuesta.
-        */
-
         addMessage(
 
             `<b>ENTRENADOR:</b><br><br>` +
-            formatCoachResponse(answer),
+            formatCoachResponse(
+                answer
+            ),
 
             "bot"
 
@@ -1254,48 +1417,20 @@ async function askCoach(question) {
 
         removeTyping();
 
+
         console.error(
-            "Error del entrenador IA:",
+            "Error:",
             error
         );
 
 
-        let errorMessage =
-            "⚠️ No pude conectarme con el entrenador de IA.";
-
-
-        /*
-           Mensajes más útiles
-           para detectar el problema.
-        */
-
-        if (
-            error.message.includes(
-                "Failed to fetch"
-            )
-        ) {
-
-            errorMessage +=
-                "<br><br>" +
-                "El servidor no está disponible. " +
-                "Comprueba que VóleyRetro esté ejecutándose " +
-                "desde el servidor Node.";
-
-        } else {
-
-            errorMessage +=
-                "<br><br>" +
-                escapeHTML(
-                    error.message
-                );
-
-        }
-
-
         addMessage(
 
-            `<b>ENTRENADOR:</b><br><br>` +
-            errorMessage,
+            `<b>ENTRENADOR:</b><br><br>
+            ⚠️ No pude conectarme con el
+            entrenador de IA.<br><br>
+            Comprueba que el servidor esté
+            funcionando y vuelve a intentarlo.`,
 
             "bot"
 
@@ -1322,29 +1457,19 @@ function sendQuestionMessage() {
     if (!question) return;
 
 
-    /*
-       Mostrar pregunta inmediatamente.
-    */
-
     addMessage(
 
-        escapeHTML(question),
+        escapeHTML(
+            question
+        ),
 
         "user"
 
     );
 
 
-    /*
-       Limpiar campo.
-    */
-
     questionInput.value = "";
 
-
-    /*
-       Evitar múltiples solicitudes.
-    */
 
     if (sendQuestion) {
 
@@ -1354,7 +1479,9 @@ function sendQuestionMessage() {
     }
 
 
-    askCoach(question)
+    askCoach(
+        question
+    )
         .finally(() => {
 
             if (sendQuestion) {
@@ -1363,6 +1490,7 @@ function sendQuestionMessage() {
                     false;
 
             }
+
 
             if (questionInput) {
 
@@ -1420,32 +1548,6 @@ if (questionInput) {
    BOTONES RÁPIDOS DEL ENTRENADOR
 ===================================================== */
 
-const quickCoachQuestions = {
-
-    recepcion:
-        "¿Cómo puedo mejorar mi recepción y qué errores debería evitar?",
-
-    saque:
-        "¿Cómo puedo mejorar mi saque y conseguir más precisión?",
-
-    ataque:
-        "¿Cómo puedo mejorar mi ataque y tomar mejores decisiones frente al bloqueo?",
-
-    bloqueo:
-        "¿Cómo puedo mejorar mi bloqueo y leer mejor al atacante?",
-
-    defensa:
-        "¿Cómo puedo mejorar mi defensa y reaccionar mejor ante los ataques?",
-
-    mental:
-        "¿Cómo puedo controlar los nervios y mantener la concentración durante un partido?",
-
-    plan:
-        "Hazme una sesión de entrenamiento de voleibol adaptada para mejorar mi técnica general."
-
-};
-
-
 document
     .querySelectorAll(
         ".coach-menu button"
@@ -1456,34 +1558,56 @@ document
             "click",
             () => {
 
-                const type =
+                const question =
                     button.dataset.question;
 
-                const question =
-                    quickCoachQuestions[type];
+
+                const questions = {
+
+                    recepcion:
+                        "¿Cómo puedo mejorar mi recepción y qué errores debería evitar?",
+
+                    saque:
+                        "¿Cómo puedo mejorar mi saque y conseguir más precisión?",
+
+                    ataque:
+                        "¿Cómo puedo mejorar mi ataque y tomar mejores decisiones frente al bloqueo?",
+
+                    bloqueo:
+                        "¿Cómo puedo mejorar mi bloqueo y leer mejor al atacante?",
+
+                    defensa:
+                        "¿Cómo puedo mejorar mi defensa y reaccionar mejor ante los ataques?",
+
+                    mental:
+                        "¿Cómo puedo controlar los nervios y mantener la concentración durante un partido?",
+
+                    plan:
+                        "Hazme una sesión de entrenamiento de voleibol adaptada para mejorar mi técnica general."
+
+                };
 
 
-                if (!question) return;
+                if (
+                    questions[question]
+                ) {
+
+                    addMessage(
+
+                        escapeHTML(
+                            questions[question]
+                        ),
+
+                        "user"
+
+                    );
 
 
-                /*
-                   Mostrar pregunta.
-                */
+                    askCoach(
+                        questions[question]
+                    );
 
-                addMessage(
-
-                    escapeHTML(question),
-
-                    "user"
-
-                );
-
-
-                /*
-                   Mandar a la IA.
-                */
-
-                askCoach(question);
+                }
 
             }
         );
@@ -1492,116 +1616,19 @@ document
 
 
 /* =====================================================
-   MENSAJE INICIAL DEL ENTRENADOR
-===================================================== */
-
-function initializeCoach() {
-
-    if (!messages) return;
-
-    /*
-       Solo mostrarlo si el chat está vacío.
-    */
-
-    if (
-        messages.children.length === 0
-    ) {
-
-        addMessage(
-
-            `
-            <b>ENTRENADOR:</b><br><br>
-            🏐 ¡Hola! Soy el entrenador de VóleyRetro.
-            <br><br>
-            Puedes preguntarme lo que quieras sobre
-            voleibol: técnica, posiciones, tácticas,
-            entrenamiento, errores, partidos o situaciones
-            específicas de juego.
-            `,
-
-            "bot"
-
-        );
-
-    }
-
-}
-
-
-/* =====================================================
-   LOGIN
-===================================================== */
-
-const loginModal =
-    document.getElementById("loginModal");
-
-const loginBtn =
-    document.getElementById("loginBtn");
-
-const closeLogin =
-    document.getElementById("closeLogin");
-
-
-if (loginBtn && loginModal) {
-
-    loginBtn.addEventListener(
-        "click",
-        () => {
-
-            loginModal.style.display =
-                "grid";
-
-        }
-    );
-
-}
-
-
-if (closeLogin && loginModal) {
-
-    closeLogin.addEventListener(
-        "click",
-        () => {
-
-            loginModal.style.display =
-                "none";
-
-        }
-    );
-
-}
-
-
-if (loginModal) {
-
-    loginModal.addEventListener(
-        "click",
-        event => {
-
-            if (
-                event.target === loginModal
-            ) {
-
-                loginModal.style.display =
-                    "none";
-
-            }
-
-        }
-    );
-
-}
-
-
-/* =====================================================
    LOGIN TEMPORAL
 ===================================================== */
 
 const googleLogin =
-    document.getElementById("googleLogin");
+    document.getElementById(
+        "googleLogin"
+    );
+
 
 const emailLogin =
-    document.getElementById("emailLogin");
+    document.getElementById(
+        "emailLogin"
+    );
 
 
 if (googleLogin) {
@@ -1628,13 +1655,18 @@ if (emailLogin) {
 
             const email =
                 document
-                    .getElementById("email")
-                    ?.value.trim();
+                    .getElementById(
+                        "email"
+                    )
+                    ?.value
+                    .trim();
 
 
             const password =
                 document
-                    .getElementById("password")
+                    .getElementById(
+                        "password"
+                    )
                     ?.value;
 
 
@@ -1674,26 +1706,33 @@ function observeAnimations() {
         );
 
 
-    elements.forEach(element => {
+    elements.forEach(
+        element => {
 
-        element.classList.add(
-            "reveal-ready"
-        );
+            element.classList.add(
+                "reveal-ready"
+            );
 
-    });
+        }
+    );
 
 
     if (
-        !("IntersectionObserver" in window)
+        !(
+            "IntersectionObserver"
+            in window
+        )
     ) {
 
-        elements.forEach(element => {
+        elements.forEach(
+            element => {
 
-            element.classList.add(
-                "reveal-visible"
-            );
+                element.classList.add(
+                    "reveal-visible"
+                );
 
-        });
+            }
+        );
 
         return;
 
@@ -1702,38 +1741,48 @@ function observeAnimations() {
 
     const observer =
         new IntersectionObserver(
+
             entries => {
 
-                entries.forEach(entry => {
+                entries.forEach(
+                    entry => {
 
-                    if (
-                        entry.isIntersecting
-                    ) {
+                        if (
+                            entry.isIntersecting
+                        ) {
 
-                        entry.target.classList.add(
-                            "reveal-visible"
-                        );
+                            entry.target.classList.add(
+                                "reveal-visible"
+                            );
 
-                        observer.unobserve(
-                            entry.target
-                        );
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
 
                     }
-
-                });
+                );
 
             },
+
             {
                 threshold: 0.08
             }
+
         );
 
 
-    elements.forEach(element => {
+    elements.forEach(
+        element => {
 
-        observer.observe(element);
+            observer.observe(
+                element
+            );
 
-    });
+        }
+    );
 
 }
 
@@ -1757,26 +1806,15 @@ observeAnimations();
    INICIAR HISTORIA
 ===================================================== */
 
-renderVNLHistory("men");
+renderVNLHistory(
+    "men"
+);
 
-renderOlympicHistory("men");
+renderOlympicHistory(
+    "men"
+);
 
-
-/* =====================================================
-   INICIAR ENTRENADOR
-===================================================== */
-
-initializeCoach();
-
-
-/* =====================================================
-   COMPROBACIÓN
-===================================================== */
 
 console.log(
     "🏐 VóleyRetro funcionando correctamente."
-);
-
-console.log(
-    "🤖 Entrenador IA preparado."
 );
