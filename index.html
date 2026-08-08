@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -7,17 +8,15 @@
 
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
-    <meta
-        name="description"
-        content="VóleyRetro - Historia, partidos, jugadores y competiciones de voleibol.">
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>VóleyRetro</title>
 
     <link rel="stylesheet" href="style.css">
 
 </head>
+
 
 <body>
 
@@ -30,12 +29,9 @@
 
     <div class="navbar">
 
-        <!-- LOGO -->
         <a href="#inicio" class="logo">
 
-            <div class="logo-ball">
-                🏐
-            </div>
+            <div class="logo-ball">🏐</div>
 
             <span>
                 VÓLEY<span>RETRO</span>
@@ -44,37 +40,24 @@
         </a>
 
 
-        <!-- NAVEGACIÓN -->
         <nav>
 
-            <a href="#inicio">
-                Inicio
-            </a>
+            <a href="#inicio">Inicio</a>
 
-            <a href="#partidos">
-                Partidos
-            </a>
+            <a href="#partidos">Partidos</a>
 
-            <a href="#calendario">
-                Calendario
-            </a>
+            <a href="#calendario">Calendario</a>
 
-            <a href="#players">
-                Players
-            </a>
+            <a href="#players">Players</a>
 
-            <a href="#entrenador">
-                Entrenador
-            </a>
+            <a href="#entrenador">Entrenador</a>
 
-
-            <!-- LOGIN AL LADO DE ENTRENADOR -->
             <button
                 id="loginBtn"
-                class="login-btn">
-
+                class="login-btn"
+                type="button"
+            >
                 Iniciar sesión
-
             </button>
 
         </nav>
@@ -101,29 +84,24 @@
         </h1>
 
         <p>
-            Historia, partidos, jugadores,
-            competiciones y todo lo relacionado
-            con el mundo del voleibol.
+            Historia, partidos, jugadores, competiciones
+            y todo lo relacionado con el mundo del voleibol.
         </p>
-
 
         <div class="hero-buttons">
 
             <a
                 href="#partidos"
-                class="btn primary">
-
+                class="btn primary"
+            >
                 Ver partidos
-
             </a>
-
 
             <a
                 href="#calendario"
-                class="btn secondary">
-
+                class="btn secondary"
+            >
                 Calendario
-
             </a>
 
         </div>
@@ -153,9 +131,8 @@
         </div>
 
         <p>
-            Consulta algunos de los partidos
-            y enfrentamientos más importantes
-            del voleibol.
+            Consulta algunos de los partidos y enfrentamientos
+            más importantes del voleibol.
         </p>
 
     </div>
@@ -166,9 +143,7 @@
 
         <div class="card">
 
-            <strong>
-                PARTIDO
-            </strong>
+            <strong>PARTIDO</strong>
 
             <h3>
                 Equipo A
@@ -187,9 +162,7 @@
 
         <div class="card">
 
-            <strong>
-                RESULTADO
-            </strong>
+            <strong>RESULTADO</strong>
 
             <h3>
                 Equipo C
@@ -208,20 +181,18 @@
 
         <div class="card">
 
-            <strong>
-                DESTACADO
-            </strong>
+            <strong>DESTACADO</strong>
 
             <h3>
                 Gran enfrentamiento
             </h3>
 
             <p>
-                Revisa la información
-                del partido destacado.
+                Revisa la información del partido destacado.
             </p>
 
         </div>
+
 
     </div>
 
@@ -234,7 +205,6 @@
 ====================================================== -->
 
 <section id="calendario">
-
 
     <div class="section-title">
 
@@ -249,8 +219,7 @@
         </div>
 
         <p>
-            Consulta la historia y los podios
-            de las principales competiciones
+            Consulta las principales competiciones
             internacionales de voleibol.
         </p>
 
@@ -259,62 +228,35 @@
 
 
     <!-- =================================================
-         SELECTOR DE COMPETICIÓN
+         SELECTOR PRINCIPAL
     ================================================== -->
 
     <div class="competition-buttons">
 
         <button
+            type="button"
             class="competition active"
-            data-competition="vnl">
-
+            onclick="mostrarCompeticion('vnl')"
+        >
             VNL
-
         </button>
 
 
         <button
+            type="button"
             class="competition"
-            data-competition="world">
-
-            Mundial
-
+            onclick="mostrarCompeticion('mundial')"
+        >
+            MUNDIAL
         </button>
 
 
         <button
+            type="button"
             class="competition"
-            data-competition="olympic">
-
-            Juegos Olímpicos
-
-        </button>
-
-    </div>
-
-
-
-    <!-- =================================================
-         SELECTOR MASCULINO / FEMENINO
-    ================================================== -->
-
-    <div class="competition-buttons">
-
-        <button
-            class="competition gender-button active"
-            data-gender="men">
-
-            Masculino
-
-        </button>
-
-
-        <button
-            class="competition gender-button"
-            data-gender="women">
-
-            Femenino
-
+            onclick="mostrarCompeticion('olimpicos')"
+        >
+            JUEGOS OLÍMPICOS
         </button>
 
     </div>
@@ -326,281 +268,196 @@
     ================================================== -->
 
     <div
-        id="vnlCompetition"
-        class="competition-content">
+        id="competicion-vnl"
+        class="competition-panel"
+    >
 
+        <div class="competition-buttons">
 
-        <div class="section-title">
+            <button
+                type="button"
+                class="competition active"
+                onclick="mostrarVNL('masculino')"
+            >
+                VNL MASCULINA
+            </button>
 
-            <div>
-
-                <h2>
-                    VNL <span>HISTORIA</span>
-                </h2>
-
-            </div>
-
-            <p>
-                Volleyball Nations League.
-            </p>
+            <button
+                type="button"
+                class="competition"
+                onclick="mostrarVNL('femenino')"
+            >
+                VNL FEMENINA
+            </button>
 
         </div>
 
 
-        <!-- =============================================
-             VNL MASCULINA
-        ============================================== -->
+
+        <!-- VNL MASCULINA -->
 
         <div
-            id="vnlMen"
-            class="history-content">
+            id="vnl-masculino"
+            class="subcompetition-panel"
+        >
+
+            <div class="competition-buttons">
+
+                <button
+                    type="button"
+                    class="competition active"
+                    onclick="mostrarAno('vnl-m-2025')"
+                >
+                    2025
+                </button>
+
+                <button
+                    type="button"
+                    class="competition"
+                    onclick="mostrarAno('vnl-m-2024')"
+                >
+                    2024
+                </button>
+
+                <button
+                    type="button"
+                    class="competition"
+                    onclick="mostrarAno('vnl-m-2023')"
+                >
+                    2023
+                </button>
+
+                <button
+                    type="button"
+                    class="competition"
+                    onclick="mostrarAno('vnl-m-2022')"
+                >
+                    2022
+                </button>
+
+            </div>
 
 
-            <div class="vnl-history">
+            <div
+                id="vnl-m-2025"
+                class="vnl-year competition-result"
+            >
 
+                <div class="vnl-year-number">
+                    2025
+                </div>
 
-                <div
-                    class="vnl-year"
-                    data-year="2026">
+                <div class="vnl-result">
 
-                    <div class="vnl-year-number">
-                        2026
+                    <div>
+                        <span>1.º PUESTO</span>
+                        <strong>Polonia</strong>
                     </div>
 
-                    <div class="vnl-result">
+                    <div>
+                        <span>2.º PUESTO</span>
+                        <strong>Italia</strong>
+                    </div>
 
-                        <div>
-                            <span>1.º</span>
-                            <strong>Polonia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Francia</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
+                    <div>
+                        <span>3.º PUESTO</span>
+                        <strong>Brasil</strong>
                     </div>
 
                 </div>
 
+            </div>
 
 
-                <div
-                    class="vnl-year"
-                    data-year="2025">
+            <div
+                id="vnl-m-2024"
+                class="vnl-year competition-result"
+                style="display:none;"
+            >
 
-                    <div class="vnl-year-number">
-                        2025
+                <div class="vnl-year-number">
+                    2024
+                </div>
+
+                <div class="vnl-result">
+
+                    <div>
+                        <span>1.º PUESTO</span>
+                        <strong>Francia</strong>
                     </div>
 
-                    <div class="vnl-result">
+                    <div>
+                        <span>2.º PUESTO</span>
+                        <strong>Japón</strong>
+                    </div>
 
-                        <div>
-                            <span>1.º</span>
-                            <strong>Polonia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Italia</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
+                    <div>
+                        <span>3.º PUESTO</span>
+                        <strong>Polonia</strong>
                     </div>
 
                 </div>
 
+            </div>
 
 
-                <div
-                    class="vnl-year"
-                    data-year="2024">
+            <div
+                id="vnl-m-2023"
+                class="vnl-year competition-result"
+                style="display:none;"
+            >
 
-                    <div class="vnl-year-number">
-                        2024
+                <div class="vnl-year-number">
+                    2023
+                </div>
+
+                <div class="vnl-result">
+
+                    <div>
+                        <span>1.º PUESTO</span>
+                        <strong>Polonia</strong>
                     </div>
 
-                    <div class="vnl-result">
+                    <div>
+                        <span>2.º PUESTO</span>
+                        <strong>Estados Unidos</strong>
+                    </div>
 
-                        <div>
-                            <span>1.º</span>
-                            <strong>Francia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Japón</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Polonia</strong>
-                        </div>
-
+                    <div>
+                        <span>3.º PUESTO</span>
+                        <strong>Japón</strong>
                     </div>
 
                 </div>
 
+            </div>
 
 
-                <div
-                    class="vnl-year"
-                    data-year="2023">
+            <div
+                id="vnl-m-2022"
+                class="vnl-year competition-result"
+                style="display:none;"
+            >
 
-                    <div class="vnl-year-number">
-                        2023
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Polonia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Estados Unidos</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Japón</strong>
-                        </div>
-
-                    </div>
-
+                <div class="vnl-year-number">
+                    2022
                 </div>
 
+                <div class="vnl-result">
 
-
-                <div
-                    class="vnl-year"
-                    data-year="2022">
-
-                    <div class="vnl-year-number">
-                        2022
+                    <div>
+                        <span>1.º PUESTO</span>
+                        <strong>Francia</strong>
                     </div>
 
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Francia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Estados Unidos</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Polonia</strong>
-                        </div>
-
+                    <div>
+                        <span>2.º PUESTO</span>
+                        <strong>Estados Unidos</strong>
                     </div>
 
-                </div>
-
-
-
-                <div
-                    class="vnl-year"
-                    data-year="2021">
-
-                    <div class="vnl-year-number">
-                        2021
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Polonia</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Francia</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <div
-                    class="vnl-year"
-                    data-year="2019">
-
-                    <div class="vnl-year-number">
-                        2019
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Rusia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Estados Unidos</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Polonia</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <div
-                    class="vnl-year"
-                    data-year="2018">
-
-                    <div class="vnl-year-number">
-                        2018
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Rusia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Francia</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Estados Unidos</strong>
-                        </div>
-
+                    <div>
+                        <span>3.º PUESTO</span>
+                        <strong>Polonia</strong>
                     </div>
 
                 </div>
@@ -611,260 +468,171 @@
 
 
 
-        <!-- =============================================
-             VNL FEMENINA
-        ============================================== -->
+        <!-- VNL FEMENINA -->
 
         <div
-            id="vnlWomen"
-            class="history-content"
-            style="display:none;">
+            id="vnl-femenino"
+            class="subcompetition-panel"
+            style="display:none;"
+        >
 
-            <div class="vnl-history">
+            <div class="competition-buttons">
+
+                <button
+                    type="button"
+                    class="competition active"
+                    onclick="mostrarAno('vnl-f-2025')"
+                >
+                    2025
+                </button>
+
+                <button
+                    type="button"
+                    class="competition"
+                    onclick="mostrarAno('vnl-f-2024')"
+                >
+                    2024
+                </button>
+
+                <button
+                    type="button"
+                    class="competition"
+                    onclick="mostrarAno('vnl-f-2023')"
+                >
+                    2023
+                </button>
+
+                <button
+                    type="button"
+                    class="competition"
+                    onclick="mostrarAno('vnl-f-2022')"
+                >
+                    2022
+                </button>
+
+            </div>
 
 
-                <div
-                    class="vnl-year"
-                    data-year="2026">
+            <div
+                id="vnl-f-2025"
+                class="vnl-year competition-result"
+            >
 
-                    <div class="vnl-year-number">
-                        2026
+                <div class="vnl-year-number">
+                    2025
+                </div>
+
+                <div class="vnl-result">
+
+                    <div>
+                        <span>1.º PUESTO</span>
+                        <strong>Italia</strong>
                     </div>
 
-                    <div class="vnl-result">
+                    <div>
+                        <span>2.º PUESTO</span>
+                        <strong>Brasil</strong>
+                    </div>
 
-                        <div>
-                            <span>1.º</span>
-                            <strong>Türkiye</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Italia</strong>
-                        </div>
-
+                    <div>
+                        <span>3.º PUESTO</span>
+                        <strong>Japón</strong>
                     </div>
 
                 </div>
 
+            </div>
 
 
-                <div
-                    class="vnl-year"
-                    data-year="2025">
+            <div
+                id="vnl-f-2024"
+                class="vnl-year competition-result"
+                style="display:none;"
+            >
 
-                    <div class="vnl-year-number">
-                        2025
+                <div class="vnl-year-number">
+                    2024
+                </div>
+
+                <div class="vnl-result">
+
+                    <div>
+                        <span>1.º PUESTO</span>
+                        <strong>Italia</strong>
                     </div>
 
-                    <div class="vnl-result">
+                    <div>
+                        <span>2.º PUESTO</span>
+                        <strong>Japón</strong>
+                    </div>
 
-                        <div>
-                            <span>1.º</span>
-                            <strong>Italia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Polonia</strong>
-                        </div>
-
+                    <div>
+                        <span>3.º PUESTO</span>
+                        <strong>Polonia</strong>
                     </div>
 
                 </div>
 
+            </div>
 
 
-                <div
-                    class="vnl-year"
-                    data-year="2024">
+            <div
+                id="vnl-f-2023"
+                class="vnl-year competition-result"
+                style="display:none;"
+            >
 
-                    <div class="vnl-year-number">
-                        2024
+                <div class="vnl-year-number">
+                    2023
+                </div>
+
+                <div class="vnl-result">
+
+                    <div>
+                        <span>1.º PUESTO</span>
+                        <strong>Turquía</strong>
                     </div>
 
-                    <div class="vnl-result">
+                    <div>
+                        <span>2.º PUESTO</span>
+                        <strong>China</strong>
+                    </div>
 
-                        <div>
-                            <span>1.º</span>
-                            <strong>Italia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Japón</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Polonia</strong>
-                        </div>
-
+                    <div>
+                        <span>3.º PUESTO</span>
+                        <strong>Estados Unidos</strong>
                     </div>
 
                 </div>
 
+            </div>
 
 
-                <div
-                    class="vnl-year"
-                    data-year="2023">
+            <div
+                id="vnl-f-2022"
+                class="vnl-year competition-result"
+                style="display:none;"
+            >
 
-                    <div class="vnl-year-number">
-                        2023
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Türkiye</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>China</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Polonia</strong>
-                        </div>
-
-                    </div>
-
+                <div class="vnl-year-number">
+                    2022
                 </div>
 
+                <div class="vnl-result">
 
-
-                <div
-                    class="vnl-year"
-                    data-year="2022">
-
-                    <div class="vnl-year-number">
-                        2022
+                    <div>
+                        <span>1.º PUESTO</span>
+                        <strong>Italia</strong>
                     </div>
 
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Italia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Serbia</strong>
-                        </div>
-
+                    <div>
+                        <span>2.º PUESTO</span>
+                        <strong>Brasil</strong>
                     </div>
 
-                </div>
-
-
-
-                <div
-                    class="vnl-year"
-                    data-year="2021">
-
-                    <div class="vnl-year-number">
-                        2021
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Estados Unidos</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Türkiye</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <div
-                    class="vnl-year"
-                    data-year="2019">
-
-                    <div class="vnl-year-number">
-                        2019
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Estados Unidos</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>China</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <div
-                    class="vnl-year"
-                    data-year="2018">
-
-                    <div class="vnl-year-number">
-                        2018
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Estados Unidos</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Türkiye</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>China</strong>
-                        </div>
-
+                    <div>
+                        <span>3.º PUESTO</span>
+                        <strong>Serbia</strong>
                     </div>
 
                 </div>
@@ -882,24 +650,28 @@
     ================================================== -->
 
     <div
-        id="worldCompetition"
-        class="competition-content"
-        style="display:none;">
+        id="competicion-mundial"
+        class="competition-panel"
+        style="display:none;"
+    >
 
+        <div class="competition-buttons">
 
-        <div class="section-title">
+            <button
+                type="button"
+                class="competition active"
+                onclick="mostrarMundial('masculino')"
+            >
+                MUNDIAL MASCULINO
+            </button>
 
-            <div>
-
-                <h2>
-                    MUNDIAL <span>FIVB</span>
-                </h2>
-
-            </div>
-
-            <p>
-                Campeonato Mundial de Voleibol.
-            </p>
+            <button
+                type="button"
+                class="competition"
+                onclick="mostrarMundial('femenino')"
+            >
+                MUNDIAL FEMENINO
+            </button>
 
         </div>
 
@@ -908,292 +680,130 @@
         <!-- MUNDIAL MASCULINO -->
 
         <div
-            id="worldMen"
-            class="history-content">
+            id="mundial-masculino"
+            class="subcompetition-panel"
+        >
+
+            <div class="competition-buttons">
+
+                <button
+                    type="button"
+                    class="competition active"
+                    onclick="mostrarAno('mundial-m-2022')"
+                >
+                    2022
+                </button>
+
+                <button
+                    type="button"
+                    class="competition"
+                    onclick="mostrarAno('mundial-m-2018')"
+                >
+                    2018
+                </button>
+
+                <button
+                    type="button"
+                    class="competition"
+                    onclick="mostrarAno('mundial-m-2014')"
+                >
+                    2014
+                </button>
+
+            </div>
 
 
-            <div class="vnl-history">
+            <div
+                id="mundial-m-2022"
+                class="vnl-year competition-result"
+            >
 
+                <div class="vnl-year-number">
+                    2022
+                </div>
 
-                <div class="vnl-year">
+                <div class="vnl-result">
 
-                    <div class="vnl-year-number">
-                        2025
+                    <div>
+                        <span>1.º PUESTO</span>
+                        <strong>Italia</strong>
                     </div>
 
-                    <div class="vnl-result">
+                    <div>
+                        <span>2.º PUESTO</span>
+                        <strong>Polonia</strong>
+                    </div>
 
-                        <div>
-                            <span>1.º</span>
-                            <strong>Italia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Bulgaria</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Polonia</strong>
-                        </div>
-
+                    <div>
+                        <span>3.º PUESTO</span>
+                        <strong>Brasil</strong>
                     </div>
 
                 </div>
 
+            </div>
 
-                <div class="vnl-year">
 
-                    <div class="vnl-year-number">
-                        2022
+            <div
+                id="mundial-m-2018"
+                class="vnl-year competition-result"
+                style="display:none;"
+            >
+
+                <div class="vnl-year-number">
+                    2018
+                </div>
+
+                <div class="vnl-result">
+
+                    <div>
+                        <span>1.º PUESTO</span>
+                        <strong>Polonia</strong>
                     </div>
 
-                    <div class="vnl-result">
+                    <div>
+                        <span>2.º PUESTO</span>
+                        <strong>Brasil</strong>
+                    </div>
 
-                        <div>
-                            <span>1.º</span>
-                            <strong>Italia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Polonia</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
+                    <div>
+                        <span>3.º PUESTO</span>
+                        <strong>Estados Unidos</strong>
                     </div>
 
                 </div>
 
+            </div>
 
-                <div class="vnl-year">
 
-                    <div class="vnl-year-number">
-                        2018
+            <div
+                id="mundial-m-2014"
+                class="vnl-year competition-result"
+                style="display:none;"
+            >
+
+                <div class="vnl-year-number">
+                    2014
+                </div>
+
+                <div class="vnl-result">
+
+                    <div>
+                        <span>1.º PUESTO</span>
+                        <strong>Polonia</strong>
                     </div>
 
-                    <div class="vnl-result">
+                    <div>
+                        <span>2.º PUESTO</span>
+                        <strong>Brasil</strong>
+                    </div>
 
-                        <div>
-                            <span>1.º</span>
-                            <strong>Polonia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Estados Unidos</strong>
-                        </div>
-
+                    <div>
+                        <span>3.º PUESTO</span>
+                        <strong>Alemania</strong>
                     </div>
 
                 </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        2014
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Polonia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Alemania</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        2010
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Cuba</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Serbia</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        2006
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Polonia</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Bulgaria</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        2002
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Rusia</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Francia</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        1998
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Italia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Yugoslavia</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Cuba</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        1994
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Italia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Países Bajos</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Estados Unidos</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        1990
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Italia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Cuba</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Unión Soviética</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
 
             </div>
 
@@ -1204,293 +814,131 @@
         <!-- MUNDIAL FEMENINO -->
 
         <div
-            id="worldWomen"
-            class="history-content"
-            style="display:none;">
+            id="mundial-femenino"
+            class="subcompetition-panel"
+            style="display:none;"
+        >
+
+            <div class="competition-buttons">
+
+                <button
+                    type="button"
+                    class="competition active"
+                    onclick="mostrarAno('mundial-f-2022')"
+                >
+                    2022
+                </button>
+
+                <button
+                    type="button"
+                    class="competition"
+                    onclick="mostrarAno('mundial-f-2018')"
+                >
+                    2018
+                </button>
+
+                <button
+                    type="button"
+                    class="competition"
+                    onclick="mostrarAno('mundial-f-2014')"
+                >
+                    2014
+                </button>
+
+            </div>
 
 
-            <div class="vnl-history">
+            <div
+                id="mundial-f-2022"
+                class="vnl-year competition-result"
+            >
 
+                <div class="vnl-year-number">
+                    2022
+                </div>
 
-                <div class="vnl-year">
+                <div class="vnl-result">
 
-                    <div class="vnl-year-number">
-                        2025
+                    <div>
+                        <span>1.º PUESTO</span>
+                        <strong>Serbia</strong>
                     </div>
 
-                    <div class="vnl-result">
+                    <div>
+                        <span>2.º PUESTO</span>
+                        <strong>Brasil</strong>
+                    </div>
 
-                        <div>
-                            <span>1.º</span>
-                            <strong>Italia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Türkiye</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
+                    <div>
+                        <span>3.º PUESTO</span>
+                        <strong>Italia</strong>
                     </div>
 
                 </div>
 
+            </div>
 
-                <div class="vnl-year">
 
-                    <div class="vnl-year-number">
-                        2022
+            <div
+                id="mundial-f-2018"
+                class="vnl-year competition-result"
+                style="display:none;"
+            >
+
+                <div class="vnl-year-number">
+                    2018
+                </div>
+
+                <div class="vnl-result">
+
+                    <div>
+                        <span>1.º PUESTO</span>
+                        <strong>Serbia</strong>
                     </div>
 
-                    <div class="vnl-result">
+                    <div>
+                        <span>2.º PUESTO</span>
+                        <strong>Italia</strong>
+                    </div>
 
-                        <div>
-                            <span>1.º</span>
-                            <strong>Serbia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Italia</strong>
-                        </div>
-
+                    <div>
+                        <span>3.º PUESTO</span>
+                        <strong>China</strong>
                     </div>
 
                 </div>
 
+            </div>
 
-                <div class="vnl-year">
 
-                    <div class="vnl-year-number">
-                        2018
+            <div
+                id="mundial-f-2014"
+                class="vnl-year competition-result"
+                style="display:none;"
+            >
+
+                <div class="vnl-year-number">
+                    2014
+                </div>
+
+                <div class="vnl-result">
+
+                    <div>
+                        <span>1.º PUESTO</span>
+                        <strong>Estados Unidos</strong>
                     </div>
 
-                    <div class="vnl-result">
+                    <div>
+                        <span>2.º PUESTO</span>
+                        <strong>China</strong>
+                    </div>
 
-                        <div>
-                            <span>1.º</span>
-                            <strong>Serbia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Italia</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>China</strong>
-                        </div>
-
+                    <div>
+                        <span>3.º PUESTO</span>
+                        <strong>Brasil</strong>
                     </div>
 
                 </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        2014
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Estados Unidos</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>China</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        2010
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Rusia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Japón</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        2006
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Rusia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Serbia y Montenegro</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        2002
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Italia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Estados Unidos</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Rusia</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        1998
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Cuba</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>China</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Rusia</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        1994
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Cuba</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Rusia</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        1990
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Unión Soviética</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>China</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Estados Unidos</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
 
             </div>
 
@@ -1505,25 +953,28 @@
     ================================================== -->
 
     <div
-        id="olympicCompetition"
-        class="competition-content"
-        style="display:none;">
+        id="competicion-olimpicos"
+        class="competition-panel"
+        style="display:none;"
+    >
 
+        <div class="competition-buttons">
 
-        <div class="section-title">
+            <button
+                type="button"
+                class="competition active"
+                onclick="mostrarOlimpicos('masculino')"
+            >
+                OLÍMPICOS MASCULINO
+            </button>
 
-            <div>
-
-                <h2>
-                    JUEGOS <span>OLÍMPICOS</span>
-                </h2>
-
-            </div>
-
-            <p>
-                Podios históricos del voleibol
-                en los Juegos Olímpicos.
-            </p>
+            <button
+                type="button"
+                class="competition"
+                onclick="mostrarOlimpicos('femenino')"
+            >
+                OLÍMPICOS FEMENINO
+            </button>
 
         </div>
 
@@ -1532,292 +983,130 @@
         <!-- OLÍMPICOS MASCULINO -->
 
         <div
-            id="olympicMen"
-            class="history-content">
+            id="olimpicos-masculino"
+            class="subcompetition-panel"
+        >
+
+            <div class="competition-buttons">
+
+                <button
+                    type="button"
+                    class="competition active"
+                    onclick="mostrarAno('olimpicos-m-2024')"
+                >
+                    París 2024
+                </button>
+
+                <button
+                    type="button"
+                    class="competition"
+                    onclick="mostrarAno('olimpicos-m-2020')"
+                >
+                    Tokio 2020
+                </button>
+
+                <button
+                    type="button"
+                    class="competition"
+                    onclick="mostrarAno('olimpicos-m-2016')"
+                >
+                    Río 2016
+                </button>
+
+            </div>
 
 
-            <div class="vnl-history">
+            <div
+                id="olimpicos-m-2024"
+                class="vnl-year competition-result"
+            >
 
+                <div class="vnl-year-number">
+                    2024
+                </div>
 
-                <div class="vnl-year">
+                <div class="vnl-result">
 
-                    <div class="vnl-year-number">
-                        2024
+                    <div>
+                        <span>1.º PUESTO</span>
+                        <strong>Francia</strong>
                     </div>
 
-                    <div class="vnl-result">
+                    <div>
+                        <span>2.º PUESTO</span>
+                        <strong>Polonia</strong>
+                    </div>
 
-                        <div>
-                            <span>1.º</span>
-                            <strong>Francia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Polonia</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Estados Unidos</strong>
-                        </div>
-
+                    <div>
+                        <span>3.º PUESTO</span>
+                        <strong>Estados Unidos</strong>
                     </div>
 
                 </div>
 
+            </div>
 
-                <div class="vnl-year">
 
-                    <div class="vnl-year-number">
-                        2020
+            <div
+                id="olimpicos-m-2020"
+                class="vnl-year competition-result"
+                style="display:none;"
+            >
+
+                <div class="vnl-year-number">
+                    2020
+                </div>
+
+                <div class="vnl-result">
+
+                    <div>
+                        <span>1.º PUESTO</span>
+                        <strong>Francia</strong>
                     </div>
 
-                    <div class="vnl-result">
+                    <div>
+                        <span>2.º PUESTO</span>
+                        <strong>ROC</strong>
+                    </div>
 
-                        <div>
-                            <span>1.º</span>
-                            <strong>Francia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>ROC</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Argentina</strong>
-                        </div>
-
+                    <div>
+                        <span>3.º PUESTO</span>
+                        <strong>Argentina</strong>
                     </div>
 
                 </div>
 
+            </div>
 
-                <div class="vnl-year">
 
-                    <div class="vnl-year-number">
-                        2016
+            <div
+                id="olimpicos-m-2016"
+                class="vnl-year competition-result"
+                style="display:none;"
+            >
+
+                <div class="vnl-year-number">
+                    2016
+                </div>
+
+                <div class="vnl-result">
+
+                    <div>
+                        <span>1.º PUESTO</span>
+                        <strong>Brasil</strong>
                     </div>
 
-                    <div class="vnl-result">
+                    <div>
+                        <span>2.º PUESTO</span>
+                        <strong>Italia</strong>
+                    </div>
 
-                        <div>
-                            <span>1.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Italia</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Estados Unidos</strong>
-                        </div>
-
+                    <div>
+                        <span>3.º PUESTO</span>
+                        <strong>Estados Unidos</strong>
                     </div>
 
                 </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        2012
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Rusia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Italia</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        2008
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Estados Unidos</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Rusia</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        2004
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Italia</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Rusia</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        2000
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Yugoslavia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Rusia</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Italia</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        1996
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Países Bajos</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Italia</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Yugoslavia</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        1992
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Países Bajos</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Estados Unidos</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        1988
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Estados Unidos</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Unión Soviética</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Argentina</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
 
             </div>
 
@@ -1828,293 +1117,131 @@
         <!-- OLÍMPICOS FEMENINO -->
 
         <div
-            id="olympicWomen"
-            class="history-content"
-            style="display:none;">
+            id="olimpicos-femenino"
+            class="subcompetition-panel"
+            style="display:none;"
+        >
+
+            <div class="competition-buttons">
+
+                <button
+                    type="button"
+                    class="competition active"
+                    onclick="mostrarAno('olimpicos-f-2024')"
+                >
+                    París 2024
+                </button>
+
+                <button
+                    type="button"
+                    class="competition"
+                    onclick="mostrarAno('olimpicos-f-2020')"
+                >
+                    Tokio 2020
+                </button>
+
+                <button
+                    type="button"
+                    class="competition"
+                    onclick="mostrarAno('olimpicos-f-2016')"
+                >
+                    Río 2016
+                </button>
+
+            </div>
 
 
-            <div class="vnl-history">
+            <div
+                id="olimpicos-f-2024"
+                class="vnl-year competition-result"
+            >
 
+                <div class="vnl-year-number">
+                    2024
+                </div>
 
-                <div class="vnl-year">
+                <div class="vnl-result">
 
-                    <div class="vnl-year-number">
-                        2024
+                    <div>
+                        <span>1.º PUESTO</span>
+                        <strong>Italia</strong>
                     </div>
 
-                    <div class="vnl-result">
+                    <div>
+                        <span>2.º PUESTO</span>
+                        <strong>Estados Unidos</strong>
+                    </div>
 
-                        <div>
-                            <span>1.º</span>
-                            <strong>Italia</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Estados Unidos</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
+                    <div>
+                        <span>3.º PUESTO</span>
+                        <strong>Brasil</strong>
                     </div>
 
                 </div>
 
+            </div>
 
-                <div class="vnl-year">
 
-                    <div class="vnl-year-number">
-                        2020
+            <div
+                id="olimpicos-f-2020"
+                class="vnl-year competition-result"
+                style="display:none;"
+            >
+
+                <div class="vnl-year-number">
+                    2020
+                </div>
+
+                <div class="vnl-result">
+
+                    <div>
+                        <span>1.º PUESTO</span>
+                        <strong>Estados Unidos</strong>
                     </div>
 
-                    <div class="vnl-result">
+                    <div>
+                        <span>2.º PUESTO</span>
+                        <strong>Brasil</strong>
+                    </div>
 
-                        <div>
-                            <span>1.º</span>
-                            <strong>Estados Unidos</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Serbia</strong>
-                        </div>
-
+                    <div>
+                        <span>3.º PUESTO</span>
+                        <strong>Serbia</strong>
                     </div>
 
                 </div>
 
+            </div>
 
-                <div class="vnl-year">
 
-                    <div class="vnl-year-number">
-                        2016
+            <div
+                id="olimpicos-f-2016"
+                class="vnl-year competition-result"
+                style="display:none;"
+            >
+
+                <div class="vnl-year-number">
+                    2016
+                </div>
+
+                <div class="vnl-result">
+
+                    <div>
+                        <span>1.º PUESTO</span>
+                        <strong>China</strong>
                     </div>
 
-                    <div class="vnl-result">
+                    <div>
+                        <span>2.º PUESTO</span>
+                        <strong>Serbia</strong>
+                    </div>
 
-                        <div>
-                            <span>1.º</span>
-                            <strong>China</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Serbia</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Estados Unidos</strong>
-                        </div>
-
+                    <div>
+                        <span>3.º PUESTO</span>
+                        <strong>Estados Unidos</strong>
                     </div>
 
                 </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        2012
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Estados Unidos</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Japón</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        2008
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Estados Unidos</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>China</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        2004
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>China</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Rusia</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Cuba</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        2000
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Cuba</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Rusia</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        1996
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Cuba</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>China</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Brasil</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        1992
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Cuba</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Equipo Unificado</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>Estados Unidos</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="vnl-year">
-
-                    <div class="vnl-year-number">
-                        1988
-                    </div>
-
-                    <div class="vnl-result">
-
-                        <div>
-                            <span>1.º</span>
-                            <strong>Unión Soviética</strong>
-                        </div>
-
-                        <div>
-                            <span>2.º</span>
-                            <strong>Perú</strong>
-                        </div>
-
-                        <div class="gold">
-                            <span>3.º</span>
-                            <strong>China</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
 
             </div>
 
@@ -2122,309 +1249,280 @@
 
     </div>
 
+</section>
 
 
-    <!-- =================================================
-         PLAYERS
-    ================================================== -->
 
-    <section id="players">
+<!-- =====================================================
+     PLAYERS
+====================================================== -->
 
-        <div class="section-title">
+<section id="players">
 
-            <div>
+    <div class="section-title">
 
-                <h2>
-                    <span>PLAYERS</span>
-                </h2>
+        <div>
 
-                <div class="section-line"></div>
+            <h2>
+                <span>PLAYERS</span>
+            </h2>
 
-            </div>
+            <div class="section-line"></div>
+
+        </div>
+
+        <p>
+            Conoce las posiciones y características
+            de los jugadores de voleibol.
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <strong>POSICIÓN</strong>
+
+            <h3>OPUESTO</h3>
 
             <p>
-                Conoce las posiciones y características
-                de los jugadores de voleibol.
+                Jugador especializado en ataque
+                y bloqueo.
             </p>
 
-        </div>
+            <div class="position-training">
 
-
-        <div class="cards">
-
-
-            <div class="card">
-
-                <strong>
-                    POSICIÓN
-                </strong>
-
-                <h3>
-                    OPUESTO
-                </h3>
+                <strong>ENTRENAMIENTO</strong>
 
                 <p>
-                    Jugador especializado en ataque
-                    y bloqueo.
+                    Potencia de salto, ataque y bloqueo.
                 </p>
-
-                <div class="position-training">
-
-                    <strong>
-                        ENTRENAMIENTO
-                    </strong>
-
-                    <p>
-                        Potencia de salto,
-                        ataque y bloqueo.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="card">
-
-                <strong>
-                    POSICIÓN
-                </strong>
-
-                <h3>
-                    CENTRAL
-                </h3>
-
-                <p>
-                    Especialista en bloqueos
-                    y ataques rápidos.
-                </p>
-
-                <div class="position-training">
-
-                    <strong>
-                        ENTRENAMIENTO
-                    </strong>
-
-                    <p>
-                        Bloqueo, velocidad y salto.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="card">
-
-                <strong>
-                    POSICIÓN
-                </strong>
-
-                <h3>
-                    LÍBERO
-                </h3>
-
-                <p>
-                    Especialista en recepción
-                    y defensa.
-                </p>
-
-                <div class="position-training">
-
-                    <strong>
-                        ENTRENAMIENTO
-                    </strong>
-
-                    <p>
-                        Recepción, defensa y reacción.
-                    </p>
-
-                </div>
 
             </div>
 
         </div>
 
-    </section>
 
+        <div class="card">
 
+            <strong>POSICIÓN</strong>
 
-    <!-- =================================================
-         ENTRENADOR IA
-    ================================================== -->
-
-    <section
-        id="entrenador"
-        class="coach-section">
-
-
-        <div class="section-title">
-
-            <div>
-
-                <h2>
-                    ENTRENADOR <span>IA</span>
-                </h2>
-
-                <div class="section-line"></div>
-
-            </div>
+            <h3>CENTRAL</h3>
 
             <p>
-                Obtén consejos y recomendaciones
-                para mejorar tu juego.
+                Especialista en bloqueos y ataques
+                rápidos.
             </p>
 
-        </div>
+            <div class="position-training">
 
+                <strong>ENTRENAMIENTO</strong>
 
-
-        <div class="coach-layout">
-
-
-            <div class="coach-menu">
-
-                <button>
-                    Entrenamiento
-                </button>
-
-                <button>
-                    Ataque
-                </button>
-
-                <button>
-                    Defensa
-                </button>
-
-                <button>
-                    Recepción
-                </button>
-
-                <button>
-                    Salto
-                </button>
-
-                <button>
-                    Estrategia
-                </button>
-
-            </div>
-
-
-
-            <div class="coach-chat">
-
-
-                <div class="coach-header">
-
-                    <strong>
-                        VÓLEYRETRO COACH
-                    </strong>
-
-                    <div class="coach-status">
-                        Online
-                    </div>
-
-                </div>
-
-
-
-                <div
-                    id="messages"
-                    class="messages">
-
-                    <div class="message bot">
-
-                        <b>
-                            Entrenador:
-                        </b>
-
-                        <br>
-
-                        ¡Hola! Soy tu entrenador virtual.
-                        Pregúntame algo sobre voleibol.
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="coach-input">
-
-                    <textarea
-                        id="question"
-                        rows="2"
-                        placeholder="Escribe tu pregunta..."></textarea>
-
-
-                    <button
-                        id="sendQuestion"
-                        class="btn primary">
-
-                        Enviar
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =================================================
-         CONSEJO DEL DÍA
-    ================================================== -->
-
-    <section>
-
-        <div class="section-title">
-
-            <div>
-
-                <h2>
-                    CONSEJO DEL <span>DÍA</span>
-                </h2>
-
-                <div class="section-line"></div>
+                <p>
+                    Bloqueo, velocidad y salto.
+                </p>
 
             </div>
 
         </div>
 
 
-        <div class="daily-tip">
+        <div class="card">
 
-            <div class="daily-tip-label">
-                CONSEJO
-            </div>
+            <strong>POSICIÓN</strong>
 
+            <h3>LÍBERO</h3>
 
-            <p id="dailyTip">
-
-                La comunicación es una de las claves
-                para que un equipo funcione correctamente.
-
+            <p>
+                Especialista en recepción y defensa.
             </p>
 
+            <div class="position-training">
 
-            <button
-                id="newTip"
-                class="btn secondary">
+                <strong>ENTRENAMIENTO</strong>
 
-                Nuevo consejo
+                <p>
+                    Recepción, defensa y reacción.
+                </p>
 
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ENTRENADOR IA
+====================================================== -->
+
+<section
+    id="entrenador"
+    class="coach-section"
+>
+
+    <div class="section-title">
+
+        <div>
+
+            <h2>
+                ENTRENADOR <span>IA</span>
+            </h2>
+
+            <div class="section-line"></div>
+
+        </div>
+
+        <p>
+            Obtén consejos y recomendaciones
+            para mejorar tu juego.
+        </p>
+
+    </div>
+
+
+    <div class="coach-layout">
+
+
+        <div class="coach-menu">
+
+            <button type="button">
+                Entrenamiento
+            </button>
+
+            <button type="button">
+                Ataque
+            </button>
+
+            <button type="button">
+                Defensa
+            </button>
+
+            <button type="button">
+                Recepción
+            </button>
+
+            <button type="button">
+                Salto
+            </button>
+
+            <button type="button">
+                Estrategia
             </button>
 
         </div>
 
-    </section>
+
+        <div class="coach-chat">
+
+            <div class="coach-header">
+
+                <strong>
+                    VÓLEYRETRO COACH
+                </strong>
+
+                <div class="coach-status">
+                    Online
+                </div>
+
+            </div>
+
+
+            <div
+                id="messages"
+                class="messages"
+            >
+
+                <div class="message bot">
+
+                    <b>Entrenador:</b>
+
+                    <br>
+
+                    ¡Hola! Soy tu entrenador virtual.
+                    Pregúntame algo sobre voleibol.
+
+                </div>
+
+            </div>
+
+
+            <div class="coach-input">
+
+                <textarea
+                    id="question"
+                    rows="2"
+                    placeholder="Escribe tu pregunta..."
+                ></textarea>
+
+                <button
+                    id="sendQuestion"
+                    class="btn primary"
+                    type="button"
+                >
+                    Enviar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONSEJO DEL DÍA
+====================================================== -->
+
+<section>
+
+    <div class="section-title">
+
+        <div>
+
+            <h2>
+                CONSEJO DEL <span>DÍA</span>
+            </h2>
+
+            <div class="section-line"></div>
+
+        </div>
+
+    </div>
+
+
+    <div class="daily-tip">
+
+        <div class="daily-tip-label">
+            CONSEJO
+        </div>
+
+        <p id="dailyTip">
+            La comunicación es una de las claves
+            para que un equipo funcione correctamente.
+        </p>
+
+        <button
+            id="newTip"
+            class="btn secondary"
+            type="button"
+        >
+            Nuevo consejo
+        </button>
+
+    </div>
+
+</section>
 
 </main>
 
@@ -2438,20 +1536,18 @@
 
     <div class="login-box">
 
-
         <button
             id="closeLogin"
-            class="close-login">
-
+            class="close-login"
+            type="button"
+        >
             ×
-
         </button>
 
 
         <h2>
             Iniciar <span>sesión</span>
         </h2>
-
 
         <p>
             Accede a tu cuenta de VóleyRetro.
@@ -2461,21 +1557,23 @@
         <input
             type="email"
             id="email"
-            placeholder="Correo electrónico">
+            placeholder="Correo electrónico"
+        >
 
 
         <input
             type="password"
             id="password"
-            placeholder="Contraseña">
+            placeholder="Contraseña"
+        >
 
 
         <button
             id="emailLogin"
-            class="btn primary">
-
+            class="btn primary"
+            type="button"
+        >
             Iniciar sesión
-
         </button>
 
 
@@ -2484,10 +1582,11 @@
         </div>
 
 
-        <button id="googleLogin">
-
+        <button
+            id="googleLogin"
+            type="button"
+        >
             Continuar con Google
-
         </button>
 
     </div>
@@ -2514,7 +1613,6 @@
 
     </div>
 
-
     <p>
         © 2026 VóleyRetro.
         Todos los derechos reservados.
@@ -2525,11 +1623,403 @@
 
 
 <!-- =====================================================
-     JAVASCRIPT
+     CONEXIONES DE LOS BOTONES
+====================================================== -->
+
+<script>
+
+function ocultarTodos(selector) {
+
+    document
+        .querySelectorAll(selector)
+        .forEach(elemento => {
+
+            elemento.style.display = "none";
+
+        });
+
+}
+
+
+/* =====================================================
+   COMPETICIONES PRINCIPALES
+===================================================== */
+
+function mostrarCompeticion(competicion) {
+
+    document
+        .querySelectorAll(".competition-panel")
+        .forEach(panel => {
+
+            panel.style.display = "none";
+
+        });
+
+
+    const panel = document.getElementById(
+        "competicion-" + competicion
+    );
+
+    if (panel) {
+
+        panel.style.display = "block";
+
+    }
+
+
+    document
+        .querySelectorAll(
+            "#calendario > .competition-buttons .competition"
+        )
+        .forEach(boton => {
+
+            boton.classList.remove("active");
+
+        });
+
+
+    const botones = document.querySelectorAll(
+        "#calendario > .competition-buttons .competition"
+    );
+
+
+    botones.forEach(boton => {
+
+        if (
+            boton.textContent
+                .trim()
+                .toLowerCase()
+                .includes(
+                    competicion === "vnl"
+                        ? "vnl"
+                        : competicion === "mundial"
+                        ? "mundial"
+                        : "olímpicos"
+                )
+        ) {
+
+            boton.classList.add("active");
+
+        }
+
+    });
+
+}
+
+
+
+/* =====================================================
+   VNL MASCULINA / FEMENINA
+===================================================== */
+
+function mostrarVNL(tipo) {
+
+    const masculino =
+        document.getElementById("vnl-masculino");
+
+    const femenino =
+        document.getElementById("vnl-femenino");
+
+
+    masculino.style.display =
+        tipo === "masculino"
+            ? "block"
+            : "none";
+
+
+    femenino.style.display =
+        tipo === "femenino"
+            ? "block"
+            : "none";
+
+
+    const panel =
+        tipo === "masculino"
+            ? masculino
+            : femenino;
+
+
+    mostrarPrimerResultado(panel);
+
+
+    activarBotonRelacionado(
+        panel.parentElement,
+        tipo === "masculino"
+            ? "VNL MASCULINA"
+            : "VNL FEMENINA"
+    );
+
+}
+
+
+
+/* =====================================================
+   MUNDIAL MASCULINO / FEMENINO
+===================================================== */
+
+function mostrarMundial(tipo) {
+
+    const masculino =
+        document.getElementById("mundial-masculino");
+
+    const femenino =
+        document.getElementById("mundial-femenino");
+
+
+    masculino.style.display =
+        tipo === "masculino"
+            ? "block"
+            : "none";
+
+
+    femenino.style.display =
+        tipo === "femenino"
+            ? "block"
+            : "none";
+
+
+    const panel =
+        tipo === "masculino"
+            ? masculino
+            : femenino;
+
+
+    mostrarPrimerResultado(panel);
+
+
+    activarBotonRelacionado(
+        panel.parentElement,
+        tipo === "masculino"
+            ? "MUNDIAL MASCULINO"
+            : "MUNDIAL FEMENINO"
+    );
+
+}
+
+
+
+/* =====================================================
+   OLÍMPICOS MASCULINO / FEMENINO
+===================================================== */
+
+function mostrarOlimpicos(tipo) {
+
+    const masculino =
+        document.getElementById("olimpicos-masculino");
+
+    const femenino =
+        document.getElementById("olimpicos-femenino");
+
+
+    masculino.style.display =
+        tipo === "masculino"
+            ? "block"
+            : "none";
+
+
+    femenino.style.display =
+        tipo === "femenino"
+            ? "block"
+            : "none";
+
+
+    const panel =
+        tipo === "masculino"
+            ? masculino
+            : femenino;
+
+
+    mostrarPrimerResultado(panel);
+
+
+    activarBotonRelacionado(
+        panel.parentElement,
+        tipo === "masculino"
+            ? "OLÍMPICOS MASCULINO"
+            : "OLÍMPICOS FEMENINO"
+    );
+
+}
+
+
+
+/* =====================================================
+   BOTONES DE AÑO
+===================================================== */
+
+function mostrarAno(id) {
+
+    const elemento =
+        document.getElementById(id);
+
+
+    if (!elemento) {
+
+        console.error(
+            "No se encontró el resultado:",
+            id
+        );
+
+        return;
+
+    }
+
+
+    const panel =
+        elemento.closest(
+            ".subcompetition-panel"
+        );
+
+
+    if (!panel) return;
+
+
+    panel
+        .querySelectorAll(
+            ".competition-result"
+        )
+        .forEach(resultado => {
+
+            resultado.style.display = "none";
+
+        });
+
+
+    elemento.style.display = "grid";
+
+
+    const boton =
+        document.querySelector(
+            '[onclick="mostrarAno(\'' +
+            id +
+            '\')"]'
+        );
+
+
+    if (boton) {
+
+        boton.parentElement
+            .querySelectorAll(".competition")
+            .forEach(b => {
+
+                b.classList.remove("active");
+
+            });
+
+        boton.classList.add("active");
+
+    }
+
+}
+
+
+
+/* =====================================================
+   MOSTRAR PRIMER RESULTADO
+===================================================== */
+
+function mostrarPrimerResultado(panel) {
+
+    if (!panel) return;
+
+
+    const resultados =
+        panel.querySelectorAll(
+            ".competition-result"
+        );
+
+
+    resultados.forEach(
+        (resultado, index) => {
+
+            resultado.style.display =
+                index === 0
+                    ? "grid"
+                    : "none";
+
+        }
+    );
+
+
+    const botones =
+        panel.querySelectorAll(
+            ".competition-buttons .competition"
+        );
+
+
+    botones.forEach(
+        (boton, index) => {
+
+            boton.classList.toggle(
+                "active",
+                index === 0
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   ACTIVAR BOTÓN
+===================================================== */
+
+function activarBotonRelacionado(
+    contenedor,
+    texto
+) {
+
+    const botones =
+        contenedor.querySelectorAll(
+            ".competition"
+        );
+
+
+    botones.forEach(boton => {
+
+        boton.classList.toggle(
+            "active",
+            boton.textContent
+                .trim()
+                .toUpperCase() ===
+                texto.toUpperCase()
+        );
+
+    });
+
+}
+
+
+
+/* =====================================================
+   ESTADO INICIAL
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        mostrarCompeticion("vnl");
+
+        mostrarVNL("masculino");
+
+    }
+);
+
+</script>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT EXTERNO
 ====================================================== -->
 
 <script src="script.js"></script>
 
+
 </body>
 
 </html>
+```
