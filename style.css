@@ -127,6 +127,10 @@ header {
 }
 
 .logo span {
+    color: var(--white);
+}
+
+.logo span span {
     color: var(--red);
 }
 
@@ -155,10 +159,9 @@ header {
 nav {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
 
     gap: 22px;
-
-    margin-left: auto;
 }
 
 nav a {
@@ -170,8 +173,6 @@ nav a {
     font-weight: 700;
 
     transition: 0.25s ease;
-
-    white-space: nowrap;
 }
 
 nav a:hover {
@@ -201,7 +202,7 @@ nav a:hover::after {
 
 /* =====================================================
    BOTÓN LOGIN
-   QUEDA JUSTO AL LADO DE ENTRENADOR
+   JUNTO A ENTRENADOR
 ===================================================== */
 
 .login-btn {
@@ -217,25 +218,18 @@ nav a:hover::after {
     font-weight: 800;
     font-size: 0.85rem;
 
+    white-space: nowrap;
+
     transition:
         background 0.25s ease,
         color 0.25s ease,
-        transform 0.25s ease,
-        border-color 0.25s ease;
-
-    white-space: nowrap;
-
-    flex-shrink: 0;
+        transform 0.25s ease;
 }
 
 .login-btn:hover {
     background: var(--red);
-
-    border-color: var(--red);
-
     color: white;
-
-    transform: translateY(-1px);
+    transform: translateY(-2px);
 }
 
 
@@ -355,11 +349,9 @@ nav a:hover::after {
     transition:
         transform 0.2s ease,
         background 0.2s ease,
-        box-shadow 0.2s ease,
         border-color 0.2s ease,
-        color 0.2s ease;
-
-    cursor: pointer;
+        color 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .btn:hover {
@@ -368,7 +360,6 @@ nav a:hover::after {
 
 .btn.primary {
     background: var(--red);
-
     color: white;
 
     box-shadow:
@@ -389,15 +380,12 @@ nav a:hover::after {
 
 .btn.secondary:hover {
     border-color: var(--red);
-
     color: var(--red);
 }
 
 .btn:disabled {
     opacity: 0.5;
-
     cursor: not-allowed;
-
     transform: none;
 }
 
@@ -408,7 +396,6 @@ nav a:hover::after {
 
 section {
     width: min(1200px, 92%);
-
     margin: auto;
 
     padding: 90px 0;
@@ -418,7 +405,6 @@ section {
     display: flex;
 
     justify-content: space-between;
-
     align-items: flex-end;
 
     gap: 20px;
@@ -622,82 +608,7 @@ section {
    COMPETICIONES
 ===================================================== */
 
-/*
-   IMPORTANTE:
-   Ahora VNL, Mundial y Olímpicos son <a>
-   en lugar de <button>.
-
-   Por eso usamos tanto .competition como
-   .competition:visited para conservar el diseño.
-*/
-
-.competition-buttons {
-    display: flex;
-
-    gap: 10px;
-
-    flex-wrap: wrap;
-
-    margin-bottom: 30px;
-}
-
-.competition {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 10px 18px;
-
-    border: 1px solid var(--border);
-
-    background: #111;
-
-    color: #aaa;
-
-    border-radius: 7px;
-
-    font-size: 0.8rem;
-
-    font-weight: 900;
-
-    text-decoration: none;
-
-    cursor: pointer;
-
-    transition:
-        0.25s ease;
-
-    white-space: nowrap;
-}
-
-.competition:visited {
-    color: #aaa;
-}
-
-.competition:hover {
-    background: var(--red);
-
-    border-color: var(--red);
-
-    color: white;
-
-    transform: translateY(-2px);
-}
-
-.competition.active {
-    background: var(--red);
-
-    border-color: var(--red);
-
-    color: white;
-}
-
-
-/* =====================================================
-   BOTONES OLÍMPICOS
-===================================================== */
-
+.competition-buttons,
 .olympic-buttons {
     display: flex;
 
@@ -708,12 +619,8 @@ section {
     margin-bottom: 30px;
 }
 
+.competition,
 .olympic-button {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
     padding: 10px 18px;
 
     border: 1px solid var(--border);
@@ -728,19 +635,13 @@ section {
 
     font-weight: 900;
 
-    text-decoration: none;
-
-    cursor: pointer;
-
-    transition: 0.25s ease;
+    transition:
+        0.25s ease,
+        transform 0.2s ease;
 }
 
-.olympic-button:visited {
-    color: #aaa;
-}
-
-.olympic-button:hover,
-.olympic-button.active {
+.competition:hover,
+.olympic-button:hover {
     background: var(--red);
 
     border-color: var(--red);
@@ -750,12 +651,71 @@ section {
     transform: translateY(-2px);
 }
 
+.competition.active,
+.olympic-button.active {
+    background: var(--red);
+
+    border-color: var(--red);
+
+    color: white;
+}
+
 
 /* =====================================================
-   HISTORIA / VNL / OLÍMPICOS
+   BOTONES DE AÑOS
 ===================================================== */
 
-.vnl-history {
+.year-buttons {
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin: 20px 0 30px;
+}
+
+.year-button {
+    padding: 9px 16px;
+
+    background: #111;
+
+    color: #aaa;
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+
+    font-size: 0.78rem;
+
+    font-weight: 900;
+
+    transition: 0.25s ease;
+}
+
+.year-button:hover,
+.year-button.active {
+    background: var(--red);
+
+    color: white;
+
+    border-color: var(--red);
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   HISTORIA VNL
+===================================================== */
+
+.vnl-history,
+#vnlHistory,
+#vnlWomenHistory,
+#olympicHistory,
+#olympicWomenHistory,
+#worldHistory,
+#worldWomenHistory {
     display: flex;
 
     flex-direction: column;
@@ -775,6 +735,14 @@ section {
     border-radius: 10px;
 
     overflow: hidden;
+
+    transition: 0.25s ease;
+}
+
+.vnl-year:hover {
+    border-color: rgba(229, 43, 43, 0.45);
+
+    transform: translateY(-2px);
 }
 
 .vnl-year-number {
@@ -832,6 +800,151 @@ section {
 
 
 /* =====================================================
+   CLASIFICACIÓN / PODIOS
+===================================================== */
+
+.podium {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+.podium-card {
+    background: #111;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    padding: 20px;
+
+    text-align: center;
+
+    transition: 0.25s ease;
+}
+
+.podium-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(229, 43, 43, 0.5);
+}
+
+.podium-card .position {
+    font-size: 0.7rem;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    color: #777;
+
+    margin-bottom: 8px;
+}
+
+.podium-card .country {
+    font-size: 1.2rem;
+
+    font-weight: 900;
+}
+
+.podium-card.first {
+    border-top: 3px solid #f2c94c;
+}
+
+.podium-card.second {
+    border-top: 3px solid #aaa;
+}
+
+.podium-card.third {
+    border-top: 3px solid #a66a3f;
+}
+
+.podium-card.first .country {
+    color: #f2c94c;
+}
+
+
+/* =====================================================
+   COMPETICIONES FEMENINAS
+===================================================== */
+
+.women-section {
+    margin-top: 60px;
+
+    padding-top: 40px;
+
+    border-top: 1px solid var(--border);
+}
+
+.women-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+.women-title h3 {
+    font-size: 1.5rem;
+
+    text-transform: uppercase;
+}
+
+.women-title span {
+    color: var(--red);
+}
+
+
+/* =====================================================
+   SELECTOR MASCULINO / FEMENINO
+===================================================== */
+
+.gender-buttons {
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 25px;
+}
+
+.gender-button {
+    padding: 10px 18px;
+
+    border: 1px solid var(--border);
+
+    background: #111;
+
+    color: #aaa;
+
+    border-radius: 7px;
+
+    font-size: 0.8rem;
+
+    font-weight: 900;
+
+    transition: 0.25s ease;
+}
+
+.gender-button:hover,
+.gender-button.active {
+    background: var(--red);
+
+    color: white;
+
+    border-color: var(--red);
+}
+
+
+/* =====================================================
    ENTRENADOR IA
 ===================================================== */
 
@@ -849,7 +962,7 @@ section {
 
 
 /* =====================================================
-   MENÚ ENTRENADOR
+   MENÚ DEL ENTRENADOR
 ===================================================== */
 
 .coach-menu {
@@ -1029,7 +1142,6 @@ section {
 }
 
 @keyframes messageIn {
-
     from {
         opacity: 0;
         transform: translateY(7px);
@@ -1140,7 +1252,6 @@ section {
 }
 
 @keyframes modalIn {
-
     from {
         opacity: 0;
         transform: translateY(15px) scale(0.97);
@@ -1264,6 +1375,8 @@ section {
 
 #googleLogin:hover {
     background: #ddd;
+
+    transform: translateY(-2px);
 }
 
 
@@ -1368,7 +1481,7 @@ footer span {
 
 
 /* =====================================================
-   SELECCIÓN
+   SELECCIÓN DE TEXTO
 ===================================================== */
 
 ::selection {
@@ -1394,12 +1507,6 @@ footer span {
 
     nav a {
         font-size: 0.78rem;
-    }
-
-    .login-btn {
-        font-size: 0.75rem;
-
-        padding: 8px 12px;
     }
 
     .cards {
@@ -1428,6 +1535,16 @@ footer span {
 
     .hero-content h1 {
         letter-spacing: -2px;
+    }
+
+    .vnl-result {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+    .podium {
+        grid-template-columns:
+            repeat(3, 1fr);
     }
 }
 
@@ -1466,8 +1583,6 @@ footer span {
         flex-wrap: wrap;
 
         gap: 12px;
-
-        margin-left: 0;
     }
 
     nav a {
@@ -1476,8 +1591,6 @@ footer span {
 
     .login-btn {
         padding: 7px 12px;
-
-        font-size: 0.72rem;
     }
 
     .hero {
@@ -1530,26 +1643,6 @@ footer span {
         min-height: auto;
     }
 
-    .competition-buttons {
-        gap: 8px;
-    }
-
-    .competition {
-        padding: 9px 14px;
-
-        font-size: 0.72rem;
-    }
-
-    .olympic-buttons {
-        gap: 8px;
-    }
-
-    .olympic-button {
-        padding: 9px 14px;
-
-        font-size: 0.72rem;
-    }
-
     .vnl-year {
         grid-template-columns: 1fr;
     }
@@ -1562,6 +1655,10 @@ footer span {
         grid-template-columns: 1fr;
 
         padding: 15px;
+    }
+
+    .podium {
+        grid-template-columns: 1fr;
     }
 
     .coach-menu {
@@ -1593,6 +1690,21 @@ footer span {
     .login-box {
         padding: 25px;
     }
+
+    .competition-buttons,
+    .olympic-buttons,
+    .gender-buttons,
+    .year-buttons {
+        gap: 8px;
+    }
+
+    .competition,
+    .olympic-button,
+    .gender-button,
+    .year-button {
+        padding: 9px 13px;
+        font-size: 0.72rem;
+    }
 }
 
 
@@ -1622,12 +1734,6 @@ footer span {
         font-size: 0.65rem;
     }
 
-    .login-btn {
-        font-size: 0.65rem;
-
-        padding: 7px 9px;
-    }
-
     .hero-content h1 {
         font-size: 3rem;
     }
@@ -1640,8 +1746,9 @@ footer span {
         padding: 20px;
     }
 
-    .competition,
-    .olympic-button {
-        width: 100%;
+    .login-btn {
+        font-size: 0.7rem;
+
+        padding: 7px 10px;
     }
 }
