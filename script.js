@@ -5,6 +5,222 @@
 
 
 /* =====================================================
+   DATOS DE COMPETICIONES
+===================================================== */
+
+const competitions = {
+
+    /* =========================
+       VNL MASCULINA
+    ========================= */
+
+    vnlMen: {
+        2025: {
+            champion: "Italia",
+            second: "Polonia",
+            third: "Brasil"
+        },
+        2024: {
+            champion: "Francia",
+            second: "Japón",
+            third: "Polonia"
+        },
+        2023: {
+            champion: "Polonia",
+            second: "Estados Unidos",
+            third: "Japón"
+        },
+        2022: {
+            champion: "Francia",
+            second: "Estados Unidos",
+            third: "Polonia"
+        },
+        2021: {
+            champion: "Brasil",
+            second: "Polonia",
+            third: "Francia"
+        }
+    },
+
+
+    /* =========================
+       VNL FEMENINA
+    ========================= */
+
+    vnlWomen: {
+        2025: {
+            champion: "Italia",
+            second: "Brasil",
+            third: "Polonia"
+        },
+        2024: {
+            champion: "Italia",
+            second: "Japón",
+            third: "Polonia"
+        },
+        2023: {
+            champion: "Turquía",
+            second: "China",
+            third: "Estados Unidos"
+        },
+        2022: {
+            champion: "Italia",
+            second: "Brasil",
+            third: "Serbia"
+        },
+        2021: {
+            champion: "Estados Unidos",
+            second: "Brasil",
+            third: "Turquía"
+        }
+    },
+
+
+    /* =========================
+       MUNDIAL MASCULINO
+    ========================= */
+
+    worldMen: {
+        2022: {
+            champion: "Italia",
+            second: "Polonia",
+            third: "Brasil"
+        },
+        2018: {
+            champion: "Polonia",
+            second: "Brasil",
+            third: "Estados Unidos"
+        },
+        2014: {
+            champion: "Polonia",
+            second: "Brasil",
+            third: "Alemania"
+        },
+        2010: {
+            champion: "Brasil",
+            second: "Cuba",
+            third: "Serbia"
+        },
+        2006: {
+            champion: "Brasil",
+            second: "Polonia",
+            third: "Serbia"
+        }
+    },
+
+
+    /* =========================
+       MUNDIAL FEMENINO
+    ========================= */
+
+    worldWomen: {
+        2022: {
+            champion: "Serbia",
+            second: "Brasil",
+            third: "Italia"
+        },
+        2018: {
+            champion: "Serbia",
+            second: "Italia",
+            third: "China"
+        },
+        2014: {
+            champion: "Estados Unidos",
+            second: "China",
+            third: "Brasil"
+        },
+        2010: {
+            champion: "Rusia",
+            second: "Brasil",
+            third: "Japón"
+        },
+        2006: {
+            champion: "Rusia",
+            second: "Brasil",
+            third: "Serbia"
+        }
+    },
+
+
+    /* =========================
+       OLÍMPICOS MASCULINOS
+    ========================= */
+
+    olympicMen: {
+        2024: {
+            champion: "Francia",
+            second: "Polonia",
+            third: "Estados Unidos",
+            city: "París"
+        },
+        2020: {
+            champion: "Francia",
+            second: "ROC",
+            third: "Argentina",
+            city: "Tokio"
+        },
+        2016: {
+            champion: "Brasil",
+            second: "Italia",
+            third: "Estados Unidos",
+            city: "Río de Janeiro"
+        },
+        2012: {
+            champion: "Rusia",
+            second: "Brasil",
+            third: "Italia",
+            city: "Londres"
+        },
+        2008: {
+            champion: "Estados Unidos",
+            second: "Brasil",
+            third: "Rusia",
+            city: "Pekín"
+        }
+    },
+
+
+    /* =========================
+       OLÍMPICOS FEMENINOS
+    ========================= */
+
+    olympicWomen: {
+        2024: {
+            champion: "Italia",
+            second: "Estados Unidos",
+            third: "Brasil",
+            city: "París"
+        },
+        2020: {
+            champion: "Estados Unidos",
+            second: "Brasil",
+            third: "Serbia",
+            city: "Tokio"
+        },
+        2016: {
+            champion: "China",
+            second: "Serbia",
+            third: "Estados Unidos",
+            city: "Río de Janeiro"
+        },
+        2012: {
+            champion: "Brasil",
+            second: "Estados Unidos",
+            third: "Japón",
+            city: "Londres"
+        },
+        2008: {
+            champion: "Brasil",
+            second: "Estados Unidos",
+            third: "China",
+            city: "Pekín"
+        }
+    }
+
+};
+
+
+/* =====================================================
    LOGIN
 ===================================================== */
 
@@ -13,36 +229,42 @@ const loginModal = document.getElementById("loginModal");
 const closeLogin = document.getElementById("closeLogin");
 
 if (loginBtn && loginModal) {
+
     loginBtn.addEventListener("click", () => {
         loginModal.style.display = "grid";
-        document.body.style.overflow = "hidden";
     });
+
 }
 
 if (closeLogin && loginModal) {
+
     closeLogin.addEventListener("click", () => {
         loginModal.style.display = "none";
-        document.body.style.overflow = "";
     });
+
 }
 
 if (loginModal) {
+
     loginModal.addEventListener("click", (event) => {
+
         if (event.target === loginModal) {
             loginModal.style.display = "none";
-            document.body.style.overflow = "";
         }
+
     });
+
 }
 
 
 /* =====================================================
-   LOGIN CON CORREO
+   LOGIN EMAIL
 ===================================================== */
 
 const emailLogin = document.getElementById("emailLogin");
 
 if (emailLogin) {
+
     emailLogin.addEventListener("click", () => {
 
         const email = document.getElementById("email");
@@ -50,333 +272,48 @@ if (emailLogin) {
 
         if (!email || !password) return;
 
-        if (
-            email.value.trim() === "" ||
-            password.value.trim() === ""
-        ) {
-            alert("Completa el correo y la contraseña.");
+        if (email.value.trim() === "" || password.value.trim() === "") {
+
+            alert("Completa todos los campos.");
+
             return;
         }
 
-        alert("Inicio de sesión preparado. Aquí podrás conectar posteriormente tu sistema de usuarios.");
+        alert("Inicio de sesión preparado. Aquí podrás conectar tu sistema de usuarios.");
 
     });
+
 }
 
 
 /* =====================================================
-   LOGIN CON GOOGLE
+   BOTÓN GOOGLE
 ===================================================== */
 
 const googleLogin = document.getElementById("googleLogin");
 
 if (googleLogin) {
+
     googleLogin.addEventListener("click", () => {
 
-        alert(
-            "El inicio de sesión con Google necesita configurarse mediante Firebase u otro servicio de autenticación."
-        );
+        alert("Aquí podrás conectar el inicio de sesión con Google.");
 
     });
+
 }
 
 
 /* =====================================================
-   CERRAR LOGIN CON ESC
+   FUNCIÓN PARA MOSTRAR RESULTADOS
 ===================================================== */
 
-document.addEventListener("keydown", (event) => {
+function showCompetitionResults(container, data, year) {
 
-    if (
-        event.key === "Escape" &&
-        loginModal &&
-        loginModal.style.display === "grid"
-    ) {
-
-        loginModal.style.display = "none";
-        document.body.style.overflow = "";
-
+    if (!container || !data || !data[year]) {
+        return;
     }
 
-});
-
-
-/* =====================================================
-   CALENDARIO / COMPETICIONES
-===================================================== */
-
-
-/*
-   IMPORTANTE:
-
-   Estos datos se muestran directamente en la página.
-   No se utilizan enlaces externos ni páginas inexistentes,
-   por lo que los botones de años no producen error 404.
-*/
-
-
-const competitionData = {
-
-    /* =================================================
-       VNL MASCULINA
-    ================================================= */
-
-    vnlMen: {
-
-        2025: {
-            first: "Italia",
-            second: "Polonia",
-            third: "Brasil"
-        },
-
-        2024: {
-            first: "Francia",
-            second: "Japón",
-            third: "Polonia"
-        },
-
-        2023: {
-            first: "Polonia",
-            second: "Estados Unidos",
-            third: "Japón"
-        },
-
-        2022: {
-            first: "Francia",
-            second: "Estados Unidos",
-            third: "Polonia"
-        },
-
-        2021: {
-            first: "Estados Unidos",
-            second: "Brasil",
-            third: "Francia"
-        },
-
-        2019: {
-            first: "Rusia",
-            second: "Estados Unidos",
-            third: "Polonia"
-        }
-
-    },
-
-
-    /* =================================================
-       VNL FEMENINA
-    ================================================= */
-
-    vnlWomen: {
-
-        2025: {
-            first: "Italia",
-            second: "Brasil",
-            third: "Polonia"
-        },
-
-        2024: {
-            first: "Italia",
-            second: "Japón",
-            third: "Polonia"
-        },
-
-        2023: {
-            first: "Turquía",
-            second: "China",
-            third: "Estados Unidos"
-        },
-
-        2022: {
-            first: "Italia",
-            second: "Brasil",
-            third: "Serbia"
-        },
-
-        2021: {
-            first: "Estados Unidos",
-            second: "Brasil",
-            third: "Turquía"
-        },
-
-        2019: {
-            first: "Estados Unidos",
-            second: "Brasil",
-            third: "China"
-        }
-
-    },
-
-
-    /* =================================================
-       MUNDIAL MASCULINO
-    ================================================= */
-
-    worldMen: {
-
-        2022: {
-            first: "Italia",
-            second: "Polonia",
-            third: "Brasil"
-        },
-
-        2018: {
-            first: "Polonia",
-            second: "Brasil",
-            third: "Estados Unidos"
-        },
-
-        2014: {
-            first: "Polonia",
-            second: "Brasil",
-            third: "Alemania"
-        },
-
-        2010: {
-            first: "Brasil",
-            second: "Cuba",
-            third: "Serbia"
-        },
-
-        2006: {
-            first: "Brasil",
-            second: "Polonia",
-            third: "Bulgaria"
-        }
-
-    },
-
-
-    /* =================================================
-       MUNDIAL FEMENINO
-    ================================================= */
-
-    worldWomen: {
-
-        2022: {
-            first: "Serbia",
-            second: "Brasil",
-            third: "Italia"
-        },
-
-        2018: {
-            first: "Serbia",
-            second: "Italia",
-            third: "China"
-        },
-
-        2014: {
-            first: "Estados Unidos",
-            second: "China",
-            third: "Brasil"
-        },
-
-        2010: {
-            first: "Rusia",
-            second: "Brasil",
-            third: "Japón"
-        },
-
-        2006: {
-            first: "Rusia",
-            second: "Brasil",
-            third: "Serbia"
-        }
-
-    },
-
-
-    /* =================================================
-       JUEGOS OLÍMPICOS MASCULINO
-    ================================================= */
-
-    olympicMen: {
-
-        2024: {
-            first: "Francia",
-            second: "Polonia",
-            third: "Estados Unidos"
-        },
-
-        2020: {
-            first: "Francia",
-            second: "ROC",
-            third: "Argentina"
-        },
-
-        2016: {
-            first: "Brasil",
-            second: "Italia",
-            third: "Estados Unidos"
-        },
-
-        2012: {
-            first: "Rusia",
-            second: "Brasil",
-            third: "Italia"
-        },
-
-        2008: {
-            first: "Estados Unidos",
-            second: "Brasil",
-            third: "Rusia"
-        }
-
-    },
-
-
-    /* =================================================
-       JUEGOS OLÍMPICOS FEMENINO
-    ================================================= */
-
-    olympicWomen: {
-
-        2024: {
-            first: "Italia",
-            second: "Estados Unidos",
-            third: "Brasil"
-        },
-
-        2020: {
-            first: "Estados Unidos",
-            second: "Brasil",
-            third: "Serbia"
-        },
-
-        2016: {
-            first: "China",
-            second: "Serbia",
-            third: "Estados Unidos"
-        },
-
-        2012: {
-            first: "Brasil",
-            second: "Estados Unidos",
-            third: "Japón"
-        },
-
-        2008: {
-            first: "Brasil",
-            second: "Estados Unidos",
-            third: "China"
-        }
-
-    }
-
-};
-
-
-/* =====================================================
-   MOSTRAR RESULTADO DE UNA COMPETICIÓN
-===================================================== */
-
-function showCompetitionResult(
-    container,
-    year,
-    data,
-    competitionName
-) {
-
-    if (!container || !data) return;
+    const result = data[year];
 
     container.innerHTML = `
 
@@ -389,26 +326,24 @@ function showCompetitionResult(
             <div class="vnl-result">
 
                 <div>
-                    <span>🥇 1.º LUGAR</span>
-                    <strong>${data.first}</strong>
+                    <span>1.º PUESTO</span>
+                    <strong>${result.champion}</strong>
                 </div>
 
                 <div>
-                    <span>🥈 2.º LUGAR</span>
-                    <strong>${data.second}</strong>
+                    <span>2.º PUESTO</span>
+                    <strong>${result.second}</strong>
                 </div>
 
                 <div class="gold">
-                    <span>🥉 3.º LUGAR</span>
-                    <strong>${data.third}</strong>
+                    <span>3.º PUESTO</span>
+                    <strong>${result.third}</strong>
                 </div>
 
             </div>
 
         </div>
-
     `;
-
 }
 
 
@@ -423,11 +358,20 @@ const vnlHistory =
     document.getElementById("vnlHistory");
 
 
-competitionButtons.forEach((button) => {
+/*
+   Cada botón tiene:
+
+   data-competition="vnl-men"
+   data-competition="vnl-women"
+   data-competition="world-men"
+   data-competition="world-women"
+*/
+
+competitionButtons.forEach(button => {
 
     button.addEventListener("click", () => {
 
-        competitionButtons.forEach((btn) => {
+        competitionButtons.forEach(btn => {
             btn.classList.remove("active");
         });
 
@@ -439,33 +383,62 @@ competitionButtons.forEach((button) => {
         if (!vnlHistory) return;
 
 
-        /* ---------------------------------------------
-           VNL MASCULINA
-        --------------------------------------------- */
+        /* VNL MASCULINA */
 
-        if (competition === "vnl") {
+        if (
+            competition === "vnl-men" ||
+            competition === "vnl"
+        ) {
 
-            renderYearButtons(
+            createYearButtons(
                 vnlHistory,
-                competitionData.vnlMen,
-                "VNL MASCULINA"
+                competitions.vnlMen,
+                "vnl-men"
             );
 
+            return;
         }
 
 
-        /* ---------------------------------------------
-           VNL FEMENINA
-        --------------------------------------------- */
+        /* VNL FEMENINA */
 
         if (competition === "vnl-women") {
 
-            renderYearButtons(
+            createYearButtons(
                 vnlHistory,
-                competitionData.vnlWomen,
-                "VNL FEMENINA"
+                competitions.vnlWomen,
+                "vnl-women"
             );
 
+            return;
+        }
+
+
+        /* MUNDIAL MASCULINO */
+
+        if (competition === "world-men") {
+
+            createYearButtons(
+                vnlHistory,
+                competitions.worldMen,
+                "world-men"
+            );
+
+            return;
+        }
+
+
+        /* MUNDIAL FEMENINO */
+
+        if (competition === "world-women") {
+
+            createYearButtons(
+                vnlHistory,
+                competitions.worldWomen,
+                "world-women"
+            );
+
+            return;
         }
 
     });
@@ -477,88 +450,88 @@ competitionButtons.forEach((button) => {
    CREAR BOTONES DE AÑOS
 ===================================================== */
 
-function renderYearButtons(
-    container,
-    data,
-    competitionName
-) {
+function createYearButtons(container, data, type) {
 
     if (!container) return;
 
-    const years = Object.keys(data);
+    const years = Object.keys(data)
+        .sort((a, b) => b - a);
 
-    container.innerHTML = `
+    const oldButtons =
+        container.parentElement
+        ? container.parentElement.querySelector(".dynamic-years")
+        : null;
 
-        <div class="competition-buttons">
-
-            ${years.map((year, index) => `
-
-                <button
-                    class="competition-year ${index === 0 ? "active" : ""}"
-                    data-year="${year}">
-
-                    ${year}
-
-                </button>
-
-            `).join("")}
-
-        </div>
-
-        <div id="competitionResult">
-
-        </div>
-
-    `;
-
-
-    const result =
-        container.querySelector("#competitionResult");
-
-
-    const yearButtons =
-        container.querySelectorAll(".competition-year");
-
-
-    /* Mostrar primer año */
-
-    if (years.length > 0) {
-
-        showCompetitionResult(
-            result,
-            years[0],
-            data[years[0]],
-            competitionName
-        );
-
+    if (oldButtons) {
+        oldButtons.remove();
     }
 
+    const buttonsContainer =
+        document.createElement("div");
 
-    /* Cambiar año */
+    buttonsContainer.className =
+        "competition-buttons dynamic-years";
 
-    yearButtons.forEach((button) => {
+
+    years.forEach((year, index) => {
+
+        const button =
+            document.createElement("button");
+
+        button.className =
+            "competition" +
+            (index === 0 ? " active" : "");
+
+        button.textContent =
+            year;
+
+        button.dataset.year =
+            year;
+
+        button.dataset.type =
+            type;
+
 
         button.addEventListener("click", () => {
 
-            yearButtons.forEach((btn) => {
-                btn.classList.remove("active");
-            });
+            buttonsContainer
+                .querySelectorAll(".competition")
+                .forEach(btn => {
+                    btn.classList.remove("active");
+                });
 
             button.classList.add("active");
 
-            const year =
-                button.dataset.year;
-
-            showCompetitionResult(
-                result,
-                year,
-                data[year],
-                competitionName
+            showCompetitionResults(
+                container,
+                data,
+                year
             );
 
         });
 
+
+        buttonsContainer.appendChild(button);
+
     });
+
+
+    container.parentElement.insertBefore(
+        buttonsContainer,
+        container
+    );
+
+
+    /*
+       Mostrar automáticamente
+       el primer año.
+    */
+
+    showCompetitionResults(
+        container,
+        data,
+        years[0]
+    );
 
 }
 
@@ -574,11 +547,11 @@ const olympicHistory =
     document.getElementById("olympicHistory");
 
 
-olympicButtons.forEach((button) => {
+olympicButtons.forEach(button => {
 
     button.addEventListener("click", () => {
 
-        olympicButtons.forEach((btn) => {
+        olympicButtons.forEach(btn => {
             btn.classList.remove("active");
         });
 
@@ -587,21 +560,37 @@ olympicButtons.forEach((button) => {
         const year =
             button.dataset.year;
 
-        if (!olympicHistory) return;
+        const gender =
+            button.dataset.gender;
 
 
-        const data =
-            competitionData.olympicMen[year];
-
-        if (!data) return;
+        let data;
 
 
-        showCompetitionResult(
-            olympicHistory,
-            year,
-            data,
-            "JUEGOS OLÍMPICOS MASCULINO"
-        );
+        if (gender === "female") {
+
+            data = competitions.olympicWomen;
+
+        } else {
+
+            data = competitions.olympicMen;
+
+        }
+
+
+        if (
+            olympicHistory &&
+            data &&
+            data[year]
+        ) {
+
+            showCompetitionResults(
+                olympicHistory,
+                data,
+                year
+            );
+
+        }
 
     });
 
@@ -609,105 +598,33 @@ olympicButtons.forEach((button) => {
 
 
 /* =====================================================
-   CAMBIO DE COMPETICIÓN
+   INICIALIZAR VNL
 ===================================================== */
 
-/*
-   Si tu HTML tiene estos botones:
+if (vnlHistory) {
 
-   data-competition="vnl"
-   data-competition="vnl-women"
-   data-competition="world"
-   data-competition="world-women"
-   data-competition="olympic"
-   data-competition="olympic-women"
-
-   todos funcionan sin abrir páginas externas.
-*/
-
-
-const allCompetitionButtons =
-    document.querySelectorAll(
-        "[data-competition]"
+    showCompetitionResults(
+        vnlHistory,
+        competitions.vnlMen,
+        "2025"
     );
 
-
-allCompetitionButtons.forEach((button) => {
-
-    button.addEventListener("click", () => {
-
-        const competition =
-            button.dataset.competition;
+}
 
 
-        let data = null;
-        let name = "";
+/* =====================================================
+   INICIALIZAR OLÍMPICOS
+===================================================== */
 
+if (olympicHistory) {
 
-        switch (competition) {
+    showCompetitionResults(
+        olympicHistory,
+        competitions.olympicMen,
+        "2024"
+    );
 
-            case "vnl":
-                data = competitionData.vnlMen;
-                name = "VNL MASCULINA";
-                break;
-
-            case "vnl-women":
-                data = competitionData.vnlWomen;
-                name = "VNL FEMENINA";
-                break;
-
-            case "world":
-                data = competitionData.worldMen;
-                name = "MUNDIAL MASCULINO";
-                break;
-
-            case "world-women":
-                data = competitionData.worldWomen;
-                name = "MUNDIAL FEMENINO";
-                break;
-
-            case "olympic":
-                data = competitionData.olympicMen;
-                name = "JUEGOS OLÍMPICOS MASCULINO";
-                break;
-
-            case "olympic-women":
-                data = competitionData.olympicWomen;
-                name = "JUEGOS OLÍMPICOS FEMENINO";
-                break;
-
-        }
-
-
-        /*
-           Buscar un contenedor adecuado.
-        */
-
-        const history =
-            document.getElementById(
-                "competitionHistory"
-            ) ||
-            document.getElementById(
-                "vnlHistory"
-            ) ||
-            document.getElementById(
-                "olympicHistory"
-            );
-
-
-        if (history && data) {
-
-            renderYearButtons(
-                history,
-                data,
-                name
-            );
-
-        }
-
-    });
-
-});
+}
 
 
 /* =====================================================
@@ -722,6 +639,28 @@ const sendQuestion =
 
 const messages =
     document.getElementById("messages");
+
+
+const coachAnswers = {
+
+    entrenamiento:
+        "Para mejorar tu rendimiento, combina fuerza, salto, velocidad, recepción y técnica de forma progresiva.",
+
+    ataque:
+        "En el ataque trabaja la carrera de aproximación, el salto, el contacto con el balón y la dirección del golpe.",
+
+    defensa:
+        "Mantén una posición baja, observa al atacante y prepárate para reaccionar rápidamente.",
+
+    recepción:
+        "Mantén los brazos firmes y dirige la plataforma hacia el objetivo. La comunicación también es fundamental.",
+
+    salto:
+        "Trabaja la fuerza de piernas, coordinación y técnica de salto. La calidad del movimiento es más importante que hacer muchas repeticiones.",
+
+    estrategia:
+        "Una buena estrategia depende de conocer las fortalezas y debilidades del rival y mantener una comunicación constante."
+};
 
 
 function addMessage(text, type) {
@@ -741,214 +680,109 @@ function addMessage(text, type) {
 
     messages.scrollTop =
         messages.scrollHeight;
-
 }
 
 
-/* =====================================================
-   RESPUESTAS DEL ENTRENADOR
-===================================================== */
-
-function coachAnswer(text) {
+function getCoachResponse(text) {
 
     const lower =
         text.toLowerCase();
 
 
-    if (
-        lower.includes("ataque") ||
-        lower.includes("atacar")
-    ) {
-
-        return `
-            <b>Entrenador:</b><br>
-            Para mejorar tu ataque trabaja la carrera
-            de aproximación, el salto, el armado del brazo
-            y el contacto alto con el balón.
-        `;
-
+    if (lower.includes("ataque")) {
+        return coachAnswers.ataque;
     }
-
 
     if (
         lower.includes("defensa") ||
         lower.includes("defender")
     ) {
-
-        return `
-            <b>Entrenador:</b><br>
-            Mantén una posición baja, observa al atacante
-            y trata de anticipar la dirección del balón.
-            La reacción y la lectura del juego son claves.
-        `;
-
+        return coachAnswers.defensa;
     }
-
 
     if (
         lower.includes("recepción") ||
-        lower.includes("recepcion")
+        lower.includes("recibir")
     ) {
-
-        return `
-            <b>Entrenador:</b><br>
-            Mantén los brazos firmes y utiliza las piernas
-            para controlar la recepción. Intenta dirigir
-            el balón hacia la zona del colocador.
-        `;
-
+        return coachAnswers.recepción;
     }
-
 
     if (
         lower.includes("salto") ||
         lower.includes("saltar")
     ) {
-
-        return `
-            <b>Entrenador:</b><br>
-            Trabaja la coordinación de la carrera,
-            el impulso y la técnica de aterrizaje.
-            La calidad del movimiento es más importante
-            que simplemente intentar saltar más.
-        `;
-
+        return coachAnswers.salto;
     }
-
-
-    if (
-        lower.includes("bloqueo") ||
-        lower.includes("bloquear")
-    ) {
-
-        return `
-            <b>Entrenador:</b><br>
-            Observa el armado del rival, desplázate
-            rápidamente hacia la zona de bloqueo y
-            mantén las manos firmes sobre la red.
-        `;
-
-    }
-
-
-    if (
-        lower.includes("entrenamiento") ||
-        lower.includes("entrenar")
-    ) {
-
-        return `
-            <b>Entrenador:</b><br>
-            Una buena sesión puede combinar técnica,
-            desplazamientos, recepción, ataque,
-            bloqueo y situaciones de juego.
-        `;
-
-    }
-
 
     if (
         lower.includes("estrategia") ||
-        lower.includes("táctica") ||
-        lower.includes("tactica")
+        lower.includes("táctica")
     ) {
+        return coachAnswers.estrategia;
+    }
 
-        return `
-            <b>Entrenador:</b><br>
-            Una estrategia efectiva depende de las
-            fortalezas de tu equipo y de los puntos
-            débiles del rival. La comunicación es fundamental.
-        `;
-
+    if (
+        lower.includes("entrenar") ||
+        lower.includes("entrenamiento")
+    ) {
+        return coachAnswers.entrenamiento;
     }
 
 
-    return `
-        <b>Entrenador:</b><br>
-        Buena pregunta. En voleibol intenta trabajar
-        primero la técnica, después la velocidad de
-        ejecución y finalmente llevarlo a situaciones
-        reales de partido.
-    `;
-
+    return "Puedo ayudarte con ataque, defensa, recepción, salto, entrenamiento y estrategia de voleibol.";
 }
 
 
-/* =====================================================
-   ENVIAR PREGUNTA
-===================================================== */
+if (sendQuestion && question) {
 
-function sendCoachQuestion() {
+    sendQuestion.addEventListener("click", () => {
 
-    if (!question || !messages) return;
+        const text =
+            question.value.trim();
 
-    const text =
-        question.value.trim();
-
-    if (text === "") return;
-
-
-    addMessage(
-        text,
-        "user"
-    );
-
-
-    question.value = "";
-
-
-    if (sendQuestion) {
-        sendQuestion.disabled = true;
-    }
-
-
-    setTimeout(() => {
-
-        const answer =
-            coachAnswer(text);
+        if (!text) return;
 
         addMessage(
-            answer,
-            "bot"
+            text,
+            "user"
         );
 
-        if (sendQuestion) {
+        question.value = "";
+
+        sendQuestion.disabled = true;
+
+
+        setTimeout(() => {
+
+            const response =
+                getCoachResponse(text);
+
+            addMessage(
+                `<b>Entrenador:</b><br>${response}`,
+                "bot"
+            );
+
             sendQuestion.disabled = false;
-        }
 
-    }, 500);
+        }, 500);
 
-}
-
-
-if (sendQuestion) {
-
-    sendQuestion.addEventListener(
-        "click",
-        sendCoachQuestion
-    );
-
-}
+    });
 
 
-if (question) {
+    question.addEventListener("keydown", event => {
 
-    question.addEventListener(
-        "keydown",
-        (event) => {
+        if (
+            event.key === "Enter" &&
+            !event.shiftKey
+        ) {
 
-            if (
-                event.key === "Enter" &&
-                !event.shiftKey
-            ) {
+            event.preventDefault();
 
-                event.preventDefault();
-
-                sendCoachQuestion();
-
-            }
+            sendQuestion.click();
 
         }
-    );
+
+    });
 
 }
 
@@ -958,51 +792,25 @@ if (question) {
 ===================================================== */
 
 const coachButtons =
-    document.querySelectorAll(
-        ".coach-menu button"
-    );
+    document.querySelectorAll(".coach-menu button");
 
-
-coachButtons.forEach((button) => {
+coachButtons.forEach(button => {
 
     button.addEventListener("click", () => {
 
         const topic =
-            button.textContent.trim();
+            button.textContent
+            .trim()
+            .toLowerCase();
 
+        const response =
+            coachAnswers[topic] ||
+            "Puedo ayudarte con este aspecto del voleibol.";
 
-        const questionMap = {
-
-            "Entrenamiento":
-                "¿Cómo puedo mejorar mi entrenamiento?",
-
-            "Ataque":
-                "¿Cómo puedo mejorar mi ataque?",
-
-            "Defensa":
-                "¿Cómo puedo mejorar mi defensa?",
-
-            "Recepción":
-                "¿Cómo puedo mejorar mi recepción?",
-
-            "Salto":
-                "¿Cómo puedo mejorar mi salto?",
-
-            "Estrategia":
-                "¿Qué estrategia debería utilizar?"
-        };
-
-
-        if (questionMap[topic]) {
-
-            if (question) {
-                question.value =
-                    questionMap[topic];
-            }
-
-            sendCoachQuestion();
-
-        }
+        addMessage(
+            `<b>Entrenador:</b><br>${response}`,
+            "bot"
+        );
 
     });
 
@@ -1010,8 +818,32 @@ coachButtons.forEach((button) => {
 
 
 /* =====================================================
-   CONSEJO DEL DÍA
+   CONSEJOS DEL DÍA
 ===================================================== */
+
+const dailyTips = [
+
+    "La comunicación es una de las claves para que un equipo funcione correctamente.",
+
+    "Mantén una buena posición defensiva antes de que llegue el balón.",
+
+    "En recepción, intenta dirigir el balón hacia el colocador.",
+
+    "La técnica correcta es más importante que hacer movimientos rápidamente.",
+
+    "Observa al rival antes de realizar tu siguiente movimiento.",
+
+    "Trabaja la coordinación entre tus piernas, brazos y mirada.",
+
+    "Un buen bloqueo comienza con una buena lectura del atacante.",
+
+    "No dejes de comunicarte con tus compañeros durante la jugada.",
+
+    "La constancia en el entrenamiento mejora el rendimiento.",
+
+    "Aprende de cada error y utiliza esa experiencia para mejorar."
+];
+
 
 const dailyTip =
     document.getElementById("dailyTip");
@@ -1020,55 +852,29 @@ const newTip =
     document.getElementById("newTip");
 
 
-const tips = [
-
-    "La comunicación es una de las claves para que un equipo funcione correctamente.",
-
-    "Mantén una posición equilibrada antes de recibir el balón.",
-
-    "Observa siempre al rival antes de decidir hacia dónde atacar.",
-
-    "Una buena recepción puede convertir una jugada difícil en una oportunidad de ataque.",
-
-    "Trabaja la técnica antes de intentar aumentar la potencia.",
-
-    "La coordinación entre colocador y atacante es fundamental.",
-
-    "No olvides comunicarte con tus compañeros durante cada jugada.",
-
-    "La defensa comienza antes de que el rival golpee el balón.",
-
-    "Practica los movimientos básicos hasta conseguir que sean naturales.",
-
-    "Un equipo organizado puede compensar muchas diferencias individuales."
-
-];
-
-
 if (newTip && dailyTip) {
 
-    newTip.addEventListener(
-        "click",
-        () => {
+    newTip.addEventListener("click", () => {
 
-            dailyTip.style.opacity = "0";
+        const random =
+            Math.floor(
+                Math.random() *
+                dailyTips.length
+            );
 
-            setTimeout(() => {
+        dailyTip.style.opacity = "0";
 
-                const random =
-                    Math.floor(
-                        Math.random() * tips.length
-                    );
 
-                dailyTip.textContent =
-                    tips[random];
+        setTimeout(() => {
 
-                dailyTip.style.opacity = "1";
+            dailyTip.textContent =
+                dailyTips[random];
 
-            }, 180);
+            dailyTip.style.opacity = "1";
 
-        }
-    );
+        }, 180);
+
+    });
 
 }
 
@@ -1078,18 +884,16 @@ if (newTip && dailyTip) {
 ===================================================== */
 
 const revealElements =
-    document.querySelectorAll(
-        ".reveal"
-    );
+    document.querySelectorAll(".reveal");
 
 
-if ("IntersectionObserver" in window) {
+if (revealElements.length > 0) {
 
     const observer =
         new IntersectionObserver(
-            (entries) => {
+            entries => {
 
-                entries.forEach((entry) => {
+                entries.forEach(entry => {
 
                     if (entry.isIntersecting) {
 
@@ -1107,12 +911,12 @@ if ("IntersectionObserver" in window) {
 
             },
             {
-                threshold: 0.12
+                threshold: 0.15
             }
         );
 
 
-    revealElements.forEach((element) => {
+    revealElements.forEach(element => {
 
         element.classList.add(
             "reveal-ready"
@@ -1126,62 +930,24 @@ if ("IntersectionObserver" in window) {
 
 
 /* =====================================================
-   NAVEGACIÓN SUAVE
+   ESC PARA CERRAR LOGIN
 ===================================================== */
 
-document.querySelectorAll(
-    'a[href^="#"]'
-).forEach((link) => {
+document.addEventListener("keydown", event => {
 
-    link.addEventListener(
-        "click",
-        (event) => {
+    if (
+        event.key === "Escape" &&
+        loginModal
+    ) {
 
-            const targetId =
-                link.getAttribute("href");
+        loginModal.style.display =
+            "none";
 
-            if (
-                !targetId ||
-                targetId === "#"
-            ) {
-                return;
-            }
-
-
-            const target =
-                document.querySelector(
-                    targetId
-                );
-
-
-            if (target) {
-
-                event.preventDefault();
-
-                target.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-
-            }
-
-        }
-    );
+    }
 
 });
 
 
 /* =====================================================
-   INICIO
+   FIN VÓLEYRETRO
 ===================================================== */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-
-        console.log(
-            "VóleyRetro cargado correctamente."
-        );
-
-    }
-);
