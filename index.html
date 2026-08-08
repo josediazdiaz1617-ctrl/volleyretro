@@ -2,6 +2,7 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -11,27 +12,44 @@
 
     <meta
         name="description"
-        content="VóleyRetro - Plataforma de voleibol con entrenador virtual de IA."
+        content="VóleyRetro - Aprende, entrena y descubre el mundo del voleibol."
     >
 
-    <title>VóleyRetro | Volleyball</title>
+    <title>VóleyRetro</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
+
 
 <body>
 
-    <!-- =====================================================
-         HEADER
-    ====================================================== -->
 
-    <header class="header">
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-        <div class="logo">
-            <span>VÓLEY</span>RETRO
-        </div>
+<header class="site-header">
 
-        <nav class="nav">
+    <div class="header-inner">
+
+
+        <!-- LOGO -->
+
+        <a
+            href="#inicio"
+            class="logo"
+        >
+            VÓLEYRETRO
+        </a>
+
+
+        <!-- NAVEGACIÓN -->
+
+        <nav class="main-nav">
 
             <a href="#inicio">
                 INICIO
@@ -53,643 +71,719 @@
                 PLAYERS
             </a>
 
-            <a href="#historia">
-                HISTORIA
+            <a href="#entrenador">
+                ENTRENADOR
             </a>
 
-            <a href="#entrenador">
-                ENTRENADOR IA
-            </a>
+
+            <!-- INICIAR SESIÓN -->
+
+            <button
+                id="loginBtn"
+                class="login-button"
+                type="button"
+            >
+                INICIAR SESIÓN
+            </button>
 
         </nav>
 
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     CONTENIDO PRINCIPAL
+===================================================== -->
+
+<main>
+
+
+<!-- =====================================================
+     INICIO
+===================================================== -->
+
+<section
+    id="inicio"
+    class="hero"
+>
+
+    <div class="hero-content">
+
+        <span class="hero-label">
+            VÓLEYRETRO
+        </span>
+
+        <h1>
+            EL VOLEIBOL
+            <br>
+            DESDE OTRA PERSPECTIVA
+        </h1>
+
+        <p>
+            Aprende, entrena y descubre la historia
+            del voleibol.
+        </p>
+
+        <a
+            href="#entrenador"
+            class="btn"
+        >
+            HABLAR CON EL ENTRENADOR
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONSEJO DEL DÍA
+===================================================== -->
+
+<section
+    id="consejo"
+    class="section"
+>
+
+    <div class="section-title">
+
+        <span>
+            CONSEJO
+        </span>
+
+        <h2>
+            CONSEJO DEL DÍA
+        </h2>
+
+    </div>
+
+
+    <div class="tip-box">
+
+        <p id="dailyTip">
+            En recepción, llega primero con los pies
+            y después ajusta la plataforma de brazos.
+        </p>
+
         <button
-            id="loginBtn"
+            id="newTip"
             class="btn secondary"
+            type="button"
+        >
+            NUEVO CONSEJO
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PARTIDOS
+===================================================== -->
+
+<section
+    id="partidos"
+    class="section"
+>
+
+    <div class="section-title">
+
+        <span>
+            MATCH CENTER
+        </span>
+
+        <h2>
+            PRÓXIMOS PARTIDOS
+        </h2>
+
+    </div>
+
+
+    <div class="cards">
+
+        <!--
+            Los partidos se generan desde script.js
+        -->
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     NOTICIAS
+===================================================== -->
+
+<section
+    id="noticias"
+    class="section"
+>
+
+    <div class="section-title">
+
+        <span>
+            ACTUALIDAD
+        </span>
+
+        <h2>
+            NOTICIAS
+        </h2>
+
+    </div>
+
+
+    <div class="cards">
+
+        <!--
+            Las noticias se generan desde script.js
+        -->
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CALENDARIO
+===================================================== -->
+
+<section
+    id="calendario"
+    class="section"
+>
+
+    <div class="section-title">
+
+        <span>
+            COMPETICIONES
+        </span>
+
+        <h2>
+            CALENDARIO
+        </h2>
+
+    </div>
+
+
+    <div class="cards">
+
+        <!--
+            Las competiciones se generan
+            desde script.js
+        -->
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     VNL
+===================================================== -->
+
+<section
+    id="vnl"
+    class="section"
+>
+
+    <div class="section-title">
+
+        <span>
+            HISTORIA
+        </span>
+
+        <h2>
+            VOLLEYBALL NATIONS LEAGUE
+        </h2>
+
+    </div>
+
+
+    <!-- BOTONES -->
+
+    <div class="competition-buttons">
+
+        <button
+            class="competition active"
+            data-gender="men"
+            type="button"
+        >
+            MASCULINO
+        </button>
+
+
+        <button
+            class="competition"
+            data-gender="women"
+            type="button"
+        >
+            FEMENINO
+        </button>
+
+    </div>
+
+
+    <!-- HISTORIAL -->
+
+    <div id="vnlHistory">
+
+        <!--
+            Generado desde script.js
+        -->
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     JUEGOS OLÍMPICOS
+===================================================== -->
+
+<section
+    id="olimpicos"
+    class="section"
+>
+
+    <div class="section-title">
+
+        <span>
+            HISTORIA OLÍMPICA
+        </span>
+
+        <h2>
+            JUEGOS OLÍMPICOS
+        </h2>
+
+    </div>
+
+
+    <!-- BOTONES -->
+
+    <div class="competition-buttons">
+
+        <button
+            class="olympic-button active"
+            data-olympic="men"
+            type="button"
+        >
+            MASCULINO
+        </button>
+
+
+        <button
+            class="olympic-button"
+            data-olympic="women"
+            type="button"
+        >
+            FEMENINO
+        </button>
+
+    </div>
+
+
+    <!-- HISTORIAL -->
+
+    <div id="olympicHistory">
+
+        <!--
+            Generado desde script.js
+        -->
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PLAYERS / POSICIONES
+===================================================== -->
+
+<section
+    id="players"
+    class="section"
+>
+
+    <div class="section-title">
+
+        <span>
+            POSICIONES
+        </span>
+
+        <h2>
+            PLAYERS
+        </h2>
+
+    </div>
+
+
+    <div class="cards">
+
+        <!--
+            Las posiciones se generan
+            desde script.js
+        -->
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ENTRENADOR IA
+===================================================== -->
+
+<section
+    id="entrenador"
+    class="section coach-section"
+>
+
+    <div class="section-title">
+
+        <span>
+            INTELIGENCIA ARTIFICIAL
+        </span>
+
+        <h2>
+            ENTRENADOR
+        </h2>
+
+    </div>
+
+
+    <div class="coach-container">
+
+
+        <!-- =================================================
+             MENÚ DEL ENTRENADOR
+        ================================================== -->
+
+        <div class="coach-menu">
+
+            <button
+                type="button"
+                data-question="recepcion"
+            >
+                🏐 RECEPCIÓN
+            </button>
+
+
+            <button
+                type="button"
+                data-question="saque"
+            >
+                🎯 SAQUE
+            </button>
+
+
+            <button
+                type="button"
+                data-question="ataque"
+            >
+                💥 ATAQUE
+            </button>
+
+
+            <button
+                type="button"
+                data-question="bloqueo"
+            >
+                🧱 BLOQUEO
+            </button>
+
+
+            <button
+                type="button"
+                data-question="defensa"
+            >
+                🛡️ DEFENSA
+            </button>
+
+
+            <button
+                type="button"
+                data-question="mental"
+            >
+                🧠 MENTALIDAD
+            </button>
+
+
+            <button
+                type="button"
+                data-question="plan"
+            >
+                📅 ENTRENAMIENTO
+            </button>
+
+        </div>
+
+
+
+        <!-- =================================================
+             CHAT
+        ================================================== -->
+
+        <div class="coach-chat">
+
+
+            <!-- MENSAJES -->
+
+            <div
+                id="messages"
+                class="messages"
+            >
+
+                <div class="message bot">
+
+                    <b>
+                        ENTRENADOR:
+                    </b>
+
+                    <br>
+                    <br>
+
+                    🏐 ¡Hola! Soy el entrenador de
+                    VóleyRetro.
+
+                    <br>
+                    <br>
+
+                    Puedes preguntarme cualquier cosa
+                    relacionada con el voleibol.
+
+                    <br>
+                    <br>
+
+                    No necesitas utilizar palabras
+                    específicas. Explícame tu situación
+                    y trataré de ayudarte.
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 INPUT
+            ================================================== -->
+
+            <div class="coach-input">
+
+                <textarea
+                    id="question"
+                    placeholder="Escribe tu pregunta..."
+                    rows="2"
+                ></textarea>
+
+
+                <button
+                    id="sendQuestion"
+                    class="btn"
+                    type="button"
+                >
+                    ENVIAR
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INFORMACIÓN
+===================================================== -->
+
+<section
+    id="informacion"
+    class="section"
+>
+
+    <div class="section-title">
+
+        <span>
+            VÓLEYRETRO
+        </span>
+
+        <h2>
+            SOBRE EL PROYECTO
+        </h2>
+
+    </div>
+
+
+    <div class="info-content">
+
+        <p>
+            VóleyRetro es un proyecto dedicado
+            al aprendizaje, entrenamiento y
+            conocimiento del voleibol.
+        </p>
+
+        <p>
+            Explora posiciones, competiciones,
+            historia y utiliza nuestro entrenador
+            virtual para resolver tus preguntas.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="site-footer">
+
+    <div class="footer-content">
+
+        <strong>
+            VÓLEYRETRO
+        </strong>
+
+        <p>
+            Aprende. Entrena. Compite.
+        </p>
+
+        <p>
+            © 2026 VóleyRetro
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     MODAL LOGIN
+===================================================== -->
+
+<div
+    id="loginModal"
+    class="modal"
+>
+
+    <div class="login-box">
+
+
+        <!-- CERRAR -->
+
+        <button
+            id="closeLogin"
+            class="close-modal"
+            type="button"
+            aria-label="Cerrar"
+        >
+            ×
+        </button>
+
+
+        <h2>
+            INICIAR SESIÓN
+        </h2>
+
+
+        <p>
+            Inicia sesión para acceder
+            a tu cuenta de VóleyRetro.
+        </p>
+
+
+
+        <!-- GOOGLE -->
+
+        <button
+            id="googleLogin"
+            class="login-option"
+            type="button"
+        >
+            CONTINUAR CON GOOGLE
+        </button>
+
+
+
+        <div class="login-divider">
+
+            <span>
+                O
+            </span>
+
+        </div>
+
+
+
+        <!-- EMAIL -->
+
+        <label for="email">
+            CORREO
+        </label>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="tu@email.com"
+            autocomplete="email"
+        >
+
+
+        <label for="password">
+            CONTRASEÑA
+        </label>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Contraseña"
+            autocomplete="current-password"
+        >
+
+
+        <button
+            id="emailLogin"
+            class="btn"
             type="button"
         >
             INICIAR SESIÓN
         </button>
 
-    </header>
 
+    </div>
 
-    <!-- =====================================================
-         HERO
-    ====================================================== -->
+</div>
 
-    <main>
 
-        <section
-            id="inicio"
-            class="hero"
-        >
 
-            <div class="hero-content">
+<!-- =====================================================
+     SCRIPT
+===================================================== -->
 
-                <p class="eyebrow">
-                    VÓLEYRETRO
-                </p>
+<script src="script.js"></script>
 
-                <h1>
-                    EL VOLEIBOL
-                    <br>
-                    COMO NUNCA
-                    <br>
-                    LO VISTE.
-                </h1>
-
-                <p class="hero-description">
-                    Historia, técnica, competición
-                    y entrenamiento en una sola
-                    plataforma.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a
-                        href="#entrenador"
-                        class="btn"
-                    >
-                        PROBAR ENTRENADOR IA
-                    </a>
-
-                    <a
-                        href="#historia"
-                        class="btn secondary"
-                    >
-                        EXPLORAR VOLEIBOL
-                    </a>
-
-                </div>
-
-            </div>
-
-            <div class="hero-decoration">
-
-                <div class="volleyball-symbol">
-                    🏐
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             CONSEJO DEL DÍA
-        ================================================== -->
-
-        <section class="daily-tip">
-
-            <div class="section-title">
-
-                <p>
-                    CONSEJO DEL DÍA
-                </p>
-
-                <h2>
-                    MEJORA TU JUEGO
-                </h2>
-
-            </div>
-
-            <div class="tip-box">
-
-                <p id="dailyTip">
-                    En recepción, llega primero con
-                    los pies y después ajusta la
-                    plataforma de brazos.
-                </p>
-
-                <button
-                    id="newTip"
-                    class="btn secondary"
-                    type="button"
-                >
-                    OTRO CONSEJO
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             MATCH CENTER
-        ================================================== -->
-
-        <section
-            id="partidos"
-            class="section"
-        >
-
-            <div class="section-title">
-
-                <p>
-                    MATCH CENTER
-                </p>
-
-                <h2>
-                    PRÓXIMOS PARTIDOS
-                </h2>
-
-            </div>
-
-            <div class="cards"></div>
-
-        </section>
-
-
-        <!-- =================================================
-             NOTICIAS
-        ================================================== -->
-
-        <section
-            id="noticias"
-            class="section"
-        >
-
-            <div class="section-title">
-
-                <p>
-                    ACTUALIDAD
-                </p>
-
-                <h2>
-                    NOTICIAS
-                </h2>
-
-            </div>
-
-            <div class="cards"></div>
-
-        </section>
-
-
-        <!-- =================================================
-             CALENDARIO
-        ================================================== -->
-
-        <section
-            id="calendario"
-            class="section"
-        >
-
-            <div class="section-title">
-
-                <p>
-                    COMPETICIONES
-                </p>
-
-                <h2>
-                    CALENDARIO
-                </h2>
-
-            </div>
-
-            <div class="cards"></div>
-
-        </section>
-
-
-        <!-- =================================================
-             PLAYERS / POSICIONES
-        ================================================== -->
-
-        <section
-            id="players"
-            class="section"
-        >
-
-            <div class="section-title">
-
-                <p>
-                    VOLEIBOL
-                </p>
-
-                <h2>
-                    PLAYERS
-                </h2>
-
-            </div>
-
-            <div class="cards"></div>
-
-        </section>
-
-
-        <!-- =================================================
-             HISTORIA VNL
-        ================================================== -->
-
-        <section
-            id="historia"
-            class="section history-section"
-        >
-
-            <div class="section-title">
-
-                <p>
-                    HISTORIA
-                </p>
-
-                <h2>
-                    VOLLEYBALL NATIONS LEAGUE
-                </h2>
-
-            </div>
-
-
-            <div class="competition-buttons">
-
-                <button
-                    class="competition active"
-                    data-gender="men"
-                    type="button"
-                >
-                    MASCULINO
-                </button>
-
-                <button
-                    class="competition"
-                    data-gender="women"
-                    type="button"
-                >
-                    FEMENINO
-                </button>
-
-            </div>
-
-
-            <div
-                id="vnlHistory"
-                class="history-list"
-            ></div>
-
-        </section>
-
-
-        <!-- =================================================
-             HISTORIA OLÍMPICA
-        ================================================== -->
-
-        <section
-            id="olimpicos"
-            class="section history-section"
-        >
-
-            <div class="section-title">
-
-                <p>
-                    HISTORIA OLÍMPICA
-                </p>
-
-                <h2>
-                    CAMPEONES OLÍMPICOS
-                </h2>
-
-            </div>
-
-
-            <div class="competition-buttons">
-
-                <button
-                    class="olympic-button active"
-                    data-olympic="men"
-                    type="button"
-                >
-                    MASCULINO
-                </button>
-
-                <button
-                    class="olympic-button"
-                    data-olympic="women"
-                    type="button"
-                >
-                    FEMENINO
-                </button>
-
-            </div>
-
-
-            <div
-                id="olympicHistory"
-                class="history-list"
-            ></div>
-
-        </section>
-
-
-        <!-- =================================================
-             ENTRENADOR IA
-        ================================================== -->
-
-        <section
-            id="entrenador"
-            class="section coach-section"
-        >
-
-            <div class="section-title">
-
-                <p>
-                    INTELIGENCIA ARTIFICIAL
-                </p>
-
-                <h2>
-                    ENTRENADOR VIRTUAL
-                </h2>
-
-                <p class="section-description">
-                    Pregunta sobre voleibol,
-                    técnica, entrenamiento,
-                    posiciones, tácticas o
-                    situaciones de juego.
-                </p>
-
-            </div>
-
-
-            <!-- =============================================
-                 MENÚ RÁPIDO
-            ============================================== -->
-
-            <div class="coach-menu">
-
-                <button
-                    type="button"
-                    data-question="recepcion"
-                >
-                    🏐 RECEPCIÓN
-                </button>
-
-                <button
-                    type="button"
-                    data-question="saque"
-                >
-                    🎯 SAQUE
-                </button>
-
-                <button
-                    type="button"
-                    data-question="ataque"
-                >
-                    💥 ATAQUE
-                </button>
-
-                <button
-                    type="button"
-                    data-question="bloqueo"
-                >
-                    🧱 BLOQUEO
-                </button>
-
-                <button
-                    type="button"
-                    data-question="defensa"
-                >
-                    🛡️ DEFENSA
-                </button>
-
-                <button
-                    type="button"
-                    data-question="mental"
-                >
-                    🧠 MENTALIDAD
-                </button>
-
-                <button
-                    type="button"
-                    data-question="plan"
-                >
-                    📅 ENTRENAMIENTO
-                </button>
-
-            </div>
-
-
-            <!-- =============================================
-                 CHAT
-            ============================================== -->
-
-            <div class="coach-container">
-
-                <div
-                    id="messages"
-                    class="messages"
-                >
-
-                    <div class="message bot">
-
-                        <b>
-                            ENTRENADOR:
-                        </b>
-
-                        <br><br>
-
-                        🏐 ¡Hola! Soy el entrenador
-                        virtual de VóleyRetro.
-
-                        <br><br>
-
-                        Puedes preguntarme
-                        cualquier cosa relacionada
-                        con el voleibol.
-
-                        <br><br>
-
-                        Por ejemplo:
-
-                        <br><br>
-
-                        "¿Por qué mi recepción
-                        se va hacia atrás?"
-
-                        <br><br>
-
-                        "¿Qué posición debería
-                        jugar?"
-
-                        <br><br>
-
-                        "¿Cómo puedo mejorar
-                        mi salto para atacar?"
-
-                    </div>
-
-                </div>
-
-
-                <!-- =========================================
-                     INPUT
-                ========================================== -->
-
-                <div class="coach-input">
-
-                    <textarea
-                        id="question"
-                        rows="2"
-                        placeholder="Escribe tu pregunta sobre voleibol..."
-                    ></textarea>
-
-                    <button
-                        id="sendQuestion"
-                        class="btn"
-                        type="button"
-                    >
-                        ENVIAR
-                    </button>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             LOGIN
-        ================================================== -->
-
-        <div
-            id="loginModal"
-            class="modal"
-            style="display:none;"
-        >
-
-            <div class="modal-content">
-
-                <button
-                    id="closeLogin"
-                    class="modal-close"
-                    type="button"
-                >
-                    ×
-                </button>
-
-                <p class="eyebrow">
-                    VÓLEYRETRO
-                </p>
-
-                <h2>
-                    INICIAR SESIÓN
-                </h2>
-
-                <p>
-                    Guarda tu progreso y
-                    personaliza tu experiencia.
-                </p>
-
-
-                <button
-                    id="googleLogin"
-                    class="btn"
-                    type="button"
-                >
-                    CONTINUAR CON GOOGLE
-                </button>
-
-
-                <div class="login-separator">
-                    O
-                </div>
-
-
-                <input
-                    id="email"
-                    type="email"
-                    placeholder="Correo electrónico"
-                >
-
-
-                <input
-                    id="password"
-                    type="password"
-                    placeholder="Contraseña"
-                >
-
-
-                <button
-                    id="emailLogin"
-                    class="btn secondary"
-                    type="button"
-                >
-                    INICIAR SESIÓN
-                </button>
-
-            </div>
-
-        </div>
-
-    </main>
-
-
-    <!-- =====================================================
-         FOOTER
-    ====================================================== -->
-
-    <footer class="footer">
-
-        <div class="footer-content">
-
-            <div>
-
-                <div class="logo">
-                    <span>VÓLEY</span>RETRO
-                </div>
-
-                <p>
-                    El voleibol desde otra perspectiva.
-                </p>
-
-            </div>
-
-
-            <div class="footer-links">
-
-                <a href="#inicio">
-                    Inicio
-                </a>
-
-                <a href="#partidos">
-                    Partidos
-                </a>
-
-                <a href="#noticias">
-                    Noticias
-                </a>
-
-                <a href="#entrenador">
-                    Entrenador IA
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="footer-bottom">
-
-            <p>
-                © 2026 VóleyRetro.
-                Todos los derechos reservados.
-            </p>
-
-            <p>
-                Plataforma de voleibol
-                y entrenamiento.
-            </p>
-
-        </div>
-
-    </footer>
-
-
-    <!-- =====================================================
-         JAVASCRIPT
-    ====================================================== -->
-
-    <script src="script.js"></script>
 
 </body>
 
