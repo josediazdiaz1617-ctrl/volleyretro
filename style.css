@@ -5,16 +5,13 @@
 
 :root {
     --red: #e52b2b;
-    --red-dark: #b51f1f;
-    --black: #090909;
-    --black-soft: #111111;
-    --dark: #171717;
-    --gray: #888;
-    --light: #f4f4f4;
+    --dark-red: #b91f1f;
+    --black: #080808;
+    --dark: #111111;
+    --gray: #1b1b1b;
+    --light-gray: #a8a8a8;
     --white: #ffffff;
     --border: rgba(255, 255, 255, 0.12);
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-    --radius: 12px;
 }
 
 /* =====================================================
@@ -32,26 +29,10 @@ html {
 }
 
 body {
+    font-family: Arial, Helvetica, sans-serif;
     background: var(--black);
     color: var(--white);
-    font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
-    overflow-x: hidden;
-}
-
-button,
-input,
-textarea {
-    font: inherit;
-}
-
-button {
-    cursor: pointer;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
 }
 
 /* =====================================================
@@ -59,7 +40,7 @@ a {
 ===================================================== */
 
 ::-webkit-scrollbar {
-    width: 9px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -82,117 +63,161 @@ header {
 
     width: 100%;
 
-    background: rgba(9, 9, 9, 0.94);
-    backdrop-filter: blur(12px);
+    background: rgba(8, 8, 8, 0.94);
 
     border-bottom: 1px solid var(--border);
+
+    backdrop-filter: blur(12px);
 }
 
-.navbar {
-    width: min(1200px, 92%);
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+nav {
+    max-width: 1200px;
+
     margin: auto;
 
-    min-height: 76px;
+    min-height: 75px;
 
     display: flex;
+
     align-items: center;
-    justify-content: space-between;
+
+    padding: 0 25px;
 
     gap: 25px;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+/* =====================================================
+   LOGO
+===================================================== */
 
-    font-size: 1.45rem;
+.logo {
+    color: var(--white);
+
+    text-decoration: none;
+
+    font-size: 24px;
+
     font-weight: 900;
-    letter-spacing: 1px;
+
+    letter-spacing: 2px;
+
+    white-space: nowrap;
 }
 
 .logo span {
     color: var(--red);
 }
 
-.logo-ball {
-    width: 38px;
-    height: 38px;
+/* =====================================================
+   MENU
+===================================================== */
 
-    display: grid;
-    place-items: center;
-
-    background: var(--red);
-    color: white;
-
-    border-radius: 50%;
-
-    font-size: 20px;
-}
-
-nav {
+.nav-links {
     display: flex;
+
     align-items: center;
+
     gap: 22px;
+
+    list-style: none;
+
+    margin-left: auto;
 }
 
-nav a {
-    position: relative;
+.nav-links a {
+    color: #dcdcdc;
 
-    color: #ddd;
+    text-decoration: none;
 
-    font-size: 0.9rem;
+    font-size: 14px;
+
     font-weight: 700;
+
+    letter-spacing: 0.5px;
 
     transition: 0.25s ease;
 }
 
-nav a:hover {
+.nav-links a:hover {
     color: var(--red);
 }
 
-nav a::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    bottom: -7px;
-
-    width: 0;
-    height: 2px;
-
-    background: var(--red);
-
-    transition: 0.25s ease;
-}
-
-nav a:hover::after {
-    width: 100%;
-}
-
 /* =====================================================
-   BOTÓN LOGIN
+   BOTONES NAV
 ===================================================== */
 
-.login-btn {
-    border: 1px solid var(--red);
+.nav-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    white-space: nowrap;
+}
+
+.nav-button {
+    border: 1px solid var(--border);
 
     background: transparent;
+
     color: var(--white);
 
-    padding: 9px 16px;
+    padding: 9px 15px;
 
-    border-radius: 7px;
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    font-size: 12px;
 
     font-weight: 800;
-    font-size: 0.85rem;
 
     transition: 0.25s ease;
 }
 
-.login-btn:hover {
+.nav-button:hover {
+    border-color: var(--red);
+
+    color: var(--red);
+}
+
+/* ENTRENADOR */
+
+.coach-nav-button {
     background: var(--red);
+
+    border-color: var(--red);
+
+    color: white;
+}
+
+.coach-nav-button:hover {
+    background: var(--dark-red);
+
+    color: white;
+}
+
+/* LOGIN */
+
+#loginBtn {
+    background: white;
+
+    color: black;
+
+    border-color: white;
+}
+
+#loginBtn:hover {
+    background: var(--red);
+
+    border-color: var(--red);
+
+    color: white;
 }
 
 /* =====================================================
@@ -202,149 +227,115 @@ nav a:hover::after {
 .hero {
     min-height: 650px;
 
-    position: relative;
-
     display: flex;
+
     align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 100px 25px;
+
+    position: relative;
 
     overflow: hidden;
 
     background:
-        linear-gradient(
-            90deg,
-            rgba(0, 0, 0, 0.98) 0%,
-            rgba(0, 0, 0, 0.82) 48%,
-            rgba(0, 0, 0, 0.45) 100%
-        ),
         radial-gradient(
-            circle at 80% 50%,
-            rgba(229, 43, 43, 0.22),
-            transparent 35%
-        );
-}
-
-.hero::before {
-    content: "";
-
-    position: absolute;
-
-    width: 500px;
-    height: 500px;
-
-    right: -180px;
-    top: 70px;
-
-    border: 70px solid rgba(229, 43, 43, 0.07);
-
-    border-radius: 50%;
+            circle at center,
+            rgba(229, 43, 43, 0.15),
+            transparent 55%
+        ),
+        #080808;
 }
 
 .hero-content {
-    width: min(1200px, 92%);
-    margin: auto;
+    max-width: 850px;
 
     position: relative;
+
     z-index: 2;
 }
 
-.hero-content h1 {
-    max-width: 750px;
+.hero h1 {
+    font-size: clamp(45px, 8vw, 95px);
 
-    font-size: clamp(3rem, 8vw, 7rem);
+    line-height: 0.95;
 
-    line-height: 0.9;
-
-    text-transform: uppercase;
-
-    font-weight: 1000;
+    font-weight: 900;
 
     letter-spacing: -4px;
+
+    margin-bottom: 25px;
 }
 
-.hero-content h1 span {
+.hero h1 span {
     color: var(--red);
 }
 
-.hero-content p {
-    max-width: 600px;
+.hero p {
+    color: #bdbdbd;
 
-    margin-top: 25px;
+    max-width: 650px;
 
-    color: #bbb;
+    margin: auto;
 
-    font-size: 1.05rem;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 12px;
-
-    margin-top: 30px;
-
-    flex-wrap: wrap;
+    font-size: 18px;
 }
 
 /* =====================================================
-   BOTONES
+   BOTONES GENERALES
 ===================================================== */
 
 .btn {
     display: inline-flex;
 
     align-items: center;
+
     justify-content: center;
 
-    min-height: 45px;
+    padding: 12px 20px;
 
-    padding: 10px 20px;
+    border-radius: 6px;
 
-    border: none;
-    border-radius: 7px;
+    border: 1px solid transparent;
 
-    font-weight: 900;
-    font-size: 0.82rem;
+    text-decoration: none;
 
-    text-transform: uppercase;
+    cursor: pointer;
 
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        box-shadow 0.2s ease;
-}
+    font-size: 13px;
 
-.btn:hover {
-    transform: translateY(-2px);
+    font-weight: 800;
+
+    transition: 0.25s ease;
 }
 
 .btn.primary {
     background: var(--red);
-    color: white;
 
-    box-shadow:
-        0 7px 20px rgba(229, 43, 43, 0.2);
+    color: white;
 }
 
 .btn.primary:hover {
-    background: var(--red-dark);
+    background: var(--dark-red);
+
+    transform: translateY(-2px);
 }
 
 .btn.secondary {
     background: transparent;
 
-    border: 1px solid var(--border);
+    border-color: var(--border);
 
     color: white;
 }
 
 .btn.secondary:hover {
     border-color: var(--red);
-    color: var(--red);
-}
 
-.btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
+    color: var(--red);
 }
 
 /* =====================================================
@@ -352,40 +343,43 @@ nav a:hover::after {
 ===================================================== */
 
 section {
-    width: min(1200px, 92%);
+    max-width: 1200px;
+
     margin: auto;
 
-    padding: 90px 0;
+    padding: 100px 25px;
 }
 
 .section-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    margin-bottom: 45px;
+}
 
-    gap: 20px;
+.section-title span {
+    color: var(--red);
 
-    margin-bottom: 35px;
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
 }
 
 .section-title h2 {
-    font-size: clamp(2rem, 5vw, 4rem);
+    margin-top: 8px;
+
+    font-size: clamp(30px, 5vw, 52px);
 
     line-height: 1;
 
-    text-transform: uppercase;
-
-    font-weight: 1000;
-}
-
-.section-title h2 span {
-    color: var(--red);
+    font-weight: 900;
 }
 
 .section-title p {
-    max-width: 500px;
+    color: var(--light-gray);
 
-    color: #888;
+    margin-top: 15px;
+
+    max-width: 650px;
 }
 
 /* =====================================================
@@ -398,95 +392,56 @@ section {
     grid-template-columns:
         repeat(3, minmax(0, 1fr));
 
-    gap: 18px;
+    gap: 20px;
 }
 
 .card {
-    position: relative;
-
-    background:
-        linear-gradient(
-            145deg,
-            #171717,
-            #0e0e0e
-        );
+    background: var(--dark);
 
     border: 1px solid var(--border);
 
-    border-radius: var(--radius);
+    border-radius: 10px;
 
-    padding: 25px;
-
-    min-height: 220px;
-
-    box-shadow: var(--shadow);
-
-    overflow: hidden;
+    padding: 28px;
 
     transition:
-        transform 0.25s ease,
-        border-color 0.25s ease;
-}
-
-.card::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 0;
-
-    width: 4px;
-    height: 100%;
-
-    background: var(--red);
-
-    transform: scaleY(0);
-
-    transform-origin: bottom;
-
-    transition: 0.25s ease;
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-6px);
 
-    border-color:
-        rgba(229, 43, 43, 0.5);
-}
+    border-color: rgba(229, 43, 43, 0.6);
 
-.card:hover::before {
-    transform: scaleY(1);
+    background: #151515;
 }
 
 .card > strong {
-    display: block;
-
     color: var(--red);
 
-    font-size: 0.8rem;
+    font-size: 13px;
 
     letter-spacing: 2px;
-
-    margin-bottom: 12px;
 }
 
 .card h3 {
-    font-size: 1.35rem;
+    font-size: 23px;
 
-    margin-bottom: 12px;
+    margin: 14px 0;
 
-    text-transform: uppercase;
+    line-height: 1.2;
 }
 
 .card p {
     color: #aaa;
 
-    font-size: 0.94rem;
+    font-size: 14px;
 }
 
 /* =====================================================
-   MATCH CENTER
+   PARTIDOS
 ===================================================== */
 
 #partidos .card {
@@ -494,16 +449,225 @@ section {
 }
 
 #partidos .card h3 {
-    font-size: 1.15rem;
-    line-height: 1.5;
+    font-size: 22px;
 }
 
 #partidos .card h3 span {
     display: inline-block;
 
-    font-size: 0.8rem;
+    margin: 5px 0;
+}
 
-    margin: 4px 0;
+/* =====================================================
+   CALENDARIO
+===================================================== */
+
+#calendario .card {
+    min-height: 280px;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+#calendario .card .btn {
+    margin-top: auto;
+
+    align-self: flex-start;
+}
+
+/* =====================================================
+   PLAYERS
+===================================================== */
+
+.position-training {
+    margin-top: 25px;
+
+    padding: 18px;
+
+    border-left: 3px solid var(--red);
+
+    background: rgba(229, 43, 43, 0.06);
+
+    border-radius: 5px;
+}
+
+.position-training strong {
+    color: var(--red);
+
+    font-size: 12px;
+}
+
+.position-training p {
+    margin-top: 8px;
+}
+
+/* =====================================================
+   BOTONES DE COMPETICIÓN
+===================================================== */
+
+.competition-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-bottom: 35px;
+}
+
+.competition {
+    background: transparent;
+
+    color: #aaa;
+
+    border: 1px solid var(--border);
+
+    padding: 10px 18px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    font-weight: 800;
+
+    font-size: 12px;
+
+    transition: 0.25s ease;
+}
+
+.competition:hover {
+    color: white;
+
+    border-color: var(--red);
+}
+
+.competition.active {
+    background: var(--red);
+
+    color: white;
+
+    border-color: var(--red);
+}
+
+/* =====================================================
+   BOTONES OLÍMPICOS
+===================================================== */
+
+.olympic-buttons {
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 35px;
+}
+
+.olympic-button {
+    background: transparent;
+
+    color: #aaa;
+
+    border: 1px solid var(--border);
+
+    padding: 10px 18px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    transition: 0.25s ease;
+}
+
+.olympic-button:hover {
+    border-color: var(--red);
+
+    color: white;
+}
+
+.olympic-button.active {
+    background: var(--red);
+
+    color: white;
+
+    border-color: var(--red);
+}
+
+/* =====================================================
+   HISTORIAL VNL / OLÍMPICO
+===================================================== */
+
+#vnlHistory,
+#olympicHistory {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.vnl-year {
+    display: grid;
+
+    grid-template-columns: 130px 1fr;
+
+    gap: 25px;
+
+    padding: 22px;
+
+    background: var(--dark);
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+}
+
+.vnl-year-number {
+    font-size: 32px;
+
+    font-weight: 900;
+
+    color: var(--red);
+}
+
+.vnl-result {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.vnl-result > div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.vnl-result span {
+    color: #777;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+.vnl-result strong {
+    font-size: 16px;
+}
+
+.vnl-result .gold strong {
+    color: #ffd700;
 }
 
 /* =====================================================
@@ -515,176 +679,40 @@ section {
 }
 
 /* =====================================================
-   POSICIONES
+   ENTRENADOR
 ===================================================== */
 
-.position-training {
-    margin-top: 20px;
-
-    padding: 15px;
-
-    background: rgba(229, 43, 43, 0.06);
-
-    border-left: 3px solid var(--red);
-
-    border-radius: 6px;
+.coach-section {
+    max-width: 1000px;
 }
 
-.position-training strong {
-    display: block;
-
-    color: var(--red);
-
-    font-size: 0.78rem;
-
-    margin-bottom: 8px;
-}
-
-.position-training p {
-    font-size: 0.85rem;
-}
-
-/* =====================================================
-   HISTORIA / VNL / OLÍMPICOS
-===================================================== */
-
-.competition-buttons,
-.olympic-buttons {
-    display: flex;
-
-    gap: 10px;
-
-    flex-wrap: wrap;
-
-    margin-bottom: 30px;
-}
-
-.competition,
-.olympic-button {
-    padding: 10px 18px;
-
-    border: 1px solid var(--border);
-
-    background: #111;
-
-    color: #aaa;
-
-    border-radius: 7px;
-
-    font-size: 0.8rem;
-
-    font-weight: 900;
-
-    transition: 0.25s ease;
-}
-
-.competition:hover,
-.olympic-button:hover,
-.competition.active,
-.olympic-button.active {
-    background: var(--red);
-
-    border-color: var(--red);
-
-    color: white;
-}
-
-.vnl-history {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 12px;
-}
-
-.vnl-year {
+.coach-container {
     display: grid;
 
-    grid-template-columns: 110px 1fr;
+    grid-template-columns: 230px 1fr;
 
-    background: #111;
+    min-height: 550px;
+
+    background: #0e0e0e;
 
     border: 1px solid var(--border);
 
-    border-radius: 10px;
+    border-radius: 12px;
 
     overflow: hidden;
 }
 
-.vnl-year-number {
-    display: grid;
-
-    place-items: center;
-
-    background: var(--red);
-
-    color: white;
-
-    font-size: 1.4rem;
-
-    font-weight: 1000;
-}
-
-.vnl-result {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    padding: 18px;
-
-    gap: 15px;
-}
-
-.vnl-result > div {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 3px;
-}
-
-.vnl-result span {
-    color: #777;
-
-    font-size: 0.7rem;
-
-    font-weight: 900;
-
-    letter-spacing: 1px;
-}
-
-.vnl-result strong {
-    color: #eee;
-
-    font-size: 1rem;
-}
-
-.vnl-result .gold strong {
-    color: #f2c94c;
-}
-
 /* =====================================================
-ENTRENADOR IA
-===================================================== */
-
-.coach-section {
-    position: relative;
-}
-
-.coach-layout {
-    display: grid;
-
-    grid-template-columns: 260px 1fr;
-
-    gap: 20px;
-}
-
-/* =====================================================
-   MENÚ DEL ENTRENADOR
+   MENU ENTRENADOR
 ===================================================== */
 
 .coach-menu {
+    background: #111;
+
+    border-right: 1px solid var(--border);
+
+    padding: 18px;
+
     display: flex;
 
     flex-direction: column;
@@ -693,33 +721,33 @@ ENTRENADOR IA
 }
 
 .coach-menu button {
-    width: 100%;
-
-    padding: 13px 15px;
-
     text-align: left;
 
-    background: #111;
+    background: transparent;
 
-    border: 1px solid var(--border);
+    color: #aaa;
 
-    color: #bbb;
+    border: 1px solid transparent;
 
-    border-radius: 7px;
+    padding: 12px;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    font-size: 12px;
 
     font-weight: 800;
 
-    transition: 0.2s ease;
+    transition: 0.25s ease;
 }
 
 .coach-menu button:hover {
-    background: var(--red);
-
-    border-color: var(--red);
-
     color: white;
 
-    transform: translateX(3px);
+    background: #1a1a1a;
+
+    border-color: var(--border);
 }
 
 /* =====================================================
@@ -727,163 +755,77 @@ ENTRENADOR IA
 ===================================================== */
 
 .coach-chat {
-    min-height: 520px;
-
     display: flex;
 
     flex-direction: column;
 
-    background:
-        linear-gradient(
-            145deg,
-            #151515,
-            #0b0b0b
-        );
-
-    border: 1px solid var(--border);
-
-    border-radius: 12px;
-
-    overflow: hidden;
-
-    box-shadow: var(--shadow);
+    min-width: 0;
 }
 
-.coach-header {
-    padding: 18px 20px;
-
-    background: #101010;
-
-    border-bottom: 1px solid var(--border);
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-}
-
-.coach-header strong {
-    color: var(--red);
-
-    font-size: 0.9rem;
-
-    letter-spacing: 1px;
-}
-
-.coach-status {
-    display: flex;
-
-    align-items: center;
-
-    gap: 7px;
-
-    color: #777;
-
-    font-size: 0.72rem;
-}
-
-.coach-status::before {
-    content: "";
-
-    width: 8px;
-    height: 8px;
-
-    border-radius: 50%;
-
-    background: #3ecf5b;
-
-    box-shadow:
-        0 0 8px rgba(62, 207, 91, 0.6);
-}
-
-/* =====================================================
-   MENSAJES
-===================================================== */
-
-.messages {
+#messages {
     flex: 1;
-
-    min-height: 380px;
-    max-height: 560px;
 
     overflow-y: auto;
 
-    padding: 20px;
+    padding: 25px;
 
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 12px;
+    max-height: 500px;
 }
 
 .message {
-    max-width: 80%;
+    max-width: 85%;
 
-    padding: 12px 15px;
+    margin-bottom: 18px;
 
-    border-radius: 10px;
+    padding: 14px 17px;
 
-    font-size: 0.9rem;
+    border-radius: 8px;
+
+    font-size: 14px;
 
     line-height: 1.6;
-
-    animation: messageIn 0.25s ease;
 }
 
 .message.user {
-    align-self: flex-end;
+    margin-left: auto;
 
     background: var(--red);
 
     color: white;
 
-    border-bottom-right-radius: 3px;
+    border-bottom-right-radius: 2px;
 }
 
 .message.bot {
-    align-self: flex-start;
+    margin-right: auto;
 
-    background: #1a1a1a;
+    background: #191919;
 
     border: 1px solid var(--border);
 
     color: #ddd;
 
-    border-bottom-left-radius: 3px;
+    border-bottom-left-radius: 2px;
 }
 
 .message.bot b {
     color: var(--red);
 }
 
-@keyframes messageIn {
-    from {
-        opacity: 0;
-        transform: translateY(7px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* =====================================================
-   INPUT DEL CHAT
+   INPUT ENTRENADOR
 ===================================================== */
 
 .coach-input {
     display: flex;
 
-    gap: 8px;
+    gap: 10px;
 
-    padding: 15px;
-
-    background: #0e0e0e;
+    padding: 18px;
 
     border-top: 1px solid var(--border);
+
+    background: #0b0b0b;
 }
 
 #question {
@@ -891,38 +833,53 @@ ENTRENADOR IA
 
     min-width: 0;
 
-    resize: none;
-
-    padding: 12px 14px;
-
-    background: #181818;
-
-    border: 1px solid var(--border);
-
-    border-radius: 7px;
-
-    outline: none;
+    background: #171717;
 
     color: white;
 
-    font-size: 0.9rem;
+    border: 1px solid var(--border);
 
-    transition: 0.2s ease;
+    border-radius: 6px;
+
+    padding: 13px 15px;
+
+    outline: none;
+
+    font-family: inherit;
+
+    resize: none;
 }
 
 #question:focus {
     border-color: var(--red);
-
-    box-shadow:
-        0 0 0 2px rgba(229, 43, 43, 0.08);
-}
-
-#question::placeholder {
-    color: #666;
 }
 
 #sendQuestion {
-    min-width: 100px;
+    background: var(--red);
+
+    color: white;
+
+    border: none;
+
+    border-radius: 6px;
+
+    padding: 0 20px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+#sendQuestion:hover {
+    background: var(--dark-red);
+}
+
+#sendQuestion:disabled {
+    opacity: 0.5;
+
+    cursor: not-allowed;
 }
 
 /* =====================================================
@@ -934,101 +891,84 @@ ENTRENADOR IA
 
     inset: 0;
 
-    z-index: 5000;
+    z-index: 3000;
 
     display: none;
 
     place-items: center;
 
+    background: rgba(0, 0, 0, 0.8);
+
+    backdrop-filter: blur(8px);
+
     padding: 20px;
-
-    background: rgba(0, 0, 0, 0.78);
-
-    backdrop-filter: blur(7px);
 }
 
 .login-box {
     width: min(420px, 100%);
 
-    position: relative;
-
-    padding: 35px;
-
-    background: #121212;
+    background: #111;
 
     border: 1px solid var(--border);
 
-    border-radius: 14px;
+    border-radius: 10px;
+
+    padding: 30px;
+
+    position: relative;
 
     box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.6);
-
-    animation: modalIn 0.25s ease;
-}
-
-@keyframes modalIn {
-    from {
-        opacity: 0;
-        transform: translateY(15px) scale(0.97);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+        0 20px 70px rgba(0, 0, 0, 0.6);
 }
 
 .login-box h2 {
+    font-size: 28px;
+
     margin-bottom: 8px;
-
-    font-size: 1.8rem;
-}
-
-.login-box h2 span {
-    color: var(--red);
 }
 
 .login-box p {
+    color: #888;
+
+    font-size: 13px;
+
     margin-bottom: 25px;
-
-    color: #777;
-
-    font-size: 0.9rem;
 }
 
-.close-login {
+#closeLogin {
     position: absolute;
 
-    top: 15px;
-    right: 17px;
+    right: 15px;
+
+    top: 12px;
 
     border: none;
 
-    background: none;
+    background: transparent;
 
-    color: #777;
+    color: #aaa;
 
-    font-size: 1.5rem;
+    font-size: 25px;
 
     cursor: pointer;
 }
 
-.close-login:hover {
-    color: white;
+#closeLogin:hover {
+    color: var(--red);
 }
 
 .login-box input {
     width: 100%;
 
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 
-    padding: 12px 14px;
+    padding: 13px;
 
-    background: #1a1a1a;
+    background: #181818;
 
     border: 1px solid var(--border);
 
-    border-radius: 7px;
+    border-radius: 5px;
 
     color: white;
 
@@ -1039,88 +979,56 @@ ENTRENADOR IA
     border-color: var(--red);
 }
 
-.login-box .btn {
-    width: 100%;
-
-    margin-top: 8px;
-}
-
-.login-divider {
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    margin: 18px 0;
-
-    color: #555;
-
-    font-size: 0.75rem;
-}
-
-.login-divider::before,
-.login-divider::after {
-    content: "";
-
-    flex: 1;
-
-    height: 1px;
-
-    background: var(--border);
-}
-
-#googleLogin {
+.login-box button {
     width: 100%;
 
     padding: 12px;
 
-    background: white;
+    margin-top: 5px;
 
-    color: #111;
+    border-radius: 5px;
 
-    border: none;
+    border: 1px solid var(--border);
 
-    border-radius: 7px;
+    cursor: pointer;
 
     font-weight: 800;
 }
 
-#googleLogin:hover {
-    background: #ddd;
+#googleLogin {
+    background: white;
+
+    color: black;
+}
+
+#emailLogin {
+    background: var(--red);
+
+    color: white;
+
+    border-color: var(--red);
 }
 
 /* =====================================================
  CONSEJO DEL DÍA
 ===================================================== */
 
-.daily-tip {
+.tip-box {
+    background: #111;
+
+    border-left: 4px solid var(--red);
+
     padding: 25px;
 
-    margin-top: 20px;
+    border-radius: 8px;
 
-    background:
-        linear-gradient(
-            120deg,
-            rgba(229, 43, 43, 0.12),
-            rgba(229, 43, 43, 0.02)
-        );
+    display: flex;
 
-    border: 1px solid rgba(229, 43, 43, 0.2);
+    justify-content: space-between;
 
-    border-radius: 12px;
-}
+    align-items: center;
 
-.daily-tip-label {
-    color: var(--red);
-
-    font-weight: 900;
-
-    font-size: 0.75rem;
-
-    letter-spacing: 2px;
-
-    margin-bottom: 10px;
+    gap: 20px;
 }
 
 #dailyTip {
@@ -1130,7 +1038,7 @@ ENTRENADOR IA
 }
 
 #newTip {
-    margin-top: 15px;
+    flex-shrink: 0;
 }
 
 /* =====================================================
@@ -1138,69 +1046,49 @@ ENTRENADOR IA
 ===================================================== */
 
 footer {
-    margin-top: 40px;
-
-    padding: 45px 20px;
-
-    background: #080808;
-
     border-top: 1px solid var(--border);
 
+    padding: 50px 25px;
+
     text-align: center;
-}
 
-footer .logo {
-    justify-content: center;
-
-    margin-bottom: 15px;
-}
-
-footer p {
     color: #666;
 
-    font-size: 0.8rem;
+    font-size: 13px;
 }
 
-footer span {
+footer strong {
     color: var(--red);
 }
 
 /* =====================================================
-   ANIMACIONES REVEAL
+   ANIMACIONES
 ===================================================== */
 
 .reveal {
     opacity: 0;
+
     transform: translateY(25px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
 }
 
 .reveal-ready {
-    transition:
-        opacity 0.6s ease,
-        transform 0.6s ease;
+    opacity: 0;
+
+    transform: translateY(25px);
 }
 
 .reveal-visible {
     opacity: 1;
+
     transform: translateY(0);
 }
 
 /* =====================================================
-   SEPARADORES
-===================================================== */
-
-.section-line {
-    width: 70px;
-
-    height: 4px;
-
-    margin-top: 15px;
-
-    background: var(--red);
-}
-
-/* =====================================================
-   SELECCIÓN DE TEXTO
+   SELECCIÓN
 ===================================================== */
 
 ::selection {
@@ -1213,18 +1101,14 @@ footer span {
    RESPONSIVE TABLET
 ===================================================== */
 
-@media (max-width: 900px) {
-
-    .navbar {
-        min-height: 68px;
-    }
+@media (max-width: 950px) {
 
     nav {
-        gap: 12px;
+        gap: 15px;
     }
 
-    nav a {
-        font-size: 0.78rem;
+    .nav-links {
+        gap: 12px;
     }
 
     .cards {
@@ -1232,153 +1116,91 @@ footer span {
             repeat(2, minmax(0, 1fr));
     }
 
-    .coach-layout {
-        grid-template-columns: 1fr;
+    .coach-container {
+        grid-template-columns: 190px 1fr;
     }
 
-    .coach-menu {
-        display: grid;
-
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-    .coach-menu button {
-        text-align: center;
-    }
-
-    .hero {
-        min-height: 580px;
-    }
-
-    .hero-content h1 {
-        letter-spacing: -2px;
-    }
 }
 
 /* =====================================================
-   RESPONSIVE MÓVIL
+   RESPONSIVE CELULAR
 ===================================================== */
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
 
-    header {
-        position: relative;
-    }
+    nav {
+        min-height: auto;
 
-    .navbar {
-        width: 94%;
+        padding: 15px;
 
         flex-wrap: wrap;
-
-        padding: 15px 0;
-
-        justify-content: center;
     }
 
     .logo {
         width: 100%;
-
-        justify-content: center;
     }
 
-    nav {
+    .nav-links {
+        order: 3;
+
         width: 100%;
 
-        justify-content: center;
+        overflow-x: auto;
 
-        flex-wrap: wrap;
+        justify-content: flex-start;
 
-        gap: 12px;
+        padding-bottom: 5px;
     }
 
-    nav a {
-        font-size: 0.72rem;
-    }
-
-    .login-btn {
-        padding: 7px 12px;
+    .nav-actions {
+        margin-left: auto;
     }
 
     .hero {
-        min-height: 520px;
+        min-height: 550px;
 
-        text-align: center;
+        padding: 80px 20px;
     }
 
-    .hero-content {
-        display: flex;
-
-        flex-direction: column;
-
-        align-items: center;
-    }
-
-    .hero-content h1 {
-        font-size: clamp(3rem, 15vw, 5rem);
-
+    .hero h1 {
         letter-spacing: -2px;
     }
 
-    .hero-content p {
-        font-size: 0.9rem;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
     section {
-        width: 92%;
-
-        padding: 65px 0;
-    }
-
-    .section-title {
-        display: block;
-    }
-
-    .section-title p {
-        margin-top: 15px;
+        padding: 70px 20px;
     }
 
     .cards {
         grid-template-columns: 1fr;
     }
 
-    .card {
-        min-height: auto;
-    }
-
     .vnl-year {
         grid-template-columns: 1fr;
-    }
 
-    .vnl-year-number {
-        padding: 12px;
+        gap: 15px;
     }
 
     .vnl-result {
         grid-template-columns: 1fr;
-
-        padding: 15px;
     }
 
-    .coach-menu {
+    .coach-container {
         grid-template-columns: 1fr;
     }
 
-    .coach-chat {
-        min-height: 500px;
+    .coach-menu {
+        border-right: none;
+
+        border-bottom: 1px solid var(--border);
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
-    .messages {
-        min-height: 350px;
+    #messages {
         max-height: 450px;
-    }
-
-    .message {
-        max-width: 92%;
     }
 
     .coach-input {
@@ -1386,48 +1208,43 @@ footer span {
     }
 
     #sendQuestion {
+        padding: 13px;
+    }
+
+    .tip-box {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    #newTip {
         width: 100%;
     }
 
-    .login-box {
-        padding: 25px;
-    }
 }
 
 /* =====================================================
-   MÓVILES PEQUEÑOS
+   CELULARES PEQUEÑOS
 ===================================================== */
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
 
-    .logo {
-        font-size: 1.2rem;
+    .nav-actions {
+        width: 100%;
+
+        margin-left: 0;
     }
 
-    .logo-ball {
-        width: 32px;
-        height: 32px;
-
-        font-size: 16px;
+    .nav-button {
+        flex: 1;
     }
 
-    nav {
-        gap: 8px;
+    .coach-menu {
+        grid-template-columns: 1fr;
     }
 
-    nav a {
-        font-size: 0.65rem;
+    .message {
+        max-width: 95%;
     }
 
-    .hero-content h1 {
-        font-size: 3rem;
-    }
-
-    .section-title h2 {
-        font-size: 2rem;
-    }
-
-    .card {
-        padding: 20px;
-    }
 }
