@@ -1,947 +1,413 @@
 /* =====================================================
    VÓLEYRETRO
-   SCRIPT PRINCIPAL
+   JAVASCRIPT PRINCIPAL
 ===================================================== */
 
 
 /* =====================================================
-   CONSEJOS
+   LOGIN
 ===================================================== */
 
-const tips = [
+const loginBtn = document.getElementById("loginBtn");
+const loginModal = document.getElementById("loginModal");
+const closeLogin = document.getElementById("closeLogin");
 
-    "En recepción, llega primero con los pies y después ajusta la plataforma de brazos.",
-
-    "Para mejorar el saque, trabaja primero la consistencia del lanzamiento antes de buscar más potencia.",
-
-    "Antes de atacar, observa el bloqueo y busca los espacios libres.",
-
-    "La comunicación es parte de la técnica: habla antes de que el balón llegue a tu zona.",
-
-    "En defensa, intenta leer al atacante antes del contacto con el balón.",
-
-    "Cuando estés bajo presión, concéntrate en la siguiente jugada y no en el marcador.",
-
-    "Practica con objetivos concretos: por ejemplo, dirigir 10 recepciones hacia una zona específica.",
-
-    "Un buen ataque no siempre necesita máxima potencia; la dirección también puede ganar puntos."
-
-];
-
-
-const dailyTip =
-    document.getElementById("dailyTip");
-
-const newTip =
-    document.getElementById("newTip");
-
-
-if (newTip && dailyTip) {
-
-    newTip.addEventListener("click", () => {
-
-        const random =
-            Math.floor(Math.random() * tips.length);
-
-
-        dailyTip.style.opacity = "0";
-
-
-        setTimeout(() => {
-
-            dailyTip.textContent =
-                tips[random];
-
-            dailyTip.style.opacity = "1";
-
-        }, 180);
-
+if (loginBtn && loginModal) {
+    loginBtn.addEventListener("click", () => {
+        loginModal.style.display = "grid";
+        document.body.style.overflow = "hidden";
     });
+}
 
+if (closeLogin && loginModal) {
+    closeLogin.addEventListener("click", () => {
+        loginModal.style.display = "none";
+        document.body.style.overflow = "";
+    });
+}
+
+if (loginModal) {
+    loginModal.addEventListener("click", (event) => {
+        if (event.target === loginModal) {
+            loginModal.style.display = "none";
+            document.body.style.overflow = "";
+        }
+    });
 }
 
 
 /* =====================================================
-   DATOS DEPORTIVOS
+   LOGIN CON CORREO
 ===================================================== */
 
-const volleyballData = {
+const emailLogin = document.getElementById("emailLogin");
 
-    matches: [
+if (emailLogin) {
+    emailLogin.addEventListener("click", () => {
 
-        {
-            competition: "VNL",
-            status: "PRÓXIMO",
-            team1: "Por confirmar",
-            team2: "Por confirmar",
-            time: "Calendario oficial"
-        },
+        const email = document.getElementById("email");
+        const password = document.getElementById("password");
 
-        {
-            competition: "INTERNACIONAL",
-            status: "PRÓXIMO",
-            team1: "Por confirmar",
-            team2: "Por confirmar",
-            time: "Calendario oficial"
-        },
+        if (!email || !password) return;
 
-        {
-            competition: "CLUBES",
-            status: "PRÓXIMO",
-            team1: "Por confirmar",
-            team2: "Por confirmar",
-            time: "Calendario oficial"
+        if (
+            email.value.trim() === "" ||
+            password.value.trim() === ""
+        ) {
+            alert("Completa el correo y la contraseña.");
+            return;
         }
 
-    ],
+        alert("Inicio de sesión preparado. Aquí podrás conectar posteriormente tu sistema de usuarios.");
+
+    });
+}
 
 
-    news: [
+/* =====================================================
+   LOGIN CON GOOGLE
+===================================================== */
 
-        {
-            number: "01",
-            category: "VNL",
-            title: "Volleyball Nations League",
-            description:
-                "Consulta resultados, posiciones, campeones y protagonistas de la VNL masculina y femenina."
+const googleLogin = document.getElementById("googleLogin");
+
+if (googleLogin) {
+    googleLogin.addEventListener("click", () => {
+
+        alert(
+            "El inicio de sesión con Google necesita configurarse mediante Firebase u otro servicio de autenticación."
+        );
+
+    });
+}
+
+
+/* =====================================================
+   CERRAR LOGIN CON ESC
+===================================================== */
+
+document.addEventListener("keydown", (event) => {
+
+    if (
+        event.key === "Escape" &&
+        loginModal &&
+        loginModal.style.display === "grid"
+    ) {
+
+        loginModal.style.display = "none";
+        document.body.style.overflow = "";
+
+    }
+
+});
+
+
+/* =====================================================
+   CALENDARIO / COMPETICIONES
+===================================================== */
+
+
+/*
+   IMPORTANTE:
+
+   Estos datos se muestran directamente en la página.
+   No se utilizan enlaces externos ni páginas inexistentes,
+   por lo que los botones de años no producen error 404.
+*/
+
+
+const competitionData = {
+
+    /* =================================================
+       VNL MASCULINA
+    ================================================= */
+
+    vnlMen: {
+
+        2025: {
+            first: "Italia",
+            second: "Polonia",
+            third: "Brasil"
         },
 
-        {
-            number: "02",
-            category: "CAMPEONATOS",
-            title: "Grandes campeonatos",
-            description:
-                "Descubre las principales competiciones internacionales y los equipos que han marcado su historia."
+        2024: {
+            first: "Francia",
+            second: "Japón",
+            third: "Polonia"
         },
 
-        {
-            number: "03",
-            category: "HISTORIA",
-            title: "Historia olímpica",
-            description:
-                "Repasa los campeones olímpicos desde la incorporación del voleibol a los Juegos Olímpicos."
+        2023: {
+            first: "Polonia",
+            second: "Estados Unidos",
+            third: "Japón"
+        },
+
+        2022: {
+            first: "Francia",
+            second: "Estados Unidos",
+            third: "Polonia"
+        },
+
+        2021: {
+            first: "Estados Unidos",
+            second: "Brasil",
+            third: "Francia"
+        },
+
+        2019: {
+            first: "Rusia",
+            second: "Estados Unidos",
+            third: "Polonia"
         }
 
-    ],
-
-
-    competitions: [
-
-        {
-            short: "VNL",
-            name: "Volleyball Nations League",
-            description:
-                "Competición internacional anual de selecciones masculinas y femeninas."
-        },
-
-        {
-            short: "MUNDIAL",
-            name: "Campeonato Mundial",
-            description:
-                "Una de las competiciones más importantes del voleibol internacional."
-        },
-
-        {
-            short: "OLÍMPICOS",
-            name: "Juegos Olímpicos",
-            description:
-                "El voleibol de sala forma parte del programa olímpico desde Tokio 1964."
-        }
-
-    ],
+    },
 
 
     /* =================================================
-       LAS 5 POSICIONES
+       VNL FEMENINA
     ================================================= */
 
-    positions: [
+    vnlWomen: {
 
-        {
-            short: "COLOCADOR",
-
-            name: "Colocador",
-
-            description:
-                "Es el jugador encargado de organizar el ataque del equipo. Normalmente realiza el segundo contacto y decide hacia qué atacante dirigir el balón. Necesita precisión, buena lectura del bloqueo rival, comunicación y capacidad para tomar decisiones rápidamente. También debe desplazarse constantemente para llegar a balones que no vienen perfectamente recibidos.",
-
-            training:
-                "Entrenamiento específico: realiza 30 colocaciones desde diferentes zonas de la cancha hacia las posiciones 2, 3 y 4. Después añade desplazamientos: parte desde posición defensiva, muévete hacia el balón y realiza la colocación. Finalmente practica decisiones rápidas: un compañero indica qué atacante debe recibir la colocación."
+        2025: {
+            first: "Italia",
+            second: "Brasil",
+            third: "Polonia"
         },
 
-
-        {
-            short: "CENTRAL",
-
-            name: "Central",
-
-            description:
-                "El central es uno de los principales especialistas en bloqueo y ataque rápido. Su función consiste en cerrar espacios en la red, leer al colocador contrario y coordinarse con los demás bloqueadores. En ataque suele utilizar balones rápidos por el centro, por lo que necesita velocidad de desplazamiento, salto y buena sincronización con el colocador.",
-
-            training:
-                "Entrenamiento específico: realiza series de desplazamientos laterales de bloqueo sobre la red. Después practica saltos de bloqueo y, al caer, vuelve rápidamente a la posición inicial. Para el ataque, trabaja 15 ataques rápidos por el centro intentando sincronizar el salto con el colocador."
+        2024: {
+            first: "Italia",
+            second: "Japón",
+            third: "Polonia"
         },
 
-
-        {
-            short: "OPUESTO",
-
-            name: "Opuesto",
-
-            description:
-                "El opuesto es uno de los principales atacantes del equipo. Suele atacar desde la zona 2 y también puede participar en ataques desde la línea de zagueros. Una de sus responsabilidades importantes es enfrentarse al atacante exterior rival en el bloqueo. Necesita potencia, variedad de golpes, capacidad para atacar balones difíciles y buena lectura del bloqueo.",
-
-            training:
-                "Entrenamiento específico: realiza 20 ataques desde zona 2 alternando diagonal, línea y balón colocado. Después practica bloqueo individual contra un atacante exterior. Termina con situaciones de balón complicado, buscando zonas libres en lugar de golpear siempre con máxima potencia."
+        2023: {
+            first: "Turquía",
+            second: "China",
+            third: "Estados Unidos"
         },
 
-
-        {
-            short: "PUNTA",
-
-            name: "Punta / Receptor",
-
-            description:
-                "El punta, también llamado receptor-atacante, tiene una de las funciones más completas del voleibol. Participa en la recepción del saque, defiende, ataca desde zona 4 y puede colaborar en el bloqueo. Por eso necesita dominar varias habilidades al mismo tiempo. La regularidad en recepción y la capacidad para atacar después de una recepción son especialmente importantes.",
-
-            training:
-                "Entrenamiento específico: realiza 20 recepciones dirigidas hacia la zona del colocador. Después de cada recepción, desplázate rápidamente hacia zona 4 y prepara un ataque. Alterna ataques diagonales, paralelos y colocados. Finaliza con ejercicios de defensa después del ataque."
+        2022: {
+            first: "Italia",
+            second: "Brasil",
+            third: "Serbia"
         },
 
+        2021: {
+            first: "Estados Unidos",
+            second: "Brasil",
+            third: "Turquía"
+        },
 
-        {
-            short: "LÍBERO",
-
-            name: "Líbero",
-
-            description:
-                "El líbero es el especialista defensivo del equipo. Su principal responsabilidad es mejorar la recepción y mantener el balón controlado después de los ataques rivales. Necesita excelentes reflejos, lectura del atacante, desplazamiento y comunicación. Se especializa especialmente en recepción y defensa.",
-
-            training:
-                "Entrenamiento específico: recibe 30 saques dirigidos a diferentes zonas. Después realiza ejercicios de defensa ante ataques desde distintas posiciones. Trabaja también desplazamientos cortos hacia adelante, atrás y lateralmente. En cada repetición intenta controlar el balón hacia una zona objetivo."
+        2019: {
+            first: "Estados Unidos",
+            second: "Brasil",
+            third: "China"
         }
 
-    ]
+    },
+
+
+    /* =================================================
+       MUNDIAL MASCULINO
+    ================================================= */
+
+    worldMen: {
+
+        2022: {
+            first: "Italia",
+            second: "Polonia",
+            third: "Brasil"
+        },
+
+        2018: {
+            first: "Polonia",
+            second: "Brasil",
+            third: "Estados Unidos"
+        },
+
+        2014: {
+            first: "Polonia",
+            second: "Brasil",
+            third: "Alemania"
+        },
+
+        2010: {
+            first: "Brasil",
+            second: "Cuba",
+            third: "Serbia"
+        },
+
+        2006: {
+            first: "Brasil",
+            second: "Polonia",
+            third: "Bulgaria"
+        }
+
+    },
+
+
+    /* =================================================
+       MUNDIAL FEMENINO
+    ================================================= */
+
+    worldWomen: {
+
+        2022: {
+            first: "Serbia",
+            second: "Brasil",
+            third: "Italia"
+        },
+
+        2018: {
+            first: "Serbia",
+            second: "Italia",
+            third: "China"
+        },
+
+        2014: {
+            first: "Estados Unidos",
+            second: "China",
+            third: "Brasil"
+        },
+
+        2010: {
+            first: "Rusia",
+            second: "Brasil",
+            third: "Japón"
+        },
+
+        2006: {
+            first: "Rusia",
+            second: "Brasil",
+            third: "Serbia"
+        }
+
+    },
+
+
+    /* =================================================
+       JUEGOS OLÍMPICOS MASCULINO
+    ================================================= */
+
+    olympicMen: {
+
+        2024: {
+            first: "Francia",
+            second: "Polonia",
+            third: "Estados Unidos"
+        },
+
+        2020: {
+            first: "Francia",
+            second: "ROC",
+            third: "Argentina"
+        },
+
+        2016: {
+            first: "Brasil",
+            second: "Italia",
+            third: "Estados Unidos"
+        },
+
+        2012: {
+            first: "Rusia",
+            second: "Brasil",
+            third: "Italia"
+        },
+
+        2008: {
+            first: "Estados Unidos",
+            second: "Brasil",
+            third: "Rusia"
+        }
+
+    },
+
+
+    /* =================================================
+       JUEGOS OLÍMPICOS FEMENINO
+    ================================================= */
+
+    olympicWomen: {
+
+        2024: {
+            first: "Italia",
+            second: "Estados Unidos",
+            third: "Brasil"
+        },
+
+        2020: {
+            first: "Estados Unidos",
+            second: "Brasil",
+            third: "Serbia"
+        },
+
+        2016: {
+            first: "China",
+            second: "Serbia",
+            third: "Estados Unidos"
+        },
+
+        2012: {
+            first: "Brasil",
+            second: "Estados Unidos",
+            third: "Japón"
+        },
+
+        2008: {
+            first: "Brasil",
+            second: "Estados Unidos",
+            third: "China"
+        }
+
+    }
 
 };
 
 
 /* =====================================================
-   HISTORIAL VNL
+   MOSTRAR RESULTADO DE UNA COMPETICIÓN
 ===================================================== */
 
-const vnlHistory = {
+function showCompetitionResult(
+    container,
+    year,
+    data,
+    competitionName
+) {
 
-    men: [
+    if (!container || !data) return;
 
-        {
-            year: 2025,
-            gold: "Polonia",
-            silver: "Italia",
-            bronze: "Brasil"
-        },
+    container.innerHTML = `
 
-        {
-            year: 2024,
-            gold: "Francia",
-            silver: "Japón",
-            bronze: "Polonia"
-        },
-
-        {
-            year: 2023,
-            gold: "Polonia",
-            silver: "Estados Unidos",
-            bronze: "Japón"
-        },
-
-        {
-            year: 2022,
-            gold: "Francia",
-            silver: "Estados Unidos",
-            bronze: "Polonia"
-        },
-
-        {
-            year: 2021,
-            gold: "Brasil",
-            silver: "Polonia",
-            bronze: "Francia"
-        },
-
-        {
-            year: 2019,
-            gold: "Rusia",
-            silver: "Estados Unidos",
-            bronze: "Polonia"
-        },
-
-        {
-            year: 2018,
-            gold: "Rusia",
-            silver: "Francia",
-            bronze: "Estados Unidos"
-        }
-
-    ],
-
-
-    women: [
-
-        {
-            year: 2025,
-            gold: "Italia",
-            silver: "Brasil",
-            bronze: "Polonia"
-        },
-
-        {
-            year: 2024,
-            gold: "Italia",
-            silver: "Japón",
-            bronze: "Polonia"
-        },
-
-        {
-            year: 2023,
-            gold: "Turquía",
-            silver: "China",
-            bronze: "Polonia"
-        },
-
-        {
-            year: 2022,
-            gold: "Italia",
-            silver: "Brasil",
-            bronze: "Serbia"
-        },
-
-        {
-            year: 2021,
-            gold: "Estados Unidos",
-            silver: "Brasil",
-            bronze: "Turquía"
-        },
-
-        {
-            year: 2019,
-            gold: "Estados Unidos",
-            silver: "Brasil",
-            bronze: "China"
-        },
-
-        {
-            year: 2018,
-            gold: "Estados Unidos",
-            silver: "Turquía",
-            bronze: "China"
-        }
-
-    ]
-
-};
-
-
-/* =====================================================
-   HISTORIAL OLÍMPICO
-===================================================== */
-
-const olympicHistory = {
-
-    men: [
-
-        { year: 2024, gold: "Francia" },
-        { year: 2020, gold: "Francia" },
-        { year: 2016, gold: "Brasil" },
-        { year: 2012, gold: "Rusia" },
-        { year: 2008, gold: "Estados Unidos" },
-        { year: 2004, gold: "Brasil" },
-        { year: 2000, gold: "Yugoslavia" },
-        { year: 1996, gold: "Países Bajos" },
-        { year: 1992, gold: "Brasil" },
-        { year: 1988, gold: "Estados Unidos" },
-        { year: 1984, gold: "Estados Unidos" },
-        { year: 1980, gold: "Unión Soviética" },
-        { year: 1976, gold: "Polonia" },
-        { year: 1972, gold: "Japón" },
-        { year: 1968, gold: "Unión Soviética" },
-        { year: 1964, gold: "Unión Soviética" }
-
-    ],
-
-
-    women: [
-
-        { year: 2024, gold: "Italia" },
-        { year: 2020, gold: "Estados Unidos" },
-        { year: 2016, gold: "China" },
-        { year: 2012, gold: "Brasil" },
-        { year: 2008, gold: "Brasil" },
-        { year: 2004, gold: "China" },
-        { year: 2000, gold: "Cuba" },
-        { year: 1996, gold: "Cuba" },
-        { year: 1992, gold: "Cuba" },
-        { year: 1988, gold: "Unión Soviética" },
-        { year: 1984, gold: "China" },
-        { year: 1980, gold: "Unión Soviética" },
-        { year: 1976, gold: "Japón" },
-        { year: 1972, gold: "Unión Soviética" },
-        { year: 1968, gold: "Unión Soviética" },
-        { year: 1964, gold: "Japón" }
-
-    ]
-
-};
-
-
-/* =====================================================
-   MATCH CENTER
-===================================================== */
-
-function renderMatches() {
-
-    const section =
-        document.getElementById("partidos");
-
-
-    if (!section) return;
-
-
-    const container =
-        section.querySelector(".cards");
-
-
-    if (!container) return;
-
-
-    container.innerHTML = "";
-
-
-    volleyballData.matches.forEach(
-        (match, index) => {
-
-            const card =
-                document.createElement("article");
-
-
-            card.className =
-                "card reveal";
-
-
-            card.innerHTML = `
-
-                <strong>
-                    ${index + 1}
-                </strong>
-
-                <h3>
-
-                    ${match.team1}
-
-                    <br>
-
-                    <span style="color:#e52b2b">
-                        VS
-                    </span>
-
-                    <br>
-
-                    ${match.team2}
-
-                </h3>
-
-                <p>
-
-                    <b>
-                        ${match.competition}
-                    </b>
-
-                    <br>
-
-                    ${match.status}
-
-                    <br>
-
-                    ${match.time}
-
-                </p>
-
-            `;
-
-
-            container.appendChild(card);
-
-        }
-    );
-
-
-    observeAnimations();
-
-}
-
-
-/* =====================================================
-   NOTICIAS
-===================================================== */
-
-function renderNews() {
-
-    const section =
-        document.getElementById("noticias");
-
-
-    if (!section) return;
-
-
-    const container =
-        section.querySelector(".cards");
-
-
-    if (!container) return;
-
-
-    container.innerHTML = "";
-
-
-    volleyballData.news.forEach(
-        article => {
-
-            const card =
-                document.createElement("article");
-
-
-            card.className =
-                "card reveal";
-
-
-            card.innerHTML = `
-
-                <strong>
-                    ${article.number}
-                </strong>
-
-                <h3>
-                    ${article.title}
-                </h3>
-
-                <p>
-                    ${article.description}
-                </p>
-
-                <button
-                    class="btn secondary news-button"
-                    data-category="${article.category}">
-
-                    LEER MÁS
-
-                </button>
-
-            `;
-
-
-            container.appendChild(card);
-
-        }
-    );
-
-
-    container
-        .querySelectorAll(".news-button")
-        .forEach(button => {
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    showNews(
-                        button.dataset.category
-                    );
-
-                }
-            );
-
-        });
-
-
-    observeAnimations();
-
-}
-
-
-/* =====================================================
-   MOSTRAR NOTICIA
-===================================================== */
-
-function showNews(category) {
-
-    const article =
-        volleyballData.news.find(
-            item => item.category === category
-        );
-
-
-    if (!article) return;
-
-
-    alert(
-        `${article.title}\n\n` +
-        `${article.description}`
-    );
-
-}
-
-
-/* =====================================================
-   ENLACES DE LAS COMPETICIONES
-===================================================== */
-
-/*
-   Estas son las páginas oficiales.
-
-   VNL:
-   Volleyball World
-
-   Mundial:
-   Volleyball World
-
-   Olímpicos:
-   Olympics
-*/
-
-const competitionLinks = {
-
-    VNL:
-        "https://es.volleyballworld.com/volleyball/competitions/volleyball-nations-league",
-
-    MUNDIAL:
-        "https://en.volleyballworld.com/volleyball/competitions/men-world-championship",
-
-    "OLÍMPICOS":
-        "https://olympics.com/en/sports/volleyball/"
-
-};
-
-
-/* =====================================================
-   CALENDARIO
-===================================================== */
-
-function renderCompetitions() {
-
-    const sections =
-        document.querySelectorAll("section");
-
-
-    let target = null;
-
-
-    sections.forEach(section => {
-
-        const title =
-            section.querySelector(
-                ".section-title h2"
-            );
-
-
-        if (!title) return;
-
-
-        if (
-            title.textContent
-                .trim()
-                .toUpperCase() === "CALENDARIO"
-        ) {
-
-            target =
-                section.querySelector(".cards");
-
-        }
-
-    });
-
-
-    if (!target) return;
-
-
-    target.innerHTML = "";
-
-
-    /* ---------------------------------------------
-       CREAR TARJETAS
-    --------------------------------------------- */
-
-    volleyballData.competitions.forEach(
-        item => {
-
-            const card =
-                document.createElement("article");
-
-
-            card.className =
-                "card reveal";
-
-
-            const link =
-                competitionLinks[item.short];
-
-
-            card.innerHTML = `
-
-                <strong>
-                    ${item.short}
-                </strong>
-
-                <h3>
-                    ${item.name}
-                </h3>
-
-                <p>
-                    ${item.description}
-                </p>
-
-                <button
-                    class="btn secondary competition-link"
-                    data-link="${link || ""}">
-
-                    VER COMPETICIÓN
-
-                </button>
-
-            `;
-
-
-            target.appendChild(card);
-
-        }
-    );
-
-
-    /* ---------------------------------------------
-       HACER FUNCIONAR LOS BOTONES
-    --------------------------------------------- */
-
-    target
-        .querySelectorAll(".competition-link")
-        .forEach(button => {
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    const link =
-                        button.dataset.link;
-
-
-                    if (!link) {
-
-                        alert(
-                            "Todavía no hay una página asignada para esta competición."
-                        );
-
-                        return;
-
-                    }
-
-
-                    window.open(
-                        link,
-                        "_blank",
-                        "noopener,noreferrer"
-                    );
-
-                }
-            );
-
-        });
-
-
-    observeAnimations();
-
-}
-
-
-/* =====================================================
-   POSICIONES
-===================================================== */
-
-function renderPositions() {
-
-    const sections =
-        document.querySelectorAll("section");
-
-
-    let target = null;
-
-
-    sections.forEach(section => {
-
-        const title =
-            section.querySelector(
-                ".section-title h2"
-            );
-
-
-        if (!title) return;
-
-
-        if (
-            title.textContent
-                .trim()
-                .toUpperCase() === "PLAYERS"
-        ) {
-
-            target =
-                section.querySelector(".cards");
-
-        }
-
-    });
-
-
-    if (!target) return;
-
-
-    target.innerHTML = "";
-
-
-    volleyballData.positions
-        .forEach(position => {
-
-            const card =
-                document.createElement("article");
-
-
-            card.className =
-                "card reveal";
-
-
-            card.innerHTML = `
-
-                <strong>
-                    ${position.short}
-                </strong>
-
-                <h3>
-                    ${position.name}
-                </h3>
-
-                <p>
-                    ${position.description}
-                </p>
-
-                <div class="position-training">
-
-                    <strong>
-                        🏐 ENTRENAMIENTO ESPECÍFICO
-                    </strong>
-
-                    <p>
-                        ${position.training}
-                    </p>
-
-                </div>
-
-            `;
-
-
-            target.appendChild(card);
-
-        });
-
-
-    observeAnimations();
-
-}
-
-
-/* =====================================================
-   HISTORIAL VNL
-===================================================== */
-
-function renderVNLHistory(gender = "men") {
-
-    const container =
-        document.getElementById("vnlHistory");
-
-
-    if (!container) return;
-
-
-    const data =
-        vnlHistory[gender];
-
-
-    if (!data) return;
-
-
-    container.innerHTML = "";
-
-
-    data.forEach(item => {
-
-        const card =
-            document.createElement("article");
-
-
-        card.className =
-            "vnl-year reveal";
-
-
-        card.innerHTML = `
+        <div class="vnl-year">
 
             <div class="vnl-year-number">
-                ${item.year}
+                ${year}
             </div>
 
             <div class="vnl-result">
 
+                <div>
+                    <span>🥇 1.º LUGAR</span>
+                    <strong>${data.first}</strong>
+                </div>
+
+                <div>
+                    <span>🥈 2.º LUGAR</span>
+                    <strong>${data.second}</strong>
+                </div>
+
                 <div class="gold">
-
-                    <span>
-                        🥇 CAMPEÓN
-                    </span>
-
-                    <strong>
-                        ${item.gold}
-                    </strong>
-
-                </div>
-
-                <div>
-
-                    <span>
-                        🥈 PLATA
-                    </span>
-
-                    <strong>
-                        ${item.silver}
-                    </strong>
-
-                </div>
-
-                <div>
-
-                    <span>
-                        🥉 BRONCE
-                    </span>
-
-                    <strong>
-                        ${item.bronze}
-                    </strong>
-
+                    <span>🥉 3.º LUGAR</span>
+                    <strong>${data.third}</strong>
                 </div>
 
             </div>
 
-        `;
+        </div>
 
-
-        container.appendChild(card);
-
-    });
-
-
-    observeAnimations();
+    `;
 
 }
 
@@ -950,116 +416,149 @@ function renderVNLHistory(gender = "men") {
    BOTONES VNL
 ===================================================== */
 
-document
-    .querySelectorAll(".competition")
-    .forEach(button => {
+const competitionButtons =
+    document.querySelectorAll(".competition");
 
-        button.addEventListener(
-            "click",
-            () => {
-
-                document
-                    .querySelectorAll(".competition")
-                    .forEach(btn => {
-
-                        btn.classList.remove(
-                            "active"
-                        );
-
-                    });
+const vnlHistory =
+    document.getElementById("vnlHistory");
 
 
-                button.classList.add(
-                    "active"
-                );
+competitionButtons.forEach((button) => {
+
+    button.addEventListener("click", () => {
+
+        competitionButtons.forEach((btn) => {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        const competition =
+            button.dataset.competition;
+
+        if (!vnlHistory) return;
 
 
-                const gender =
-                    button.dataset.gender;
+        /* ---------------------------------------------
+           VNL MASCULINA
+        --------------------------------------------- */
+
+        if (competition === "vnl") {
+
+            renderYearButtons(
+                vnlHistory,
+                competitionData.vnlMen,
+                "VNL MASCULINA"
+            );
+
+        }
 
 
-                if (gender) {
+        /* ---------------------------------------------
+           VNL FEMENINA
+        --------------------------------------------- */
 
-                    renderVNLHistory(
-                        gender
-                    );
+        if (competition === "vnl-women") {
 
-                }
+            renderYearButtons(
+                vnlHistory,
+                competitionData.vnlWomen,
+                "VNL FEMENINA"
+            );
 
-            }
-        );
+        }
 
     });
+
+});
 
 
 /* =====================================================
-   HISTORIAL OLÍMPICO
+   CREAR BOTONES DE AÑOS
 ===================================================== */
 
-function renderOlympicHistory(
-    gender = "men"
+function renderYearButtons(
+    container,
+    data,
+    competitionName
 ) {
-
-    const container =
-        document.getElementById(
-            "olympicHistory"
-        );
-
 
     if (!container) return;
 
+    const years = Object.keys(data);
 
-    const data =
-        olympicHistory[gender];
+    container.innerHTML = `
 
+        <div class="competition-buttons">
 
-    if (!data) return;
+            ${years.map((year, index) => `
 
+                <button
+                    class="competition-year ${index === 0 ? "active" : ""}"
+                    data-year="${year}">
 
-    container.innerHTML = "";
+                    ${year}
 
+                </button>
 
-    data.forEach(item => {
+            `).join("")}
 
-        const card =
-            document.createElement("article");
+        </div>
 
+        <div id="competitionResult">
 
-        card.className =
-            "vnl-year reveal";
+        </div>
 
-
-        card.innerHTML = `
-
-            <div class="vnl-year-number">
-                ${item.year}
-            </div>
-
-            <div class="vnl-result">
-
-                <div class="gold">
-
-                    <span>
-                        🥇 CAMPEÓN OLÍMPICO
-                    </span>
-
-                    <strong>
-                        ${item.gold}
-                    </strong>
-
-                </div>
-
-            </div>
-
-        `;
+    `;
 
 
-        container.appendChild(card);
+    const result =
+        container.querySelector("#competitionResult");
+
+
+    const yearButtons =
+        container.querySelectorAll(".competition-year");
+
+
+    /* Mostrar primer año */
+
+    if (years.length > 0) {
+
+        showCompetitionResult(
+            result,
+            years[0],
+            data[years[0]],
+            competitionName
+        );
+
+    }
+
+
+    /* Cambiar año */
+
+    yearButtons.forEach((button) => {
+
+        button.addEventListener("click", () => {
+
+            yearButtons.forEach((btn) => {
+                btn.classList.remove("active");
+            });
+
+            button.classList.add("active");
+
+            const year =
+                button.dataset.year;
+
+            showCompetitionResult(
+                result,
+                year,
+                data[year],
+                competitionName
+            );
+
+        });
 
     });
-
-
-    observeAnimations();
 
 }
 
@@ -1068,114 +567,177 @@ function renderOlympicHistory(
    BOTONES OLÍMPICOS
 ===================================================== */
 
-document
-    .querySelectorAll(".olympic-button")
-    .forEach(button => {
+const olympicButtons =
+    document.querySelectorAll(".olympic-button");
 
-        button.addEventListener(
-            "click",
-            () => {
-
-                document
-                    .querySelectorAll(
-                        ".olympic-button"
-                    )
-                    .forEach(btn => {
-
-                        btn.classList.remove(
-                            "active"
-                        );
-
-                    });
+const olympicHistory =
+    document.getElementById("olympicHistory");
 
 
-                button.classList.add(
-                    "active"
-                );
+olympicButtons.forEach((button) => {
+
+    button.addEventListener("click", () => {
+
+        olympicButtons.forEach((btn) => {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        const year =
+            button.dataset.year;
+
+        if (!olympicHistory) return;
 
 
-                const gender =
-                    button.dataset.olympic;
+        const data =
+            competitionData.olympicMen[year];
+
+        if (!data) return;
 
 
-                if (gender) {
-
-                    renderOlympicHistory(
-                        gender
-                    );
-
-                }
-
-            }
+        showCompetitionResult(
+            olympicHistory,
+            year,
+            data,
+            "JUEGOS OLÍMPICOS MASCULINO"
         );
 
     });
+
+});
+
+
+/* =====================================================
+   CAMBIO DE COMPETICIÓN
+===================================================== */
+
+/*
+   Si tu HTML tiene estos botones:
+
+   data-competition="vnl"
+   data-competition="vnl-women"
+   data-competition="world"
+   data-competition="world-women"
+   data-competition="olympic"
+   data-competition="olympic-women"
+
+   todos funcionan sin abrir páginas externas.
+*/
+
+
+const allCompetitionButtons =
+    document.querySelectorAll(
+        "[data-competition]"
+    );
+
+
+allCompetitionButtons.forEach((button) => {
+
+    button.addEventListener("click", () => {
+
+        const competition =
+            button.dataset.competition;
+
+
+        let data = null;
+        let name = "";
+
+
+        switch (competition) {
+
+            case "vnl":
+                data = competitionData.vnlMen;
+                name = "VNL MASCULINA";
+                break;
+
+            case "vnl-women":
+                data = competitionData.vnlWomen;
+                name = "VNL FEMENINA";
+                break;
+
+            case "world":
+                data = competitionData.worldMen;
+                name = "MUNDIAL MASCULINO";
+                break;
+
+            case "world-women":
+                data = competitionData.worldWomen;
+                name = "MUNDIAL FEMENINO";
+                break;
+
+            case "olympic":
+                data = competitionData.olympicMen;
+                name = "JUEGOS OLÍMPICOS MASCULINO";
+                break;
+
+            case "olympic-women":
+                data = competitionData.olympicWomen;
+                name = "JUEGOS OLÍMPICOS FEMENINO";
+                break;
+
+        }
+
+
+        /*
+           Buscar un contenedor adecuado.
+        */
+
+        const history =
+            document.getElementById(
+                "competitionHistory"
+            ) ||
+            document.getElementById(
+                "vnlHistory"
+            ) ||
+            document.getElementById(
+                "olympicHistory"
+            );
+
+
+        if (history && data) {
+
+            renderYearButtons(
+                history,
+                data,
+                name
+            );
+
+        }
+
+    });
+
+});
 
 
 /* =====================================================
    ENTRENADOR IA
 ===================================================== */
 
-
-/* =====================================================
-   ELEMENTOS
-===================================================== */
-
-const messages =
-    document.getElementById(
-        "messages"
-    );
-
-
-const questionInput =
-    document.getElementById(
-        "question"
-    );
-
+const question =
+    document.getElementById("question");
 
 const sendQuestion =
-    document.getElementById(
-        "sendQuestion"
-    );
+    document.getElementById("sendQuestion");
+
+const messages =
+    document.getElementById("messages");
 
 
-/* =====================================================
-   HISTORIAL DE CONVERSACIÓN
-===================================================== */
-
-let coachHistory = [];
-
-
-/* =====================================================
-   AGREGAR MENSAJE
-===================================================== */
-
-function addMessage(
-    text,
-    type
-) {
+function addMessage(text, type) {
 
     if (!messages) return;
 
-
     const message =
-        document.createElement(
-            "div"
-        );
-
+        document.createElement("div");
 
     message.className =
         `message ${type}`;
 
-
     message.innerHTML =
         text;
 
-
-    messages.appendChild(
-        message
-    );
-
+    messages.appendChild(message);
 
     messages.scrollTop =
         messages.scrollHeight;
@@ -1184,259 +746,129 @@ function addMessage(
 
 
 /* =====================================================
-   ESCAPAR HTML
+   RESPUESTAS DEL ENTRENADOR
 ===================================================== */
 
-function escapeHTML(text) {
+function coachAnswer(text) {
 
-    return text
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-        .replace(
-            /</g,
-            "&lt;"
-        )
-        .replace(
-            />/g,
-            "&gt;"
-        )
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-        .replace(
-            /'/g,
-            "&#039;"
-        );
-
-}
+    const lower =
+        text.toLowerCase();
 
 
-/* =====================================================
-   FORMATEAR RESPUESTA DE LA IA
-===================================================== */
+    if (
+        lower.includes("ataque") ||
+        lower.includes("atacar")
+    ) {
 
-function formatCoachResponse(text) {
+        return `
+            <b>Entrenador:</b><br>
+            Para mejorar tu ataque trabaja la carrera
+            de aproximación, el salto, el armado del brazo
+            y el contacto alto con el balón.
+        `;
 
-    let safe =
-        escapeHTML(text);
-
-
-    safe =
-        safe.replace(
-            /\*\*(.*?)\*\*/g,
-            "<strong>$1</strong>"
-        );
+    }
 
 
-    safe =
-        safe.replace(
-            /\n/g,
-            "<br>"
-        );
+    if (
+        lower.includes("defensa") ||
+        lower.includes("defender")
+    ) {
+
+        return `
+            <b>Entrenador:</b><br>
+            Mantén una posición baja, observa al atacante
+            y trata de anticipar la dirección del balón.
+            La reacción y la lectura del juego son claves.
+        `;
+
+    }
 
 
-    return safe;
+    if (
+        lower.includes("recepción") ||
+        lower.includes("recepcion")
+    ) {
 
-}
+        return `
+            <b>Entrenador:</b><br>
+            Mantén los brazos firmes y utiliza las piernas
+            para controlar la recepción. Intenta dirigir
+            el balón hacia la zona del colocador.
+        `;
 
-
-/* =====================================================
-   INDICADOR DE ESCRITURA
-===================================================== */
-
-function showTyping() {
-
-    if (!messages) return;
-
-
-    const typing =
-        document.createElement(
-            "div"
-        );
+    }
 
 
-    typing.id =
-        "coachTyping";
+    if (
+        lower.includes("salto") ||
+        lower.includes("saltar")
+    ) {
+
+        return `
+            <b>Entrenador:</b><br>
+            Trabaja la coordinación de la carrera,
+            el impulso y la técnica de aterrizaje.
+            La calidad del movimiento es más importante
+            que simplemente intentar saltar más.
+        `;
+
+    }
 
 
-    typing.className =
-        "message bot";
+    if (
+        lower.includes("bloqueo") ||
+        lower.includes("bloquear")
+    ) {
+
+        return `
+            <b>Entrenador:</b><br>
+            Observa el armado del rival, desplázate
+            rápidamente hacia la zona de bloqueo y
+            mantén las manos firmes sobre la red.
+        `;
+
+    }
 
 
-    typing.innerHTML = `
+    if (
+        lower.includes("entrenamiento") ||
+        lower.includes("entrenar")
+    ) {
 
-        <b>ENTRENADOR:</b>
+        return `
+            <b>Entrenador:</b><br>
+            Una buena sesión puede combinar técnica,
+            desplazamientos, recepción, ataque,
+            bloqueo y situaciones de juego.
+        `;
 
-        <br><br>
+    }
 
-        🏐 Pensando...
 
+    if (
+        lower.includes("estrategia") ||
+        lower.includes("táctica") ||
+        lower.includes("tactica")
+    ) {
+
+        return `
+            <b>Entrenador:</b><br>
+            Una estrategia efectiva depende de las
+            fortalezas de tu equipo y de los puntos
+            débiles del rival. La comunicación es fundamental.
+        `;
+
+    }
+
+
+    return `
+        <b>Entrenador:</b><br>
+        Buena pregunta. En voleibol intenta trabajar
+        primero la técnica, después la velocidad de
+        ejecución y finalmente llevarlo a situaciones
+        reales de partido.
     `;
-
-
-    messages.appendChild(
-        typing
-    );
-
-
-    messages.scrollTop =
-        messages.scrollHeight;
-
-}
-
-
-/* =====================================================
-   QUITAR INDICADOR
-===================================================== */
-
-function removeTyping() {
-
-    const typing =
-        document.getElementById(
-            "coachTyping"
-        );
-
-
-    if (typing) {
-
-        typing.remove();
-
-    }
-
-}
-
-
-/* =====================================================
-   PREGUNTAR A LA IA
-===================================================== */
-
-async function askCoach(
-    question
-) {
-
-    try {
-
-        showTyping();
-
-
-        const response =
-            await fetch(
-                "/api/coach",
-                {
-
-                    method: "POST",
-
-                    headers: {
-
-                        "Content-Type":
-                            "application/json"
-
-                    },
-
-                    body:
-                        JSON.stringify({
-
-                            question,
-
-                            history:
-                                coachHistory
-
-                        })
-
-                }
-            );
-
-
-        const data =
-            await response.json();
-
-
-        removeTyping();
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                data.error ||
-                "Error del servidor."
-            );
-
-        }
-
-
-        const answer =
-            data.answer;
-
-
-        coachHistory.push({
-
-            role: "user",
-
-            content: question
-
-        });
-
-
-        coachHistory.push({
-
-            role: "assistant",
-
-            content: answer
-
-        });
-
-
-        if (
-            coachHistory.length > 20
-        ) {
-
-            coachHistory =
-                coachHistory.slice(
-                    -20
-                );
-
-        }
-
-
-        addMessage(
-
-            `<b>ENTRENADOR:</b><br><br>` +
-            formatCoachResponse(
-                answer
-            ),
-
-            "bot"
-
-        );
-
-
-    } catch (error) {
-
-        removeTyping();
-
-
-        console.error(
-            "Error:",
-            error
-        );
-
-
-        addMessage(
-
-            `<b>ENTRENADOR:</b><br><br>
-            ⚠️ No pude conectarme con el
-            entrenador de IA.<br><br>
-            Comprueba que el servidor esté
-            funcionando y vuelve a intentarlo.`,
-
-            "bot"
-
-        );
-
-    }
 
 }
 
@@ -1445,87 +877,64 @@ async function askCoach(
    ENVIAR PREGUNTA
 ===================================================== */
 
-function sendQuestionMessage() {
+function sendCoachQuestion() {
 
-    if (!questionInput) return;
+    if (!question || !messages) return;
 
+    const text =
+        question.value.trim();
 
-    const question =
-        questionInput.value.trim();
-
-
-    if (!question) return;
+    if (text === "") return;
 
 
     addMessage(
-
-        escapeHTML(
-            question
-        ),
-
+        text,
         "user"
-
     );
 
 
-    questionInput.value = "";
+    question.value = "";
 
 
     if (sendQuestion) {
-
-        sendQuestion.disabled =
-            true;
-
+        sendQuestion.disabled = true;
     }
 
 
-    askCoach(
-        question
-    )
-        .finally(() => {
+    setTimeout(() => {
 
-            if (sendQuestion) {
+        const answer =
+            coachAnswer(text);
 
-                sendQuestion.disabled =
-                    false;
+        addMessage(
+            answer,
+            "bot"
+        );
 
-            }
+        if (sendQuestion) {
+            sendQuestion.disabled = false;
+        }
 
-
-            if (questionInput) {
-
-                questionInput.focus();
-
-            }
-
-        });
+    }, 500);
 
 }
 
-
-/* =====================================================
-   BOTÓN ENVIAR
-===================================================== */
 
 if (sendQuestion) {
 
     sendQuestion.addEventListener(
         "click",
-        sendQuestionMessage
+        sendCoachQuestion
     );
 
 }
 
 
-/* =====================================================
-   ENTER PARA ENVIAR
-===================================================== */
+if (question) {
 
-if (questionInput) {
-
-    questionInput.addEventListener(
+    question.addEventListener(
         "keydown",
-        event => {
+        (event) => {
 
             if (
                 event.key === "Enter" &&
@@ -1534,7 +943,7 @@ if (questionInput) {
 
                 event.preventDefault();
 
-                sendQuestionMessage();
+                sendCoachQuestion();
 
             }
 
@@ -1545,148 +954,118 @@ if (questionInput) {
 
 
 /* =====================================================
-   BOTONES RÁPIDOS DEL ENTRENADOR
+   MENÚ DEL ENTRENADOR
 ===================================================== */
 
-document
-    .querySelectorAll(
+const coachButtons =
+    document.querySelectorAll(
         ".coach-menu button"
-    )
-    .forEach(button => {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                const question =
-                    button.dataset.question;
+    );
 
 
-                const questions = {
+coachButtons.forEach((button) => {
 
-                    recepcion:
-                        "¿Cómo puedo mejorar mi recepción y qué errores debería evitar?",
+    button.addEventListener("click", () => {
 
-                    saque:
-                        "¿Cómo puedo mejorar mi saque y conseguir más precisión?",
-
-                    ataque:
-                        "¿Cómo puedo mejorar mi ataque y tomar mejores decisiones frente al bloqueo?",
-
-                    bloqueo:
-                        "¿Cómo puedo mejorar mi bloqueo y leer mejor al atacante?",
-
-                    defensa:
-                        "¿Cómo puedo mejorar mi defensa y reaccionar mejor ante los ataques?",
-
-                    mental:
-                        "¿Cómo puedo controlar los nervios y mantener la concentración durante un partido?",
-
-                    plan:
-                        "Hazme una sesión de entrenamiento de voleibol adaptada para mejorar mi técnica general."
-
-                };
+        const topic =
+            button.textContent.trim();
 
 
-                if (
-                    questions[question]
-                ) {
+        const questionMap = {
 
-                    addMessage(
+            "Entrenamiento":
+                "¿Cómo puedo mejorar mi entrenamiento?",
 
-                        escapeHTML(
-                            questions[question]
-                        ),
+            "Ataque":
+                "¿Cómo puedo mejorar mi ataque?",
 
-                        "user"
+            "Defensa":
+                "¿Cómo puedo mejorar mi defensa?",
 
-                    );
+            "Recepción":
+                "¿Cómo puedo mejorar mi recepción?",
+
+            "Salto":
+                "¿Cómo puedo mejorar mi salto?",
+
+            "Estrategia":
+                "¿Qué estrategia debería utilizar?"
+        };
 
 
-                    askCoach(
-                        questions[question]
-                    );
+        if (questionMap[topic]) {
 
-                }
-
+            if (question) {
+                question.value =
+                    questionMap[topic];
             }
-        );
+
+            sendCoachQuestion();
+
+        }
 
     });
 
+});
+
 
 /* =====================================================
-   LOGIN TEMPORAL
+   CONSEJO DEL DÍA
 ===================================================== */
 
-const googleLogin =
-    document.getElementById(
-        "googleLogin"
-    );
+const dailyTip =
+    document.getElementById("dailyTip");
+
+const newTip =
+    document.getElementById("newTip");
 
 
-const emailLogin =
-    document.getElementById(
-        "emailLogin"
-    );
+const tips = [
+
+    "La comunicación es una de las claves para que un equipo funcione correctamente.",
+
+    "Mantén una posición equilibrada antes de recibir el balón.",
+
+    "Observa siempre al rival antes de decidir hacia dónde atacar.",
+
+    "Una buena recepción puede convertir una jugada difícil en una oportunidad de ataque.",
+
+    "Trabaja la técnica antes de intentar aumentar la potencia.",
+
+    "La coordinación entre colocador y atacante es fundamental.",
+
+    "No olvides comunicarte con tus compañeros durante cada jugada.",
+
+    "La defensa comienza antes de que el rival golpee el balón.",
+
+    "Practica los movimientos básicos hasta conseguir que sean naturales.",
+
+    "Un equipo organizado puede compensar muchas diferencias individuales."
+
+];
 
 
-if (googleLogin) {
+if (newTip && dailyTip) {
 
-    googleLogin.addEventListener(
+    newTip.addEventListener(
         "click",
         () => {
 
-            alert(
-                "Google Login será conectado con Firebase Authentication."
-            );
+            dailyTip.style.opacity = "0";
 
-        }
-    );
+            setTimeout(() => {
 
-}
+                const random =
+                    Math.floor(
+                        Math.random() * tips.length
+                    );
 
+                dailyTip.textContent =
+                    tips[random];
 
-if (emailLogin) {
+                dailyTip.style.opacity = "1";
 
-    emailLogin.addEventListener(
-        "click",
-        () => {
-
-            const email =
-                document
-                    .getElementById(
-                        "email"
-                    )
-                    ?.value
-                    .trim();
-
-
-            const password =
-                document
-                    .getElementById(
-                        "password"
-                    )
-                    ?.value;
-
-
-            if (
-                !email ||
-                !password
-            ) {
-
-                alert(
-                    "Escribe tu correo y contraseña."
-                );
-
-                return;
-
-            }
-
-
-            alert(
-                "El inicio de sesión real se conectará con Firebase Authentication."
-            );
+            }, 180);
 
         }
     );
@@ -1695,126 +1074,114 @@ if (emailLogin) {
 
 
 /* =====================================================
-   ANIMACIONES
+   ANIMACIONES REVEAL
 ===================================================== */
 
-function observeAnimations() {
-
-    const elements =
-        document.querySelectorAll(
-            ".reveal"
-        );
-
-
-    elements.forEach(
-        element => {
-
-            element.classList.add(
-                "reveal-ready"
-            );
-
-        }
+const revealElements =
+    document.querySelectorAll(
+        ".reveal"
     );
 
 
-    if (
-        !(
-            "IntersectionObserver"
-            in window
-        )
-    ) {
-
-        elements.forEach(
-            element => {
-
-                element.classList.add(
-                    "reveal-visible"
-                );
-
-            }
-        );
-
-        return;
-
-    }
-
+if ("IntersectionObserver" in window) {
 
     const observer =
         new IntersectionObserver(
+            (entries) => {
 
-            entries => {
+                entries.forEach((entry) => {
 
-                entries.forEach(
-                    entry => {
+                    if (entry.isIntersecting) {
 
-                        if (
-                            entry.isIntersecting
-                        ) {
+                        entry.target.classList.add(
+                            "reveal-visible"
+                        );
 
-                            entry.target.classList.add(
-                                "reveal-visible"
-                            );
-
-
-                            observer.unobserve(
-                                entry.target
-                            );
-
-                        }
+                        observer.unobserve(
+                            entry.target
+                        );
 
                     }
-                );
+
+                });
 
             },
-
             {
-                threshold: 0.08
+                threshold: 0.12
             }
-
         );
 
 
-    elements.forEach(
-        element => {
+    revealElements.forEach((element) => {
 
-            observer.observe(
-                element
-            );
+        element.classList.add(
+            "reveal-ready"
+        );
 
-        }
-    );
+        observer.observe(element);
+
+    });
 
 }
 
 
 /* =====================================================
-   INICIAR PÁGINA
+   NAVEGACIÓN SUAVE
 ===================================================== */
 
-renderMatches();
+document.querySelectorAll(
+    'a[href^="#"]'
+).forEach((link) => {
 
-renderNews();
+    link.addEventListener(
+        "click",
+        (event) => {
 
-renderCompetitions();
+            const targetId =
+                link.getAttribute("href");
 
-renderPositions();
+            if (
+                !targetId ||
+                targetId === "#"
+            ) {
+                return;
+            }
 
-observeAnimations();
+
+            const target =
+                document.querySelector(
+                    targetId
+                );
+
+
+            if (target) {
+
+                event.preventDefault();
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }
+
+        }
+    );
+
+});
 
 
 /* =====================================================
-   INICIAR HISTORIA
+   INICIO
 ===================================================== */
 
-renderVNLHistory(
-    "men"
-);
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-renderOlympicHistory(
-    "men"
-);
+        console.log(
+            "VóleyRetro cargado correctamente."
+        );
 
-
-console.log(
-    "🏐 VóleyRetro funcionando correctamente."
+    }
 );
