@@ -1,6 +1,6 @@
 /* =====================================================
-VÓLEYRETRO
-ESTILOS PRINCIPALES
+   VÓLEYRETRO
+   ESTILOS PRINCIPALES
 ===================================================== */
 
 :root {
@@ -19,7 +19,7 @@ ESTILOS PRINCIPALES
 
 
 /* =====================================================
-RESET
+   RESET
 ===================================================== */
 
 * {
@@ -57,7 +57,7 @@ a {
 
 
 /* =====================================================
-SCROLLBAR
+   SCROLLBAR
 ===================================================== */
 
 ::-webkit-scrollbar {
@@ -75,7 +75,7 @@ SCROLLBAR
 
 
 /* =====================================================
-HEADER
+   HEADER
 ===================================================== */
 
 header {
@@ -91,6 +91,11 @@ header {
     border-bottom: 1px solid var(--border);
 }
 
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
 .navbar {
     width: min(1200px, 92%);
     margin: auto;
@@ -99,13 +104,14 @@ header {
 
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     gap: 25px;
 }
 
 
 /* =====================================================
-LOGO
+   LOGO
 ===================================================== */
 
 .logo {
@@ -137,19 +143,21 @@ LOGO
     border-radius: 50%;
 
     font-size: 20px;
+
+    flex-shrink: 0;
 }
 
 
 /* =====================================================
-NAVEGACIÓN
+   NAVEGACIÓN
 ===================================================== */
 
 nav {
     display: flex;
     align-items: center;
+
     gap: 22px;
 
-    /* Mantiene la navegación hacia la derecha */
     margin-left: auto;
 }
 
@@ -162,6 +170,8 @@ nav a {
     font-weight: 700;
 
     transition: 0.25s ease;
+
+    white-space: nowrap;
 }
 
 nav a:hover {
@@ -190,8 +200,8 @@ nav a:hover::after {
 
 
 /* =====================================================
-BOTÓN LOGIN
-QUEDA AL LADO DE ENTRENADOR
+   BOTÓN LOGIN
+   QUEDA JUSTO AL LADO DE ENTRENADOR
 ===================================================== */
 
 .login-btn {
@@ -210,29 +220,27 @@ QUEDA AL LADO DE ENTRENADOR
     transition:
         background 0.25s ease,
         color 0.25s ease,
-        border-color 0.25s ease,
-        transform 0.2s ease;
+        transform 0.25s ease,
+        border-color 0.25s ease;
 
     white-space: nowrap;
 
-    /* Evita que se separe de Entrenador */
-    margin-left: 0;
-
-    /* Evita que el botón se vaya a otra línea */
     flex-shrink: 0;
 }
 
 .login-btn:hover {
     background: var(--red);
-    color: white;
+
     border-color: var(--red);
 
-    transform: translateY(-2px);
+    color: white;
+
+    transform: translateY(-1px);
 }
 
 
 /* =====================================================
-HERO
+   HERO
 ===================================================== */
 
 .hero {
@@ -313,6 +321,7 @@ HERO
 
 .hero-buttons {
     display: flex;
+
     gap: 12px;
 
     margin-top: 30px;
@@ -322,7 +331,7 @@ HERO
 
 
 /* =====================================================
-BOTONES
+   BOTONES GENERALES
 ===================================================== */
 
 .btn {
@@ -346,7 +355,11 @@ BOTONES
     transition:
         transform 0.2s ease,
         background 0.2s ease,
-        box-shadow 0.2s ease;
+        box-shadow 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -355,6 +368,7 @@ BOTONES
 
 .btn.primary {
     background: var(--red);
+
     color: white;
 
     box-shadow:
@@ -375,22 +389,26 @@ BOTONES
 
 .btn.secondary:hover {
     border-color: var(--red);
+
     color: var(--red);
 }
 
 .btn:disabled {
     opacity: 0.5;
+
     cursor: not-allowed;
+
     transform: none;
 }
 
 
 /* =====================================================
-SECCIONES
+   SECCIONES
 ===================================================== */
 
 section {
     width: min(1200px, 92%);
+
     margin: auto;
 
     padding: 90px 0;
@@ -398,7 +416,9 @@ section {
 
 .section-title {
     display: flex;
+
     justify-content: space-between;
+
     align-items: flex-end;
 
     gap: 20px;
@@ -426,9 +446,19 @@ section {
     color: #888;
 }
 
+.section-line {
+    width: 70px;
+
+    height: 4px;
+
+    margin-top: 15px;
+
+    background: var(--red);
+}
+
 
 /* =====================================================
-CARDS
+   CARDS
 ===================================================== */
 
 .cards {
@@ -526,7 +556,7 @@ CARDS
 
 
 /* =====================================================
-MATCH CENTER
+   MATCH CENTER
 ===================================================== */
 
 #partidos .card {
@@ -535,6 +565,7 @@ MATCH CENTER
 
 #partidos .card h3 {
     font-size: 1.15rem;
+
     line-height: 1.5;
 }
 
@@ -548,7 +579,7 @@ MATCH CENTER
 
 
 /* =====================================================
-NOTICIAS
+   NOTICIAS
 ===================================================== */
 
 .news-button {
@@ -557,7 +588,7 @@ NOTICIAS
 
 
 /* =====================================================
-POSICIONES
+   POSICIONES
 ===================================================== */
 
 .position-training {
@@ -588,11 +619,19 @@ POSICIONES
 
 
 /* =====================================================
-HISTORIA / VNL / OLÍMPICOS
+   COMPETICIONES
 ===================================================== */
 
-.competition-buttons,
-.olympic-buttons {
+/*
+   IMPORTANTE:
+   Ahora VNL, Mundial y Olímpicos son <a>
+   en lugar de <button>.
+
+   Por eso usamos tanto .competition como
+   .competition:visited para conservar el diseño.
+*/
+
+.competition-buttons {
     display: flex;
 
     gap: 10px;
@@ -602,8 +641,12 @@ HISTORIA / VNL / OLÍMPICOS
     margin-bottom: 30px;
 }
 
-.competition,
-.olympic-button {
+.competition {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
     padding: 10px 18px;
 
     border: 1px solid var(--border);
@@ -618,19 +661,99 @@ HISTORIA / VNL / OLÍMPICOS
 
     font-weight: 900;
 
-    transition: 0.25s ease;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        0.25s ease;
+
+    white-space: nowrap;
 }
 
-.competition:hover,
-.olympic-button:hover,
-.competition.active,
-.olympic-button.active {
+.competition:visited {
+    color: #aaa;
+}
+
+.competition:hover {
+    background: var(--red);
+
+    border-color: var(--red);
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+.competition.active {
     background: var(--red);
 
     border-color: var(--red);
 
     color: white;
 }
+
+
+/* =====================================================
+   BOTONES OLÍMPICOS
+===================================================== */
+
+.olympic-buttons {
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 30px;
+}
+
+.olympic-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 18px;
+
+    border: 1px solid var(--border);
+
+    background: #111;
+
+    color: #aaa;
+
+    border-radius: 7px;
+
+    font-size: 0.8rem;
+
+    font-weight: 900;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.olympic-button:visited {
+    color: #aaa;
+}
+
+.olympic-button:hover,
+.olympic-button.active {
+    background: var(--red);
+
+    border-color: var(--red);
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   HISTORIA / VNL / OLÍMPICOS
+===================================================== */
 
 .vnl-history {
     display: flex;
@@ -709,7 +832,7 @@ HISTORIA / VNL / OLÍMPICOS
 
 
 /* =====================================================
-ENTRENADOR IA
+   ENTRENADOR IA
 ===================================================== */
 
 .coach-section {
@@ -726,7 +849,7 @@ ENTRENADOR IA
 
 
 /* =====================================================
-MENÚ DEL ENTRENADOR
+   MENÚ ENTRENADOR
 ===================================================== */
 
 .coach-menu {
@@ -769,7 +892,7 @@ MENÚ DEL ENTRENADOR
 
 
 /* =====================================================
-CHAT
+   CHAT
 ===================================================== */
 
 .coach-chat {
@@ -845,7 +968,7 @@ CHAT
 
 
 /* =====================================================
-MENSAJES
+   MENSAJES
 ===================================================== */
 
 .messages {
@@ -906,6 +1029,7 @@ MENSAJES
 }
 
 @keyframes messageIn {
+
     from {
         opacity: 0;
         transform: translateY(7px);
@@ -919,7 +1043,7 @@ MENSAJES
 
 
 /* =====================================================
-INPUT DEL CHAT
+   INPUT CHAT
 ===================================================== */
 
 .coach-input {
@@ -975,7 +1099,7 @@ INPUT DEL CHAT
 
 
 /* =====================================================
-LOGIN MODAL
+   LOGIN MODAL
 ===================================================== */
 
 #loginModal {
@@ -1016,6 +1140,7 @@ LOGIN MODAL
 }
 
 @keyframes modalIn {
+
     from {
         opacity: 0;
         transform: translateY(15px) scale(0.97);
@@ -1133,6 +1258,8 @@ LOGIN MODAL
     border-radius: 7px;
 
     font-weight: 800;
+
+    transition: 0.2s ease;
 }
 
 #googleLogin:hover {
@@ -1141,7 +1268,7 @@ LOGIN MODAL
 
 
 /* =====================================================
-CONSEJO DEL DÍA
+   CONSEJO DEL DÍA
 ===================================================== */
 
 .daily-tip {
@@ -1185,7 +1312,7 @@ CONSEJO DEL DÍA
 
 
 /* =====================================================
-FOOTER
+   FOOTER
 ===================================================== */
 
 footer {
@@ -1218,11 +1345,12 @@ footer span {
 
 
 /* =====================================================
-ANIMACIONES REVEAL
+   ANIMACIONES REVEAL
 ===================================================== */
 
 .reveal {
     opacity: 0;
+
     transform: translateY(25px);
 }
 
@@ -1234,27 +1362,13 @@ ANIMACIONES REVEAL
 
 .reveal-visible {
     opacity: 1;
+
     transform: translateY(0);
 }
 
 
 /* =====================================================
-SEPARADORES
-===================================================== */
-
-.section-line {
-    width: 70px;
-
-    height: 4px;
-
-    margin-top: 15px;
-
-    background: var(--red);
-}
-
-
-/* =====================================================
-SELECCIÓN DE TEXTO
+   SELECCIÓN
 ===================================================== */
 
 ::selection {
@@ -1265,7 +1379,7 @@ SELECCIÓN DE TEXTO
 
 
 /* =====================================================
-RESPONSIVE TABLET
+   RESPONSIVE TABLET
 ===================================================== */
 
 @media (max-width: 900px) {
@@ -1283,7 +1397,8 @@ RESPONSIVE TABLET
     }
 
     .login-btn {
-        font-size: 0.78rem;
+        font-size: 0.75rem;
+
         padding: 8px 12px;
     }
 
@@ -1318,7 +1433,7 @@ RESPONSIVE TABLET
 
 
 /* =====================================================
-RESPONSIVE MÓVIL
+   RESPONSIVE MÓVIL
 ===================================================== */
 
 @media (max-width: 650px) {
@@ -1351,6 +1466,8 @@ RESPONSIVE MÓVIL
         flex-wrap: wrap;
 
         gap: 12px;
+
+        margin-left: 0;
     }
 
     nav a {
@@ -1359,6 +1476,8 @@ RESPONSIVE MÓVIL
 
     .login-btn {
         padding: 7px 12px;
+
+        font-size: 0.72rem;
     }
 
     .hero {
@@ -1411,6 +1530,26 @@ RESPONSIVE MÓVIL
         min-height: auto;
     }
 
+    .competition-buttons {
+        gap: 8px;
+    }
+
+    .competition {
+        padding: 9px 14px;
+
+        font-size: 0.72rem;
+    }
+
+    .olympic-buttons {
+        gap: 8px;
+    }
+
+    .olympic-button {
+        padding: 9px 14px;
+
+        font-size: 0.72rem;
+    }
+
     .vnl-year {
         grid-template-columns: 1fr;
     }
@@ -1435,6 +1574,7 @@ RESPONSIVE MÓVIL
 
     .messages {
         min-height: 350px;
+
         max-height: 450px;
     }
 
@@ -1457,7 +1597,7 @@ RESPONSIVE MÓVIL
 
 
 /* =====================================================
-MÓVILES PEQUEÑOS
+   MÓVILES PEQUEÑOS
 ===================================================== */
 
 @media (max-width: 400px) {
@@ -1468,6 +1608,7 @@ MÓVILES PEQUEÑOS
 
     .logo-ball {
         width: 32px;
+
         height: 32px;
 
         font-size: 16px;
@@ -1483,7 +1624,8 @@ MÓVILES PEQUEÑOS
 
     .login-btn {
         font-size: 0.65rem;
-        padding: 7px 10px;
+
+        padding: 7px 9px;
     }
 
     .hero-content h1 {
@@ -1496,5 +1638,10 @@ MÓVILES PEQUEÑOS
 
     .card {
         padding: 20px;
+    }
+
+    .competition,
+    .olympic-button {
+        width: 100%;
     }
 }
