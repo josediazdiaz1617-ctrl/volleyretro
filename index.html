@@ -7,8 +7,7 @@
 
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+        content="width=device-width, initial-scale=1.0">
 
     <title>VóleyRetro</title>
 
@@ -28,9 +27,36 @@
 
     <div class="navbar">
 
+
+        <!-- LOGO -->
+
         <a href="#inicio" class="logo">
 
-            <div class="logo-ball">🏐</div>
+            <!--
+                Coloca aquí el logo que te generé anteriormente
+                con el nombre:
+
+                logo.png
+
+                dentro de la misma carpeta del HTML.
+            -->
+
+            <img
+                src="logo.png"
+                alt="Logo VóleyRetro"
+                class="logo-image"
+                onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='grid';">
+
+
+            <!-- LOGO DE RESPALDO -->
+
+            <div
+                id="logoFallback"
+                class="logo-ball"
+                style="display:none;">
+                🏐
+            </div>
+
 
             <span>
                 VÓLEY<span>RETRO</span>
@@ -39,24 +65,39 @@
         </a>
 
 
+        <!-- NAVEGACIÓN -->
+
         <nav>
 
-            <a href="#inicio">Inicio</a>
+            <a href="#inicio">
+                Inicio
+            </a>
 
-            <a href="#partidos">Partidos</a>
+            <a href="#partidos">
+                Partidos
+            </a>
 
-            <a href="#calendario">Calendario</a>
+            <a href="#calendario">
+                Calendario
+            </a>
 
-            <a href="#players">Players</a>
+            <a href="#players">
+                Players
+            </a>
 
-            <a href="#entrenador">Entrenador</a>
+            <a href="#entrenador">
+                Entrenador
+            </a>
+
+
+            <!-- LOGIN AL LADO DE ENTRENADOR -->
 
             <button
                 id="loginBtn"
-                class="login-btn"
-                type="button"
-            >
+                class="login-btn">
+
                 Iniciar sesión
+
             </button>
 
         </nav>
@@ -73,39 +114,59 @@
 
 <main>
 
-<section id="inicio" class="hero">
+
+<section
+    id="inicio"
+    class="hero">
+
 
     <div class="hero-content">
 
+
         <h1>
+
             EL PASADO<br>
+
             DEL <span>VÓLEY</span>
+
         </h1>
 
+
         <p>
-            Historia, partidos, jugadores, competiciones
-            y todo lo relacionado con el mundo del voleibol.
+
+            Historia, partidos, jugadores,
+            competiciones y todo lo relacionado
+            con el mundo del voleibol.
+
         </p>
+
 
         <div class="hero-buttons">
 
+
             <a
                 href="#partidos"
-                class="btn primary"
-            >
+                class="btn primary">
+
                 Ver partidos
+
             </a>
+
 
             <a
                 href="#calendario"
-                class="btn secondary"
-            >
+                class="btn secondary">
+
                 Calendario
+
             </a>
+
 
         </div>
 
+
     </div>
+
 
 </section>
 
@@ -117,24 +178,34 @@
 
 <section id="partidos">
 
+
     <div class="section-title">
+
 
         <div>
 
             <h2>
+
                 MATCH <span>CENTER</span>
+
             </h2>
 
             <div class="section-line"></div>
 
         </div>
 
+
         <p>
-            Consulta algunos de los partidos y enfrentamientos
-            más importantes del voleibol.
+
+            Consulta algunos de los partidos
+            y enfrentamientos más importantes
+            del voleibol.
+
         </p>
 
+
     </div>
+
 
 
     <div class="cards">
@@ -142,14 +213,22 @@
 
         <div class="card">
 
-            <strong>PARTIDO</strong>
+            <strong>
+                PARTIDO
+            </strong>
 
             <h3>
+
                 Equipo A
+
                 <br>
+
                 <span>VS</span>
+
                 <br>
+
                 Equipo B
+
             </h3>
 
             <p>
@@ -159,16 +238,25 @@
         </div>
 
 
+
         <div class="card">
 
-            <strong>RESULTADO</strong>
+            <strong>
+                RESULTADO
+            </strong>
 
             <h3>
+
                 Equipo C
+
                 <br>
+
                 <span>3 - 1</span>
+
                 <br>
+
                 Equipo D
+
             </h3>
 
             <p>
@@ -178,16 +266,20 @@
         </div>
 
 
+
         <div class="card">
 
-            <strong>DESTACADO</strong>
+            <strong>
+                DESTACADO
+            </strong>
 
             <h3>
                 Gran enfrentamiento
             </h3>
 
             <p>
-                Revisa la información del partido destacado.
+                Revisa la información
+                del partido destacado.
             </p>
 
         </div>
@@ -195,68 +287,79 @@
 
     </div>
 
+
 </section>
 
 
 
 <!-- =====================================================
-     CALENDARIO / COMPETICIONES
+     CALENDARIO
 ====================================================== -->
 
 <section id="calendario">
 
+
     <div class="section-title">
+
 
         <div>
 
             <h2>
+
                 CALEN<span>DARIO</span>
+
             </h2>
 
             <div class="section-line"></div>
 
         </div>
 
+
         <p>
+
             Consulta las principales competiciones
             internacionales de voleibol.
+
         </p>
+
 
     </div>
 
 
 
     <!-- =================================================
-         SELECTOR PRINCIPAL
+         COMPETICIONES
     ================================================== -->
 
     <div class="competition-buttons">
 
+
         <button
-            type="button"
             class="competition active"
-            onclick="mostrarCompeticion('vnl')"
-        >
+            data-competition="vnl">
+
             VNL
+
         </button>
 
 
         <button
-            type="button"
             class="competition"
-            onclick="mostrarCompeticion('mundial')"
-        >
-            MUNDIAL
+            data-competition="world">
+
+            Mundial
+
         </button>
 
 
         <button
-            type="button"
             class="competition"
-            onclick="mostrarCompeticion('olimpicos')"
-        >
-            JUEGOS OLÍMPICOS
+            data-competition="olympic">
+
+            Juegos Olímpicos
+
         </button>
+
 
     </div>
 
@@ -266,987 +369,227 @@
          VNL
     ================================================== -->
 
-    <div
-        id="competicion-vnl"
-        class="competition-panel"
-    >
+    <div id="vnlHistory" class="vnl-history">
 
-        <div class="competition-buttons">
 
-            <button
-                type="button"
-                class="competition active"
-                onclick="mostrarVNL('masculino')"
-            >
-                VNL MASCULINA
-            </button>
+        <div class="vnl-year">
 
-            <button
-                type="button"
-                class="competition"
-                onclick="mostrarVNL('femenino')"
-            >
-                VNL FEMENINA
-            </button>
+
+            <div class="vnl-year-number">
+                2025
+            </div>
+
+
+            <div class="vnl-result">
+
+
+                <div>
+
+                    <span>
+                        CAMPEÓN
+                    </span>
+
+                    <strong>
+                        Italia
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        SUBCAMPEÓN
+                    </span>
+
+                    <strong>
+                        Polonia
+                    </strong>
+
+                </div>
+
+
+                <div class="gold">
+
+                    <span>
+                        COMPETICIÓN
+                    </span>
+
+                    <strong>
+                        VNL
+                    </strong>
+
+                </div>
+
+
+            </div>
+
 
         </div>
 
 
 
-        <!-- VNL MASCULINA -->
+        <div class="vnl-year">
 
-        <div
-            id="vnl-masculino"
-            class="subcompetition-panel"
-        >
 
-            <div class="competition-buttons">
-
-                <button
-                    type="button"
-                    class="competition active"
-                    onclick="mostrarAno('vnl-m-2025')"
-                >
-                    2025
-                </button>
-
-                <button
-                    type="button"
-                    class="competition"
-                    onclick="mostrarAno('vnl-m-2024')"
-                >
-                    2024
-                </button>
-
-                <button
-                    type="button"
-                    class="competition"
-                    onclick="mostrarAno('vnl-m-2023')"
-                >
-                    2023
-                </button>
-
-                <button
-                    type="button"
-                    class="competition"
-                    onclick="mostrarAno('vnl-m-2022')"
-                >
-                    2022
-                </button>
-
+            <div class="vnl-year-number">
+                2024
             </div>
 
 
-            <div
-                id="vnl-m-2025"
-                class="vnl-year competition-result"
-            >
+            <div class="vnl-result">
 
-                <div class="vnl-year-number">
-                    2025
-                </div>
 
-                <div class="vnl-result">
+                <div>
 
-                    <div>
-                        <span>1.º PUESTO</span>
-                        <strong>Polonia</strong>
-                    </div>
+                    <span>
+                        CAMPEÓN
+                    </span>
 
-                    <div>
-                        <span>2.º PUESTO</span>
-                        <strong>Italia</strong>
-                    </div>
-
-                    <div>
-                        <span>3.º PUESTO</span>
-                        <strong>Brasil</strong>
-                    </div>
+                    <strong>
+                        Francia
+                    </strong>
 
                 </div>
+
+
+                <div>
+
+                    <span>
+                        SUBCAMPEÓN
+                    </span>
+
+                    <strong>
+                        Japón
+                    </strong>
+
+                </div>
+
+
+                <div class="gold">
+
+                    <span>
+                        COMPETICIÓN
+                    </span>
+
+                    <strong>
+                        VNL
+                    </strong>
+
+                </div>
+
 
             </div>
 
-
-            <div
-                id="vnl-m-2024"
-                class="vnl-year competition-result"
-                style="display:none;"
-            >
-
-                <div class="vnl-year-number">
-                    2024
-                </div>
-
-                <div class="vnl-result">
-
-                    <div>
-                        <span>1.º PUESTO</span>
-                        <strong>Francia</strong>
-                    </div>
-
-                    <div>
-                        <span>2.º PUESTO</span>
-                        <strong>Japón</strong>
-                    </div>
-
-                    <div>
-                        <span>3.º PUESTO</span>
-                        <strong>Polonia</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div
-                id="vnl-m-2023"
-                class="vnl-year competition-result"
-                style="display:none;"
-            >
-
-                <div class="vnl-year-number">
-                    2023
-                </div>
-
-                <div class="vnl-result">
-
-                    <div>
-                        <span>1.º PUESTO</span>
-                        <strong>Polonia</strong>
-                    </div>
-
-                    <div>
-                        <span>2.º PUESTO</span>
-                        <strong>Estados Unidos</strong>
-                    </div>
-
-                    <div>
-                        <span>3.º PUESTO</span>
-                        <strong>Japón</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div
-                id="vnl-m-2022"
-                class="vnl-year competition-result"
-                style="display:none;"
-            >
-
-                <div class="vnl-year-number">
-                    2022
-                </div>
-
-                <div class="vnl-result">
-
-                    <div>
-                        <span>1.º PUESTO</span>
-                        <strong>Francia</strong>
-                    </div>
-
-                    <div>
-                        <span>2.º PUESTO</span>
-                        <strong>Estados Unidos</strong>
-                    </div>
-
-                    <div>
-                        <span>3.º PUESTO</span>
-                        <strong>Polonia</strong>
-                    </div>
-
-                </div>
-
-            </div>
 
         </div>
 
-
-
-        <!-- VNL FEMENINA -->
-
-        <div
-            id="vnl-femenino"
-            class="subcompetition-panel"
-            style="display:none;"
-        >
-
-            <div class="competition-buttons">
-
-                <button
-                    type="button"
-                    class="competition active"
-                    onclick="mostrarAno('vnl-f-2025')"
-                >
-                    2025
-                </button>
-
-                <button
-                    type="button"
-                    class="competition"
-                    onclick="mostrarAno('vnl-f-2024')"
-                >
-                    2024
-                </button>
-
-                <button
-                    type="button"
-                    class="competition"
-                    onclick="mostrarAno('vnl-f-2023')"
-                >
-                    2023
-                </button>
-
-                <button
-                    type="button"
-                    class="competition"
-                    onclick="mostrarAno('vnl-f-2022')"
-                >
-                    2022
-                </button>
-
-            </div>
-
-
-            <div
-                id="vnl-f-2025"
-                class="vnl-year competition-result"
-            >
-
-                <div class="vnl-year-number">
-                    2025
-                </div>
-
-                <div class="vnl-result">
-
-                    <div>
-                        <span>1.º PUESTO</span>
-                        <strong>Italia</strong>
-                    </div>
-
-                    <div>
-                        <span>2.º PUESTO</span>
-                        <strong>Brasil</strong>
-                    </div>
-
-                    <div>
-                        <span>3.º PUESTO</span>
-                        <strong>Japón</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div
-                id="vnl-f-2024"
-                class="vnl-year competition-result"
-                style="display:none;"
-            >
-
-                <div class="vnl-year-number">
-                    2024
-                </div>
-
-                <div class="vnl-result">
-
-                    <div>
-                        <span>1.º PUESTO</span>
-                        <strong>Italia</strong>
-                    </div>
-
-                    <div>
-                        <span>2.º PUESTO</span>
-                        <strong>Japón</strong>
-                    </div>
-
-                    <div>
-                        <span>3.º PUESTO</span>
-                        <strong>Polonia</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div
-                id="vnl-f-2023"
-                class="vnl-year competition-result"
-                style="display:none;"
-            >
-
-                <div class="vnl-year-number">
-                    2023
-                </div>
-
-                <div class="vnl-result">
-
-                    <div>
-                        <span>1.º PUESTO</span>
-                        <strong>Turquía</strong>
-                    </div>
-
-                    <div>
-                        <span>2.º PUESTO</span>
-                        <strong>China</strong>
-                    </div>
-
-                    <div>
-                        <span>3.º PUESTO</span>
-                        <strong>Estados Unidos</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div
-                id="vnl-f-2022"
-                class="vnl-year competition-result"
-                style="display:none;"
-            >
-
-                <div class="vnl-year-number">
-                    2022
-                </div>
-
-                <div class="vnl-result">
-
-                    <div>
-                        <span>1.º PUESTO</span>
-                        <strong>Italia</strong>
-                    </div>
-
-                    <div>
-                        <span>2.º PUESTO</span>
-                        <strong>Brasil</strong>
-                    </div>
-
-                    <div>
-                        <span>3.º PUESTO</span>
-                        <strong>Serbia</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
 
     </div>
 
 
 
     <!-- =================================================
-         MUNDIAL
+         OLÍMPICOS
     ================================================== -->
 
-    <div
-        id="competicion-mundial"
-        class="competition-panel"
-        style="display:none;"
-    >
+    <div class="olympic-buttons">
 
-        <div class="competition-buttons">
 
-            <button
-                type="button"
-                class="competition active"
-                onclick="mostrarMundial('masculino')"
-            >
-                MUNDIAL MASCULINO
-            </button>
+        <button
+            class="olympic-button active"
+            data-year="2024">
 
-            <button
-                type="button"
-                class="competition"
-                onclick="mostrarMundial('femenino')"
-            >
-                MUNDIAL FEMENINO
-            </button>
+            París 2024
 
-        </div>
+        </button>
 
 
+        <button
+            class="olympic-button"
+            data-year="2020">
 
-        <!-- MUNDIAL MASCULINO -->
+            Tokio 2020
 
-        <div
-            id="mundial-masculino"
-            class="subcompetition-panel"
-        >
+        </button>
 
-            <div class="competition-buttons">
 
-                <button
-                    type="button"
-                    class="competition active"
-                    onclick="mostrarAno('mundial-m-2022')"
-                >
-                    2022
-                </button>
+        <button
+            class="olympic-button"
+            data-year="2016">
 
-                <button
-                    type="button"
-                    class="competition"
-                    onclick="mostrarAno('mundial-m-2018')"
-                >
-                    2018
-                </button>
+            Río 2016
 
-                <button
-                    type="button"
-                    class="competition"
-                    onclick="mostrarAno('mundial-m-2014')"
-                >
-                    2014
-                </button>
+        </button>
 
-            </div>
-
-
-            <div
-                id="mundial-m-2022"
-                class="vnl-year competition-result"
-            >
-
-                <div class="vnl-year-number">
-                    2022
-                </div>
-
-                <div class="vnl-result">
-
-                    <div>
-                        <span>1.º PUESTO</span>
-                        <strong>Italia</strong>
-                    </div>
-
-                    <div>
-                        <span>2.º PUESTO</span>
-                        <strong>Polonia</strong>
-                    </div>
-
-                    <div>
-                        <span>3.º PUESTO</span>
-                        <strong>Brasil</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div
-                id="mundial-m-2018"
-                class="vnl-year competition-result"
-                style="display:none;"
-            >
-
-                <div class="vnl-year-number">
-                    2018
-                </div>
-
-                <div class="vnl-result">
-
-                    <div>
-                        <span>1.º PUESTO</span>
-                        <strong>Polonia</strong>
-                    </div>
-
-                    <div>
-                        <span>2.º PUESTO</span>
-                        <strong>Brasil</strong>
-                    </div>
-
-                    <div>
-                        <span>3.º PUESTO</span>
-                        <strong>Estados Unidos</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div
-                id="mundial-m-2014"
-                class="vnl-year competition-result"
-                style="display:none;"
-            >
-
-                <div class="vnl-year-number">
-                    2014
-                </div>
-
-                <div class="vnl-result">
-
-                    <div>
-                        <span>1.º PUESTO</span>
-                        <strong>Polonia</strong>
-                    </div>
-
-                    <div>
-                        <span>2.º PUESTO</span>
-                        <strong>Brasil</strong>
-                    </div>
-
-                    <div>
-                        <span>3.º PUESTO</span>
-                        <strong>Alemania</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- MUNDIAL FEMENINO -->
-
-        <div
-            id="mundial-femenino"
-            class="subcompetition-panel"
-            style="display:none;"
-        >
-
-            <div class="competition-buttons">
-
-                <button
-                    type="button"
-                    class="competition active"
-                    onclick="mostrarAno('mundial-f-2022')"
-                >
-                    2022
-                </button>
-
-                <button
-                    type="button"
-                    class="competition"
-                    onclick="mostrarAno('mundial-f-2018')"
-                >
-                    2018
-                </button>
-
-                <button
-                    type="button"
-                    class="competition"
-                    onclick="mostrarAno('mundial-f-2014')"
-                >
-                    2014
-                </button>
-
-            </div>
-
-
-            <div
-                id="mundial-f-2022"
-                class="vnl-year competition-result"
-            >
-
-                <div class="vnl-year-number">
-                    2022
-                </div>
-
-                <div class="vnl-result">
-
-                    <div>
-                        <span>1.º PUESTO</span>
-                        <strong>Serbia</strong>
-                    </div>
-
-                    <div>
-                        <span>2.º PUESTO</span>
-                        <strong>Brasil</strong>
-                    </div>
-
-                    <div>
-                        <span>3.º PUESTO</span>
-                        <strong>Italia</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div
-                id="mundial-f-2018"
-                class="vnl-year competition-result"
-                style="display:none;"
-            >
-
-                <div class="vnl-year-number">
-                    2018
-                </div>
-
-                <div class="vnl-result">
-
-                    <div>
-                        <span>1.º PUESTO</span>
-                        <strong>Serbia</strong>
-                    </div>
-
-                    <div>
-                        <span>2.º PUESTO</span>
-                        <strong>Italia</strong>
-                    </div>
-
-                    <div>
-                        <span>3.º PUESTO</span>
-                        <strong>China</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div
-                id="mundial-f-2014"
-                class="vnl-year competition-result"
-                style="display:none;"
-            >
-
-                <div class="vnl-year-number">
-                    2014
-                </div>
-
-                <div class="vnl-result">
-
-                    <div>
-                        <span>1.º PUESTO</span>
-                        <strong>Estados Unidos</strong>
-                    </div>
-
-                    <div>
-                        <span>2.º PUESTO</span>
-                        <strong>China</strong>
-                    </div>
-
-                    <div>
-                        <span>3.º PUESTO</span>
-                        <strong>Brasil</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
 
     </div>
 
 
 
-    <!-- =================================================
-         JUEGOS OLÍMPICOS
-    ================================================== -->
-
     <div
-        id="competicion-olimpicos"
-        class="competition-panel"
-        style="display:none;"
-    >
+        id="olympicHistory"
+        class="vnl-history">
 
-        <div class="competition-buttons">
 
-            <button
-                type="button"
-                class="competition active"
-                onclick="mostrarOlimpicos('masculino')"
-            >
-                OLÍMPICOS MASCULINO
-            </button>
+        <div class="vnl-year">
 
-            <button
-                type="button"
-                class="competition"
-                onclick="mostrarOlimpicos('femenino')"
-            >
-                OLÍMPICOS FEMENINO
-            </button>
+
+            <div class="vnl-year-number">
+                2024
+            </div>
+
+
+            <div class="vnl-result">
+
+
+                <div>
+
+                    <span>
+                        CAMPEÓN
+                    </span>
+
+                    <strong>
+                        Francia
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        SUBCAMPEÓN
+                    </span>
+
+                    <strong>
+                        Polonia
+                    </strong>
+
+                </div>
+
+
+                <div class="gold">
+
+                    <span>
+                        SEDE
+                    </span>
+
+                    <strong>
+                        París
+                    </strong>
+
+                </div>
+
+
+            </div>
+
 
         </div>
 
-
-
-        <!-- OLÍMPICOS MASCULINO -->
-
-        <div
-            id="olimpicos-masculino"
-            class="subcompetition-panel"
-        >
-
-            <div class="competition-buttons">
-
-                <button
-                    type="button"
-                    class="competition active"
-                    onclick="mostrarAno('olimpicos-m-2024')"
-                >
-                    París 2024
-                </button>
-
-                <button
-                    type="button"
-                    class="competition"
-                    onclick="mostrarAno('olimpicos-m-2020')"
-                >
-                    Tokio 2020
-                </button>
-
-                <button
-                    type="button"
-                    class="competition"
-                    onclick="mostrarAno('olimpicos-m-2016')"
-                >
-                    Río 2016
-                </button>
-
-            </div>
-
-
-            <div
-                id="olimpicos-m-2024"
-                class="vnl-year competition-result"
-            >
-
-                <div class="vnl-year-number">
-                    2024
-                </div>
-
-                <div class="vnl-result">
-
-                    <div>
-                        <span>1.º PUESTO</span>
-                        <strong>Francia</strong>
-                    </div>
-
-                    <div>
-                        <span>2.º PUESTO</span>
-                        <strong>Polonia</strong>
-                    </div>
-
-                    <div>
-                        <span>3.º PUESTO</span>
-                        <strong>Estados Unidos</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div
-                id="olimpicos-m-2020"
-                class="vnl-year competition-result"
-                style="display:none;"
-            >
-
-                <div class="vnl-year-number">
-                    2020
-                </div>
-
-                <div class="vnl-result">
-
-                    <div>
-                        <span>1.º PUESTO</span>
-                        <strong>Francia</strong>
-                    </div>
-
-                    <div>
-                        <span>2.º PUESTO</span>
-                        <strong>ROC</strong>
-                    </div>
-
-                    <div>
-                        <span>3.º PUESTO</span>
-                        <strong>Argentina</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div
-                id="olimpicos-m-2016"
-                class="vnl-year competition-result"
-                style="display:none;"
-            >
-
-                <div class="vnl-year-number">
-                    2016
-                </div>
-
-                <div class="vnl-result">
-
-                    <div>
-                        <span>1.º PUESTO</span>
-                        <strong>Brasil</strong>
-                    </div>
-
-                    <div>
-                        <span>2.º PUESTO</span>
-                        <strong>Italia</strong>
-                    </div>
-
-                    <div>
-                        <span>3.º PUESTO</span>
-                        <strong>Estados Unidos</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- OLÍMPICOS FEMENINO -->
-
-        <div
-            id="olimpicos-femenino"
-            class="subcompetition-panel"
-            style="display:none;"
-        >
-
-            <div class="competition-buttons">
-
-                <button
-                    type="button"
-                    class="competition active"
-                    onclick="mostrarAno('olimpicos-f-2024')"
-                >
-                    París 2024
-                </button>
-
-                <button
-                    type="button"
-                    class="competition"
-                    onclick="mostrarAno('olimpicos-f-2020')"
-                >
-                    Tokio 2020
-                </button>
-
-                <button
-                    type="button"
-                    class="competition"
-                    onclick="mostrarAno('olimpicos-f-2016')"
-                >
-                    Río 2016
-                </button>
-
-            </div>
-
-
-            <div
-                id="olimpicos-f-2024"
-                class="vnl-year competition-result"
-            >
-
-                <div class="vnl-year-number">
-                    2024
-                </div>
-
-                <div class="vnl-result">
-
-                    <div>
-                        <span>1.º PUESTO</span>
-                        <strong>Italia</strong>
-                    </div>
-
-                    <div>
-                        <span>2.º PUESTO</span>
-                        <strong>Estados Unidos</strong>
-                    </div>
-
-                    <div>
-                        <span>3.º PUESTO</span>
-                        <strong>Brasil</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div
-                id="olimpicos-f-2020"
-                class="vnl-year competition-result"
-                style="display:none;"
-            >
-
-                <div class="vnl-year-number">
-                    2020
-                </div>
-
-                <div class="vnl-result">
-
-                    <div>
-                        <span>1.º PUESTO</span>
-                        <strong>Estados Unidos</strong>
-                    </div>
-
-                    <div>
-                        <span>2.º PUESTO</span>
-                        <strong>Brasil</strong>
-                    </div>
-
-                    <div>
-                        <span>3.º PUESTO</span>
-                        <strong>Serbia</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div
-                id="olimpicos-f-2016"
-                class="vnl-year competition-result"
-                style="display:none;"
-            >
-
-                <div class="vnl-year-number">
-                    2016
-                </div>
-
-                <div class="vnl-result">
-
-                    <div>
-                        <span>1.º PUESTO</span>
-                        <strong>China</strong>
-                    </div>
-
-                    <div>
-                        <span>2.º PUESTO</span>
-                        <strong>Serbia</strong>
-                    </div>
-
-                    <div>
-                        <span>3.º PUESTO</span>
-                        <strong>Estados Unidos</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
 
     </div>
+
 
 </section>
 
@@ -1258,101 +601,425 @@
 
 <section id="players">
 
+
     <div class="section-title">
+
 
         <div>
 
             <h2>
+
                 <span>PLAYERS</span>
+
             </h2>
 
             <div class="section-line"></div>
 
         </div>
 
+
         <p>
-            Conoce las posiciones y características
-            de los jugadores de voleibol.
+
+            Conoce las principales posiciones del voleibol,
+            sus responsabilidades dentro de la cancha
+            y las habilidades necesarias para destacar.
+
         </p>
+
 
     </div>
 
+
+
+    <!-- =================================================
+         POSICIONES
+    ================================================== -->
 
     <div class="cards">
 
 
+        <!-- =================================================
+             COLOCADOR
+        ================================================== -->
+
         <div class="card">
 
-            <strong>POSICIÓN</strong>
+            <strong>
+                POSICIÓN 01
+            </strong>
 
-            <h3>OPUESTO</h3>
+
+            <h3>
+                COLOCADOR
+            </h3>
+
 
             <p>
-                Jugador especializado en ataque
-                y bloqueo.
+
+                Es el jugador encargado de organizar
+                el ataque del equipo. Decide hacia
+                qué jugador dirigir el balón y debe
+                leer constantemente el bloqueo rival.
+
             </p>
+
+
+            <p>
+
+                Un buen colocador necesita precisión,
+                rapidez para tomar decisiones,
+                comunicación y conocimiento de las
+                fortalezas de sus atacantes.
+
+            </p>
+
 
             <div class="position-training">
 
-                <strong>ENTRENAMIENTO</strong>
+                <strong>
+                    ENTRENAMIENTO
+                </strong>
+
 
                 <p>
-                    Potencia de salto, ataque y bloqueo.
+
+                    Trabajar precisión de colocación,
+                    desplazamientos, control del balón,
+                    toma de decisiones, comunicación
+                    y colocaciones después de recepción.
+
                 </p>
 
             </div>
+
 
         </div>
 
 
+
+        <!-- =================================================
+             OPUESTO
+        ================================================== -->
+
         <div class="card">
 
-            <strong>POSICIÓN</strong>
+            <strong>
+                POSICIÓN 02
+            </strong>
 
-            <h3>CENTRAL</h3>
+
+            <h3>
+                OPUESTO
+            </h3>
+
 
             <p>
-                Especialista en bloqueos y ataques
-                rápidos.
+
+                El opuesto es uno de los principales
+                atacantes del equipo. Normalmente
+                participa en ataques desde la zona
+                delantera y también puede atacar
+                desde la línea de atrás.
+
             </p>
+
+
+            <p>
+
+                También tiene una función importante
+                en el bloqueo frente a los atacantes
+                rivales y debe ser capaz de finalizar
+                balones difíciles.
+
+            </p>
+
 
             <div class="position-training">
 
-                <strong>ENTRENAMIENTO</strong>
+                <strong>
+                    ENTRENAMIENTO
+                </strong>
+
 
                 <p>
-                    Bloqueo, velocidad y salto.
+
+                    Potencia de ataque, salto vertical,
+                    bloqueo, golpeo desde diferentes
+                    zonas y capacidad para resolver
+                    balones complicados.
+
                 </p>
 
             </div>
+
 
         </div>
 
 
+
+        <!-- =================================================
+             CENTRAL
+        ================================================== -->
+
         <div class="card">
 
-            <strong>POSICIÓN</strong>
+            <strong>
+                POSICIÓN 03
+            </strong>
 
-            <h3>LÍBERO</h3>
+
+            <h3>
+                CENTRAL
+            </h3>
+
 
             <p>
-                Especialista en recepción y defensa.
+
+                El central es especialista en bloqueo
+                y ataques rápidos. Su posición requiere
+                reaccionar rápidamente a los movimientos
+                del colocador y del rival.
+
             </p>
+
+
+            <p>
+
+                Es una pieza fundamental para cerrar
+                los espacios en la red y dificultar
+                los ataques del equipo contrario.
+
+            </p>
+
 
             <div class="position-training">
 
-                <strong>ENTRENAMIENTO</strong>
+                <strong>
+                    ENTRENAMIENTO
+                </strong>
+
 
                 <p>
-                    Recepción, defensa y reacción.
+
+                    Bloqueo individual y colectivo,
+                    velocidad lateral, salto vertical,
+                    desplazamiento por la red y ataques
+                    rápidos.
+
                 </p>
 
             </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             RECEPTOR-PUNTA
+        ================================================== -->
+
+        <div class="card">
+
+            <strong>
+                POSICIÓN 04
+            </strong>
+
+
+            <h3>
+                RECEPTOR-PUNTA
+            </h3>
+
+
+            <p>
+
+                El receptor-punta cumple una doble
+                función: participa en la recepción
+                del saque y también es uno de los
+                principales atacantes del equipo.
+
+            </p>
+
+
+            <p>
+
+                Necesita ser completo porque puede
+                participar tanto en defensa como
+                en ataque y debe mantener estabilidad
+                durante todo el partido.
+
+            </p>
+
+
+            <div class="position-training">
+
+                <strong>
+                    ENTRENAMIENTO
+                </strong>
+
+
+                <p>
+
+                    Recepción de saque, defensa,
+                    ataque por zona cuatro,
+                    salto, desplazamiento,
+                    control de balón y bloqueo.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             LÍBERO
+        ================================================== -->
+
+        <div class="card">
+
+            <strong>
+                POSICIÓN 05
+            </strong>
+
+
+            <h3>
+                LÍBERO
+            </h3>
+
+
+            <p>
+
+                El líbero es el especialista defensivo
+                del equipo. Se caracteriza por su capacidad
+                para recibir saques y defender ataques
+                difíciles.
+
+            </p>
+
+
+            <p>
+
+                Su principal objetivo es mantener el balón
+                controlado para que el colocador pueda
+                organizar el ataque.
+
+            </p>
+
+
+            <div class="position-training">
+
+                <strong>
+                    ENTRENAMIENTO
+                </strong>
+
+
+                <p>
+
+                    Recepción, defensa baja,
+                    desplazamientos rápidos,
+                    reacción, lectura del ataque
+                    y control de balones difíciles.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             ESPECIALISTA DEFENSIVO
+        ================================================== -->
+
+        <div class="card">
+
+            <strong>
+                POSICIÓN 06
+            </strong>
+
+
+            <h3>
+                ESPECIALISTA DEFENSIVO
+            </h3>
+
+
+            <p>
+
+                Es un jugador utilizado principalmente
+                para mejorar la recepción y defensa
+                del equipo en determinados momentos
+                del partido.
+
+            </p>
+
+
+            <p>
+
+                Su trabajo consiste en aportar seguridad
+                cuando el equipo necesita mejorar
+                su organización defensiva.
+
+            </p>
+
+
+            <div class="position-training">
+
+                <strong>
+                    ENTRENAMIENTO
+                </strong>
+
+
+                <p>
+
+                    Recepción, defensa, lectura del saque,
+                    desplazamientos laterales,
+                    control del balón y comunicación.
+
+                </p>
+
+            </div>
+
 
         </div>
 
 
     </div>
+
+
+
+    <!-- =================================================
+         CONCEPTOS TÁCTICOS
+    ================================================== -->
+
+    <div
+        class="daily-tip"
+        style="margin-top:35px;">
+
+
+        <div class="daily-tip-label">
+            CLAVE TÁCTICA
+        </div>
+
+
+        <p>
+
+            En el voleibol ninguna posición funciona
+            completamente aislada. El colocador organiza
+            el ataque, los atacantes buscan finalizar
+            las jugadas, los centrales protegen la red
+            y los especialistas defensivos mantienen
+            el balón en juego.
+
+        </p>
+
+
+    </div>
+
 
 </section>
 
@@ -1364,116 +1031,155 @@
 
 <section
     id="entrenador"
-    class="coach-section"
->
+    class="coach-section">
+
 
     <div class="section-title">
+
 
         <div>
 
             <h2>
+
                 ENTRENADOR <span>IA</span>
+
             </h2>
+
 
             <div class="section-line"></div>
 
         </div>
 
+
         <p>
+
             Obtén consejos y recomendaciones
             para mejorar tu juego.
+
         </p>
 
+
     </div>
+
 
 
     <div class="coach-layout">
 
 
+        <!-- MENÚ -->
+
         <div class="coach-menu">
 
-            <button type="button">
+
+            <button>
                 Entrenamiento
             </button>
 
-            <button type="button">
+
+            <button>
                 Ataque
             </button>
 
-            <button type="button">
+
+            <button>
                 Defensa
             </button>
 
-            <button type="button">
+
+            <button>
                 Recepción
             </button>
 
-            <button type="button">
+
+            <button>
                 Salto
             </button>
 
-            <button type="button">
+
+            <button>
                 Estrategia
             </button>
+
 
         </div>
 
 
+
+        <!-- CHAT -->
+
         <div class="coach-chat">
 
+
             <div class="coach-header">
+
 
                 <strong>
                     VÓLEYRETRO COACH
                 </strong>
 
+
                 <div class="coach-status">
                     Online
                 </div>
 
+
             </div>
+
 
 
             <div
                 id="messages"
-                class="messages"
-            >
+                class="messages">
+
 
                 <div class="message bot">
 
-                    <b>Entrenador:</b>
+
+                    <b>
+                        Entrenador:
+                    </b>
+
 
                     <br>
+
 
                     ¡Hola! Soy tu entrenador virtual.
                     Pregúntame algo sobre voleibol.
 
+
                 </div>
 
+
             </div>
+
 
 
             <div class="coach-input">
 
+
                 <textarea
                     id="question"
                     rows="2"
-                    placeholder="Escribe tu pregunta..."
-                ></textarea>
+                    placeholder="Escribe tu pregunta..."></textarea>
+
 
                 <button
                     id="sendQuestion"
-                    class="btn primary"
-                    type="button"
-                >
+                    class="btn primary">
+
                     Enviar
+
                 </button>
+
 
             </div>
 
+
         </div>
 
+
     </div>
+
 
 </section>
 
@@ -1485,43 +1191,58 @@
 
 <section>
 
+
     <div class="section-title">
+
 
         <div>
 
             <h2>
+
                 CONSEJO DEL <span>DÍA</span>
+
             </h2>
+
 
             <div class="section-line"></div>
 
         </div>
 
+
     </div>
 
 
+
     <div class="daily-tip">
+
 
         <div class="daily-tip-label">
             CONSEJO
         </div>
 
+
         <p id="dailyTip">
+
             La comunicación es una de las claves
             para que un equipo funcione correctamente.
+
         </p>
+
 
         <button
             id="newTip"
-            class="btn secondary"
-            type="button"
-        >
+            class="btn secondary">
+
             Nuevo consejo
+
         </button>
+
 
     </div>
 
+
 </section>
+
 
 </main>
 
@@ -1533,47 +1254,56 @@
 
 <div id="loginModal">
 
+
     <div class="login-box">
+
 
         <button
             id="closeLogin"
-            class="close-login"
-            type="button"
-        >
+            class="close-login">
+
             ×
+
         </button>
 
 
         <h2>
+
             Iniciar <span>sesión</span>
+
         </h2>
 
+
         <p>
+
             Accede a tu cuenta de VóleyRetro.
+
         </p>
+
 
 
         <input
             type="email"
             id="email"
-            placeholder="Correo electrónico"
-        >
+            placeholder="Correo electrónico">
+
 
 
         <input
             type="password"
             id="password"
-            placeholder="Contraseña"
-        >
+            placeholder="Contraseña">
+
 
 
         <button
             id="emailLogin"
-            class="btn primary"
-            type="button"
-        >
+            class="btn primary">
+
             Iniciar sesión
+
         </button>
+
 
 
         <div class="login-divider">
@@ -1581,14 +1311,16 @@
         </div>
 
 
-        <button
-            id="googleLogin"
-            type="button"
-        >
+
+        <button id="googleLogin">
+
             Continuar con Google
+
         </button>
 
+
     </div>
+
 
 </div>
 
@@ -1600,419 +1332,51 @@
 
 <footer>
 
+
     <div class="logo">
 
-        <div class="logo-ball">
+
+        <img
+            src="logo.png"
+            alt="Logo VóleyRetro"
+            class="logo-image"
+            onerror="this.style.display='none'; document.getElementById('footerLogoFallback').style.display='grid';">
+
+
+        <div
+            id="footerLogoFallback"
+            class="logo-ball"
+            style="display:none;">
+
             🏐
+
         </div>
 
+
         <span>
+
             VÓLEY<span>RETRO</span>
+
         </span>
+
 
     </div>
 
+
     <p>
+
         © 2026 VóleyRetro.
         Todos los derechos reservados.
+
     </p>
+
 
 </footer>
 
 
 
 <!-- =====================================================
-     CONEXIONES DE LOS BOTONES
-====================================================== -->
-
-<script>
-
-function ocultarTodos(selector) {
-
-    document
-        .querySelectorAll(selector)
-        .forEach(elemento => {
-
-            elemento.style.display = "none";
-
-        });
-
-}
-
-
-/* =====================================================
-   COMPETICIONES PRINCIPALES
-===================================================== */
-
-function mostrarCompeticion(competicion) {
-
-    document
-        .querySelectorAll(".competition-panel")
-        .forEach(panel => {
-
-            panel.style.display = "none";
-
-        });
-
-
-    const panel = document.getElementById(
-        "competicion-" + competicion
-    );
-
-    if (panel) {
-
-        panel.style.display = "block";
-
-    }
-
-
-    document
-        .querySelectorAll(
-            "#calendario > .competition-buttons .competition"
-        )
-        .forEach(boton => {
-
-            boton.classList.remove("active");
-
-        });
-
-
-    const botones = document.querySelectorAll(
-        "#calendario > .competition-buttons .competition"
-    );
-
-
-    botones.forEach(boton => {
-
-        if (
-            boton.textContent
-                .trim()
-                .toLowerCase()
-                .includes(
-                    competicion === "vnl"
-                        ? "vnl"
-                        : competicion === "mundial"
-                        ? "mundial"
-                        : "olímpicos"
-                )
-        ) {
-
-            boton.classList.add("active");
-
-        }
-
-    });
-
-}
-
-
-
-/* =====================================================
-   VNL MASCULINA / FEMENINA
-===================================================== */
-
-function mostrarVNL(tipo) {
-
-    const masculino =
-        document.getElementById("vnl-masculino");
-
-    const femenino =
-        document.getElementById("vnl-femenino");
-
-
-    masculino.style.display =
-        tipo === "masculino"
-            ? "block"
-            : "none";
-
-
-    femenino.style.display =
-        tipo === "femenino"
-            ? "block"
-            : "none";
-
-
-    const panel =
-        tipo === "masculino"
-            ? masculino
-            : femenino;
-
-
-    mostrarPrimerResultado(panel);
-
-
-    activarBotonRelacionado(
-        panel.parentElement,
-        tipo === "masculino"
-            ? "VNL MASCULINA"
-            : "VNL FEMENINA"
-    );
-
-}
-
-
-
-/* =====================================================
-   MUNDIAL MASCULINO / FEMENINO
-===================================================== */
-
-function mostrarMundial(tipo) {
-
-    const masculino =
-        document.getElementById("mundial-masculino");
-
-    const femenino =
-        document.getElementById("mundial-femenino");
-
-
-    masculino.style.display =
-        tipo === "masculino"
-            ? "block"
-            : "none";
-
-
-    femenino.style.display =
-        tipo === "femenino"
-            ? "block"
-            : "none";
-
-
-    const panel =
-        tipo === "masculino"
-            ? masculino
-            : femenino;
-
-
-    mostrarPrimerResultado(panel);
-
-
-    activarBotonRelacionado(
-        panel.parentElement,
-        tipo === "masculino"
-            ? "MUNDIAL MASCULINO"
-            : "MUNDIAL FEMENINO"
-    );
-
-}
-
-
-
-/* =====================================================
-   OLÍMPICOS MASCULINO / FEMENINO
-===================================================== */
-
-function mostrarOlimpicos(tipo) {
-
-    const masculino =
-        document.getElementById("olimpicos-masculino");
-
-    const femenino =
-        document.getElementById("olimpicos-femenino");
-
-
-    masculino.style.display =
-        tipo === "masculino"
-            ? "block"
-            : "none";
-
-
-    femenino.style.display =
-        tipo === "femenino"
-            ? "block"
-            : "none";
-
-
-    const panel =
-        tipo === "masculino"
-            ? masculino
-            : femenino;
-
-
-    mostrarPrimerResultado(panel);
-
-
-    activarBotonRelacionado(
-        panel.parentElement,
-        tipo === "masculino"
-            ? "OLÍMPICOS MASCULINO"
-            : "OLÍMPICOS FEMENINO"
-    );
-
-}
-
-
-
-/* =====================================================
-   BOTONES DE AÑO
-===================================================== */
-
-function mostrarAno(id) {
-
-    const elemento =
-        document.getElementById(id);
-
-
-    if (!elemento) {
-
-        console.error(
-            "No se encontró el resultado:",
-            id
-        );
-
-        return;
-
-    }
-
-
-    const panel =
-        elemento.closest(
-            ".subcompetition-panel"
-        );
-
-
-    if (!panel) return;
-
-
-    panel
-        .querySelectorAll(
-            ".competition-result"
-        )
-        .forEach(resultado => {
-
-            resultado.style.display = "none";
-
-        });
-
-
-    elemento.style.display = "grid";
-
-
-    const boton =
-        document.querySelector(
-            '[onclick="mostrarAno(\'' +
-            id +
-            '\')"]'
-        );
-
-
-    if (boton) {
-
-        boton.parentElement
-            .querySelectorAll(".competition")
-            .forEach(b => {
-
-                b.classList.remove("active");
-
-            });
-
-        boton.classList.add("active");
-
-    }
-
-}
-
-
-
-/* =====================================================
-   MOSTRAR PRIMER RESULTADO
-===================================================== */
-
-function mostrarPrimerResultado(panel) {
-
-    if (!panel) return;
-
-
-    const resultados =
-        panel.querySelectorAll(
-            ".competition-result"
-        );
-
-
-    resultados.forEach(
-        (resultado, index) => {
-
-            resultado.style.display =
-                index === 0
-                    ? "grid"
-                    : "none";
-
-        }
-    );
-
-
-    const botones =
-        panel.querySelectorAll(
-            ".competition-buttons .competition"
-        );
-
-
-    botones.forEach(
-        (boton, index) => {
-
-            boton.classList.toggle(
-                "active",
-                index === 0
-            );
-
-        }
-    );
-
-}
-
-
-
-/* =====================================================
-   ACTIVAR BOTÓN
-===================================================== */
-
-function activarBotonRelacionado(
-    contenedor,
-    texto
-) {
-
-    const botones =
-        contenedor.querySelectorAll(
-            ".competition"
-        );
-
-
-    botones.forEach(boton => {
-
-        boton.classList.toggle(
-            "active",
-            boton.textContent
-                .trim()
-                .toUpperCase() ===
-                texto.toUpperCase()
-        );
-
-    });
-
-}
-
-
-
-/* =====================================================
-   ESTADO INICIAL
-===================================================== */
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-        mostrarCompeticion("vnl");
-
-        mostrarVNL("masculino");
-
-    }
-);
-
-</script>
-
-
-
-<!-- =====================================================
-     JAVASCRIPT EXTERNO
+     JAVASCRIPT
 ====================================================== -->
 
 <script src="script.js"></script>
